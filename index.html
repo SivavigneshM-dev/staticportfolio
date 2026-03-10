@@ -4,377 +4,901 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High-End Portfolio</title>
+    <title>Artisan Table Co. — Premium Custom Tables & Woodworking Academy</title>
+    <meta name="description" content="Handcrafted custom dining, epoxy river, and live-edge tables shipped worldwide. Join our certified woodworking academy for professional training.">
+    <meta name="keywords" content="custom tables, epoxy resin table, woodworking academy, live edge table, walnut table, furniture craftsmanship, river table, CNC woodworking">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        /* Client Marquee */
+        .client-logos img {
+            filter: grayscale(100%) contrast(70%);
+            opacity: 0.7;
+            transition: all 0.3s ease-in-out;
+        }
+        .client-logos img:hover {
+            filter: grayscale(0%) contrast(100%);
+            opacity: 1;
+        }
+
+        /* Horizontal Scroll Portfolio */
+        .scroll-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 1rem;
+        }
+        .scroll-track::-webkit-scrollbar { display: none; }
+        .scroll-card { scroll-snap-align: start; flex-shrink: 0; }
+
+        /* Instagram Grid hover overlay */
+        .insta-item { position: relative; overflow: hidden; cursor: pointer; }
+        .insta-item img { transition: transform 0.4s ease; }
+        .insta-item:hover img { transform: scale(1.08); }
+        .insta-overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.55);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .insta-item:hover .insta-overlay { opacity: 1; }
+
+        /* Gallery hover */
+        .gallery-card img { transition: transform 0.5s ease; }
+        .gallery-card:hover img { transform: scale(1.08); }
+        .gallery-overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex; align-items: flex-end;
+            opacity: 0; transition: opacity 0.3s ease;
+            padding: 1.5rem;
+        }
+        .gallery-card:hover .gallery-overlay { opacity: 1; }
+
+        /* Process step number watermark */
+        .process-watermark {
+            position: absolute; top: -1rem; right: 1rem;
+            font-size: 7rem; font-weight: 900;
+            color: rgba(0,0,0,0.04);
+            font-family: 'Playfair Display', serif;
+            line-height: 1; pointer-events: none;
+            user-select: none;
+        }
+
+        /* Gold accent color */
+        .text-gold { color: #d97706; }
+        .bg-gold { background-color: #d97706; }
+        .border-gold { border-color: #d97706; }
+        .hover\:bg-gold-dark:hover { background-color: #b45309; }
+
+        /* Sticky legal strip */
+        .legal-strip {
+            background: #111;
+            color: #9ca3af;
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 0.5rem 1rem;
+        }
+
+        /* Marquee animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-inner {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-inner:hover { animation-play-state: paused; }
+    </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
 
-    <!-- Navigation -->
+    <!-- ═══════════════════════════════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════════════════════════════ -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold text-gray-900 font-serif">Lumina.</a>
+                    <a href="#" class="font-serif">
+                        <span class="text-2xl font-bold text-gray-900">ARTISAN TABLE CO.</span>
+                        <span class="block text-xs text-gray-400 font-sans tracking-widest">Est. 2009 · Handcrafted in the USA</span>
+                    </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#"
-                        class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">Home</a>
+                    <a href="#hero" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 font-medium">Home</a>
 
-                    <!-- Dropdown: Projects -->
+                    <!-- Dropdown: Our Tables -->
                     <div class="relative group">
-                        <button
-                            class="text-gray-600 group-hover:text-blue-600 transition-colors duration-300 font-medium flex items-center gap-1">
-                            Projects <i
-                                class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        <button class="text-gray-600 group-hover:text-yellow-600 transition-colors duration-300 font-medium flex items-center gap-1">
+                            Our Tables <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                         </button>
-                        <div
-                            class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50 border border-gray-100">
-                            <a href="#"
-                                class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 first:rounded-t-lg">Web
-                                Development</a>
-                            <a href="#"
-                                class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Mobile
-                                Apps</a>
-                            <a href="#"
-                                class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 last:rounded-b-lg">UI/UX
-                                Design</a>
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50 border border-gray-100">
+                            <a href="#gallery" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600 first:rounded-t-lg">Solid Wood</a>
+                            <a href="#gallery" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">Epoxy Resin</a>
+                            <a href="#gallery" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">Live Edge</a>
+                            <a href="#gallery" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600 last:rounded-b-lg">Glass Tables</a>
                         </div>
                     </div>
 
-                    <!-- Dropdown: Categories -->
+                    <!-- Dropdown: Academy -->
                     <div class="relative group">
-                        <button
-                            class="text-gray-600 group-hover:text-blue-600 transition-colors duration-300 font-medium flex items-center gap-1">
-                            Categories <i
-                                class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        <button class="text-gray-600 group-hover:text-yellow-600 transition-colors duration-300 font-medium flex items-center gap-1">
+                            The Academy <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                         </button>
-                        <div
-                            class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50 border border-gray-100">
-                            <a href="#"
-                                class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 first:rounded-t-lg">Technology</a>
-                            <a href="#"
-                                class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Lifestyle</a>
-                            <a href="#"
-                                class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 last:rounded-b-lg">Photography</a>
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50 border border-gray-100">
+                            <a href="#academy" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600 first:rounded-t-lg">All Courses</a>
+                            <a href="#academy" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">Epoxy Fundamentals</a>
+                            <a href="#academy" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">Master Table Builder</a>
+                            <a href="#academy" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600 last:rounded-b-lg">Weekend Workshops</a>
                         </div>
                     </div>
 
-                    <a href="#"
-                        class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">Contact</a>
+                    <a href="#materials" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 font-medium">Raw Materials</a>
+                    <a href="#contact" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 font-medium">Contact</a>
                 </div>
 
-                <!-- CTA Button -->
-                <div class="hidden md:block">
-                    <a href="#"
-                        class="bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg">Get
-                        Started</a>
+                <!-- CTA Buttons -->
+                <div class="hidden md:flex gap-3">
+                    <a href="#academy" class="border-2 border-gray-900 text-gray-900 px-5 py-2 rounded-full font-medium hover:bg-gray-900 hover:text-white transition-all duration-300">Join Academy</a>
+                    <a href="#contact" class="bg-yellow-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-yellow-700 transition-all duration-300 shadow-md hover:shadow-lg">Request a Quote</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ═══════════════════════════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════════════════════════ -->
     <header id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <img src="https://picsum.photos/1920/1080?grayscale" alt="Hero Background"
-                class="w-full h-full object-cover">
+            <img src="https://picsum.photos/seed/workshop1/1920/1080" alt="Workshop Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/60"></div>
         </div>
 
         <!-- Content -->
         <div class="relative z-10 text-center px-6 max-w-4xl mx-auto hero-content">
+            <p class="text-yellow-400 text-sm font-semibold tracking-widest uppercase mb-4">✦ Trusted by 500+ Clients Across 15 Countries</p>
             <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 font-serif tracking-tight leading-tight">
-                Empowering Your <br> <span class="text-blue-400">Digital Vision</span>
+                Mastering the Art <br> <span class="text-yellow-400">of Modern Tables.</span>
             </h1>
             <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
-                We craft digital experiences that inspire, engage, and drive results. Join us in building a better
-                future through innovation.
+                Where century-old woodworking traditions meet contemporary design. Every table we build is a signature — signed in grain, sealed in resin.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#metrics"
-                    class="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/30">Explore
-                    Causes</a>
-                <a href="#contact"
-                    class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300">Contact
-                    Us</a>
+                <a href="#gallery" class="bg-yellow-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-yellow-500/30">Shop Tables</a>
+                <a href="#academy" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300">Join the Academy</a>
             </div>
+            <!-- Press Bar -->
+            <div class="mt-12 text-gray-400 text-sm">
+                <span class="mr-3 text-gray-500 font-medium uppercase tracking-wider text-xs">As Featured In:</span>
+                <span class="mx-2">Architectural Digest</span>·<span class="mx-2">Houzz</span>·<span class="mx-2">Design Milk</span>·<span class="mx-2">Elle Decor</span>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
+            <span class="text-xs tracking-widest uppercase">Scroll to Explore</span>
+            <i class="fas fa-chevron-down animate-bounce"></i>
         </div>
     </header>
 
     <main>
-        <!-- Metrics / Causes Section -->
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             GLOBAL REACH — STATS (extends existing "Metrics" pattern)
+        ═══════════════════════════════════════════════════════════════ -->
         <section id="metrics" class="py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">Our Impact</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Driving change through dedicated efforts and community
-                        support.</p>
+                    <p class="text-yellow-600 text-xs font-semibold tracking-widest uppercase mb-2">Our Impact in Numbers</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">A Legacy Built in Every Table.</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">14 years of sawdust, resin, and relentless craftsmanship — measured in the families who eat, work, and gather around our tables.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
-                    <div
-                        class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
-                        <div class="h-56 overflow-hidden">
-                            <img src="https://picsum.photos/seed/cause1/600/400" alt="Cause"
-                                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <h3 class="text-xl font-bold mb-2">Clean Water Initiative</h3>
-                            <p class="text-gray-600 mb-4 text-sm">Providing access to clean and safe drinking water for
-                                remote communities.</p>
-
-                            <div class="mt-auto">
-                                <div class="flex justify-between text-sm font-semibold mb-1">
-                                    <span>Raised: $12,400</span>
-                                    <span>Goal: $45,000</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
-                                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 28%"></div>
-                                </div>
-                                <button
-                                    class="group flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
-                                    Read More <i
-                                        class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
-                                </button>
-                            </div>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Stat 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center p-8 border-t-4 border-yellow-500">
+                        <span class="text-5xl font-bold font-serif text-yellow-600 mb-2">15+</span>
+                        <h3 class="text-xl font-bold mb-2">Countries Delivered</h3>
+                        <p class="text-gray-600 text-sm">USA, UK, UAE, Germany, India, Singapore, Australia & more</p>
                     </div>
-
-                    <!-- Card 2 -->
-                    <div
-                        class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
-                        <div class="h-56 overflow-hidden">
-                            <img src="https://picsum.photos/seed/cause2/600/400" alt="Cause"
-                                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <h3 class="text-xl font-bold mb-2">Education for All</h3>
-                            <p class="text-gray-600 mb-4 text-sm">Building schools and providing learning materials for
-                                underprivileged children.</p>
-
-                            <div class="mt-auto">
-                                <div class="flex justify-between text-sm font-semibold mb-1">
-                                    <span>Raised: $35,000</span>
-                                    <span>Goal: $50,000</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
-                                    <div class="bg-green-500 h-2.5 rounded-full" style="width: 70%"></div>
-                                </div>
-                                <button
-                                    class="group flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
-                                    Read More <i
-                                        class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
-                                </button>
-                            </div>
-                        </div>
+                    <!-- Stat 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center p-8 border-t-4 border-yellow-500">
+                        <span class="text-5xl font-bold font-serif text-yellow-600 mb-2">500+</span>
+                        <h3 class="text-xl font-bold mb-2">Custom Tables Crafted</h3>
+                        <p class="text-gray-600 text-sm">Each one built to order, never mass-produced</p>
                     </div>
-
-                    <!-- Card 3 -->
-                    <div
-                        class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
-                        <div class="h-56 overflow-hidden">
-                            <img src="https://picsum.photos/seed/cause3/600/400" alt="Cause"
-                                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <h3 class="text-xl font-bold mb-2">Reforestation Project</h3>
-                            <p class="text-gray-600 mb-4 text-sm">Planting trees to restore natural habitats and combat
-                                climate change.</p>
-
-                            <div class="mt-auto">
-                                <div class="flex justify-between text-sm font-semibold mb-1">
-                                    <span>Raised: $8,200</span>
-                                    <span>Goal: $20,000</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
-                                    <div class="bg-teal-500 h-2.5 rounded-full" style="width: 41%"></div>
-                                </div>
-                                <button
-                                    class="group flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
-                                    Read More <i
-                                        class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
-                                </button>
-                            </div>
-                        </div>
+                    <!-- Stat 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center p-8 border-t-4 border-yellow-500">
+                        <span class="text-5xl font-bold font-serif text-yellow-600 mb-2">2,000+</span>
+                        <h3 class="text-xl font-bold mb-2">Students Certified</h3>
+                        <p class="text-gray-600 text-sm">From beginner hobbyists to professional furniture makers</p>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center p-8 border-t-4 border-yellow-500">
+                        <span class="text-5xl font-bold font-serif text-yellow-600 mb-2">14 Yrs</span>
+                        <h3 class="text-xl font-bold mb-2">Of Craftsmanship</h3>
+                        <p class="text-gray-600 text-sm">Founded 2009 — still family-owned and workshop-run</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Client Showcase -->
-        <section id="clients" class="py-20 bg-gray-100 overflow-hidden">
+        <!-- ═══════════════════════════════════════════════════════════════
+             THE GALLERY — OUR PROJECTS (4-column grid)
+        ═══════════════════════════════════════════════════════════════ -->
+        <section id="gallery" class="py-20 px-6 bg-gray-50">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 font-serif">Trusted By Leading Brands</h2>
+                    <p class="text-yellow-600 text-xs font-semibold tracking-widest uppercase mb-2">Our Work</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">Tables That Tell a Story.</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">From raw slab to finished masterpiece — every piece in our gallery was built by hand, for a specific person, in a specific space.</p>
                 </div>
-                <div class="relative">
-                    <div class="client-logos flex items-center">
-                        <!-- Logos will be duplicated by JS for a seamless marquee -->
-                        <div class="flex-shrink-0 mx-8"><img src="https://picsum.photos/seed/logo1/200/100?grayscale"
-                                alt="Client Logo" class="h-12"></div>
-                        <div class="flex-shrink-0 mx-8"><img src="https://picsum.photos/seed/logo2/200/100?grayscale"
-                                alt="Client Logo" class="h-12"></div>
-                        <div class="flex-shrink-0 mx-8"><img src="https://picsum.photos/seed/logo3/200/100?grayscale"
-                                alt="Client Logo" class="h-12"></div>
-                        <div class="flex-shrink-0 mx-8"><img src="https://picsum.photos/seed/logo4/200/100?grayscale"
-                                alt="Client Logo" class="h-12"></div>
-                        <div class="flex-shrink-0 mx-8"><img src="https://picsum.photos/seed/logo5/200/100?grayscale"
-                                alt="Client Logo" class="h-12"></div>
-                        <div class="flex-shrink-0 mx-8"><img src="https://picsum.photos/seed/logo6/200/100?grayscale"
-                                alt="Client Logo" class="h-12"></div>
-                        <div class="flex-shrink-0 mx-8"><img src="https://picsum.photos/seed/logo7/200/100?grayscale"
-                                alt="Client Logo" class="h-12"></div>
-                        <div class="flex-shrink-0 mx-8"><img src="https://picsum.photos/seed/logo8/200/100?grayscale"
-                                alt="Client Logo" class="h-12"></div>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button class="px-5 py-2 bg-gray-900 text-white rounded-full text-sm font-medium">All</button>
+                    <button class="px-5 py-2 bg-white text-gray-600 rounded-full text-sm font-medium border border-gray-200 hover:bg-gray-100 transition-colors">Solid Wood</button>
+                    <button class="px-5 py-2 bg-white text-gray-600 rounded-full text-sm font-medium border border-gray-200 hover:bg-gray-100 transition-colors">Epoxy Resin</button>
+                    <button class="px-5 py-2 bg-white text-gray-600 rounded-full text-sm font-medium border border-gray-200 hover:bg-gray-100 transition-colors">Live Edge</button>
+                    <button class="px-5 py-2 bg-white text-gray-600 rounded-full text-sm font-medium border border-gray-200 hover:bg-gray-100 transition-colors">Glass</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/table1/600/400" alt="Walnut Estate Table" class="w-full h-full object-cover">
+                            <div class="gallery-overlay">
+                                <span class="text-white font-semibold text-sm">View Project →</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Solid Wood</span>
+                            <h3 class="text-lg font-bold mt-1 mb-1">The Walnut Estate Dining Table</h3>
+                            <p class="text-gray-500 text-sm">American Black Walnut · 96" × 42" · Matte Oil Finish</p>
+                            <p class="text-gray-400 text-xs mt-2">Private Residence, Austin TX</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/table2/600/400" alt="Blue River Table" class="w-full h-full object-cover">
+                            <div class="gallery-overlay">
+                                <span class="text-white font-semibold text-sm">View Project →</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Epoxy Resin</span>
+                            <h3 class="text-lg font-bold mt-1 mb-1">The Blue River Table</h3>
+                            <p class="text-gray-500 text-sm">Live-edge oak slab with crystal-blue deep-pour epoxy river channel</p>
+                            <p class="text-gray-400 text-xs mt-2">Batch #24 — Student Showcase</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/table3/600/400" alt="Minimalist Oak" class="w-full h-full object-cover">
+                            <div class="gallery-overlay">
+                                <span class="text-white font-semibold text-sm">View Project →</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Live Edge</span>
+                            <h3 class="text-lg font-bold mt-1 mb-1">The Minimalist Oak</h3>
+                            <p class="text-gray-500 text-sm">White Oak · Natural Live Edge · Hairpin Legs · Clear Lacquer</p>
+                            <p class="text-gray-400 text-xs mt-2">Sarah J. — Academy Alumna</p>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/table4/600/400" alt="Forge Conference Table" class="w-full h-full object-cover">
+                            <div class="gallery-overlay">
+                                <span class="text-white font-semibold text-sm">View Project →</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Glass</span>
+                            <h3 class="text-lg font-bold mt-1 mb-1">The Forge Conference Table</h3>
+                            <p class="text-gray-500 text-sm">Tempered glass top · Blackened steel base · 120" boardroom edition</p>
+                            <p class="text-gray-400 text-xs mt-2">Summit Tech Corp., Dubai</p>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/table5/600/400" alt="Midnight Galaxy Table" class="w-full h-full object-cover">
+                            <div class="gallery-overlay">
+                                <span class="text-white font-semibold text-sm">View Project →</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Epoxy Resin</span>
+                            <h3 class="text-lg font-bold mt-1 mb-1">The Midnight Galaxy Table</h3>
+                            <p class="text-gray-500 text-sm">Deep black pigment with gold metallic flake epoxy · Dining height</p>
+                            <p class="text-gray-400 text-xs mt-2">Interior Designer Commission, London</p>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/table6/600/400" alt="Nordic Farmhouse Table" class="w-full h-full object-cover">
+                            <div class="gallery-overlay">
+                                <span class="text-white font-semibold text-sm">View Project →</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Solid Wood</span>
+                            <h3 class="text-lg font-bold mt-1 mb-1">The Nordic Farmhouse Table</h3>
+                            <p class="text-gray-500 text-sm">European White Oak · 8-seater · Hand-rubbed beeswax finish</p>
+                            <p class="text-gray-400 text-xs mt-2">The Lindqvist Family, Stockholm</p>
+                        </div>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/table7/600/400" alt="Teak River Console" class="w-full h-full object-cover">
+                            <div class="gallery-overlay">
+                                <span class="text-white font-semibold text-sm">View Project →</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Live Edge</span>
+                            <h3 class="text-lg font-bold mt-1 mb-1">The Teak River Console</h3>
+                            <p class="text-gray-500 text-sm">Reclaimed teak slab · Turquoise resin fill · Brass hairpin legs</p>
+                            <p class="text-gray-400 text-xs mt-2">Boutique Hotel Lobby, Singapore</p>
+                        </div>
+                    </div>
+                    <!-- Card 8 -->
+                    <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://picsum.photos/seed/table8/600/400" alt="Studio Float Table" class="w-full h-full object-cover">
+                            <div class="gallery-overlay">
+                                <span class="text-white font-semibold text-sm">View Project →</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Glass</span>
+                            <h3 class="text-lg font-bold mt-1 mb-1">The Studio Float Table</h3>
+                            <p class="text-gray-500 text-sm">Frosted glass panel suspended over steel scaffold · Coffee table</p>
+                            <p class="text-gray-400 text-xs mt-2">Creative Agency, Berlin</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Event List Section -->
-        <section id="events" class="py-20 px-6 bg-gray-50">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center font-serif">Upcoming Events
-                </h2>
+        <!-- ═══════════════════════════════════════════════════════════════
+             PRODUCTION PROCESS — HOW IT'S MADE
+        ═══════════════════════════════════════════════════════════════ -->
+        <section id="process" class="py-20 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <p class="text-yellow-600 text-xs font-semibold tracking-widest uppercase mb-2">Our Process</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">Built by Hand. Finished to Last a Lifetime.</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Every Artisan Table Co. piece passes through four precise stages before it leaves our workshop floor.</p>
+                </div>
 
-                <div class="space-y-4">
-                    <!-- Event Item 1 -->
-                    <div
-                        class="flex flex-col md:flex-row items-center bg-white p-6 rounded-lg shadow-sm hover:bg-blue-50 transition-colors duration-300 cursor-pointer group">
-                        <div
-                            class="flex-shrink-0 w-full md:w-24 h-24 bg-blue-100 text-blue-600 rounded-lg flex flex-col items-center justify-center mb-4 md:mb-0 md:mr-8">
-                            <span class="text-2xl font-bold">15</span>
-                            <span class="text-sm font-semibold uppercase">Mar</span>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Step 01 -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8 relative overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <span class="process-watermark">01</span>
+                        <div class="w-14 h-14 bg-yellow-50 rounded-xl flex items-center justify-center mb-5">
+                            <i class="fas fa-tree text-yellow-600 text-2xl"></i>
                         </div>
-                        <div class="flex-1 text-center md:text-left">
-                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
-                                Annual Charity Gala</h3>
-                            <p class="text-gray-500 mt-1">Grand Hotel Ballroom, New York City</p>
-                        </div>
-                        <div class="mt-4 md:mt-0">
-                            <span
-                                class="inline-block px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium group-hover:bg-blue-200 group-hover:text-blue-800 transition-colors">Details</span>
+                        <span class="text-yellow-600 font-bold text-sm">01</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-3">Sourcing Raw Materials</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">We travel to certified sustainable forests and specialty lumber mills across North America and Europe. Every slab is hand-selected for grain figure, moisture content, and structural integrity.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full font-medium">FSC Certified</span>
+                            <span class="text-xs bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full font-medium">Sustainably Sourced</span>
                         </div>
                     </div>
-
-                    <!-- Event Item 2 -->
-                    <div
-                        class="flex flex-col md:flex-row items-center bg-white p-6 rounded-lg shadow-sm hover:bg-blue-50 transition-colors duration-300 cursor-pointer group">
-                        <div
-                            class="flex-shrink-0 w-full md:w-24 h-24 bg-blue-100 text-blue-600 rounded-lg flex flex-col items-center justify-center mb-4 md:mb-0 md:mr-8">
-                            <span class="text-2xl font-bold">22</span>
-                            <span class="text-sm font-semibold uppercase">Apr</span>
+                    <!-- Step 02 -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8 relative overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <span class="process-watermark">02</span>
+                        <div class="w-14 h-14 bg-yellow-50 rounded-xl flex items-center justify-center mb-5">
+                            <i class="fas fa-tools text-yellow-600 text-2xl"></i>
                         </div>
-                        <div class="flex-1 text-center md:text-left">
-                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
-                                Community Clean-up Day</h3>
-                            <p class="text-gray-500 mt-1">Central Park, Meeting Point A</p>
-                        </div>
-                        <div class="mt-4 md:mt-0">
-                            <span
-                                class="inline-block px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium group-hover:bg-blue-200 group-hover:text-blue-800 transition-colors">Details</span>
+                        <span class="text-yellow-600 font-bold text-sm">02</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-3">Precision Cutting & Milling</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Using industrial CNC routers and traditional hand tools in tandem, our craftsmen mill each slab to exact tolerances. Joinery is hand-fitted — no staples, no shortcuts. Every cut is measured three times.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full font-medium">CNC Hybrid</span>
+                            <span class="text-xs bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full font-medium">Hand-Tool Finish</span>
                         </div>
                     </div>
-
-                    <!-- Event Item 3 -->
-                    <div
-                        class="flex flex-col md:flex-row items-center bg-white p-6 rounded-lg shadow-sm hover:bg-blue-50 transition-colors duration-300 cursor-pointer group">
-                        <div
-                            class="flex-shrink-0 w-full md:w-24 h-24 bg-blue-100 text-blue-600 rounded-lg flex flex-col items-center justify-center mb-4 md:mb-0 md:mr-8">
-                            <span class="text-2xl font-bold">05</span>
-                            <span class="text-sm font-semibold uppercase">May</span>
+                    <!-- Step 03 -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8 relative overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <span class="process-watermark">03</span>
+                        <div class="w-14 h-14 bg-yellow-50 rounded-xl flex items-center justify-center mb-5">
+                            <i class="fas fa-fill-drip text-yellow-600 text-2xl"></i>
                         </div>
-                        <div class="flex-1 text-center md:text-left">
-                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">Tech
-                                for Good Workshop</h3>
-                            <p class="text-gray-500 mt-1">Innovation Hub, Downtown</p>
+                        <span class="text-yellow-600 font-bold text-sm">03</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-3">Epoxy Pouring & Curing</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Our UV-resistant crystal-clear epoxy is mixed in controlled batches and poured in multiple layers — up to 3 inches deep per pour for river tables. Custom color matching available. Cure time: 72 hours minimum.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full font-medium">UV Resistant</span>
+                            <span class="text-xs bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full font-medium">Bubble-Free</span>
                         </div>
-                        <div class="mt-4 md:mt-0">
-                            <span
-                                class="inline-block px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium group-hover:bg-blue-200 group-hover:text-blue-800 transition-colors">Details</span>
+                    </div>
+                    <!-- Step 04 -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8 relative overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <span class="process-watermark">04</span>
+                        <div class="w-14 h-14 bg-yellow-50 rounded-xl flex items-center justify-center mb-5">
+                            <i class="fas fa-spray-can text-yellow-600 text-2xl"></i>
+                        </div>
+                        <span class="text-yellow-600 font-bold text-sm">04</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-3">Sanding, Finishing & Final Polish</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Starting at 80-grit and working up to 3000-grit wet sanding, each surface is hand-polished to a glass-like clarity. Options: Matte Oil, Satin Lacquer, or High-Gloss Epoxy Topcoat. White-glove delivery included.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full font-medium">Hand-Polished</span>
+                            <span class="text-xs bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full font-medium">White-Glove Delivery</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonial Grid -->
+        <!-- ═══════════════════════════════════════════════════════════════
+             ACADEMY — COURSE DETAILS (2-column layout)
+        ═══════════════════════════════════════════════════════════════ -->
+        <section id="academy" class="py-20 px-6 bg-gray-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <p class="text-yellow-600 text-xs font-semibold tracking-widest uppercase mb-2">The Woodworking Academy</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">Learn the Craft. Master the Art.</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">From your first resin pour to running your own furniture studio — our curriculum is built by working craftsmen, for serious learners.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- LEFT: Course Categories -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">Course Categories</h3>
+
+                        <div class="flex flex-col md:flex-row items-start bg-white p-6 rounded-lg shadow-sm hover:bg-yellow-50 transition-colors duration-300 cursor-pointer group">
+                            <div class="flex-shrink-0 w-14 h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center mb-4 md:mb-0 md:mr-6">
+                                <i class="fas fa-paint-brush text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 group-hover:text-yellow-700 transition-colors">Resin Art & River Tables</h3>
+                                <p class="text-gray-500 mt-1 text-sm">Master deep-pour epoxy, color theory, bubble control, and the full process of building live-edge river tables from slab to final finish.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-start bg-white p-6 rounded-lg shadow-sm hover:bg-yellow-50 transition-colors duration-300 cursor-pointer group">
+                            <div class="flex-shrink-0 w-14 h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center mb-4 md:mb-0 md:mr-6">
+                                <i class="fas fa-ruler-combined text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 group-hover:text-yellow-700 transition-colors">Timber Selection & Joinery</h3>
+                                <p class="text-gray-500 mt-1 text-sm">Learn to identify wood species, read grain direction, assess moisture content, and execute mortise-and-tenon, dovetail, and spline joints.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-start bg-white p-6 rounded-lg shadow-sm hover:bg-yellow-50 transition-colors duration-300 cursor-pointer group">
+                            <div class="flex-shrink-0 w-14 h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center mb-4 md:mb-0 md:mr-6">
+                                <i class="fas fa-cog text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 group-hover:text-yellow-700 transition-colors">CNC Machining & Design</h3>
+                                <p class="text-gray-500 mt-1 text-sm">Introduction to CAD/CAM software, CNC router programming, and translating digital designs into physical furniture components.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-start bg-white p-6 rounded-lg shadow-sm hover:bg-yellow-50 transition-colors duration-300 cursor-pointer group">
+                            <div class="flex-shrink-0 w-14 h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center mb-4 md:mb-0 md:mr-6">
+                                <i class="fas fa-store text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 group-hover:text-yellow-700 transition-colors">Workshop Business & Sales</h3>
+                                <p class="text-gray-500 mt-1 text-sm">Price your builds, photograph furniture professionally, sell on your own platform, and turn your craft into a full-time income stream.</p>
+                            </div>
+                        </div>
+
+                        <!-- Instructor Bio -->
+                        <div class="bg-gray-900 text-white p-6 rounded-lg mt-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://picsum.photos/seed/instructor1/100/100" alt="James R. Caldwell" class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-yellow-500">
+                                <div>
+                                    <h4 class="font-bold text-lg">James R. Caldwell</h4>
+                                    <p class="text-yellow-400 text-sm">Head Instructor & Master Craftsman</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed">25 years in furniture making. Former workshop lead at a national furniture brand. Now runs Artisan Table Co. full-time and has personally trained over 2,000 students across 40+ countries. His YouTube channel has surpassed 90 million total views.</p>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Course Cards -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">Choose Your Path</h3>
+
+                        <!-- Card A -->
+                        <div class="bg-white rounded-xl shadow-lg border-2 border-yellow-500 overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                            <div class="bg-yellow-500 text-white text-xs font-bold px-4 py-2 uppercase tracking-wider">⭐ Most Popular</div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Master Table Builder — Full Certification</h3>
+                                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-clock text-yellow-500"></i> 16 Weeks</div>
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-laptop text-yellow-500"></i> Hybrid · Weekend + Online</div>
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-certificate text-yellow-500"></i> Certificate Included</div>
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-user text-yellow-500"></i> 1-on-1 Mentorship</div>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-4">Build 3 real tables: Solid Wood Dining, Epoxy River, and Live Edge Console. Live projects with full instructor guidance.</p>
+                                <button class="group flex items-center text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">Enroll Now <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card B -->
+                        <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                            <div class="bg-green-500 text-white text-xs font-bold px-4 py-2 uppercase tracking-wider">Beginner Friendly</div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Epoxy Resin Fundamentals — 4-Week Intensive</h3>
+                                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-clock text-green-500"></i> 4 Weeks</div>
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-laptop text-green-500"></i> 100% Online · Self-Paced</div>
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-video text-green-500"></i> 3hrs Video Content</div>
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-users text-green-500"></i> Community Access</div>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-4">Build 1 complete epoxy river table from scratch with a downloadable PDF build guide and material kit list included.</p>
+                                <button class="group flex items-center text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">Start Learning <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card C -->
+                        <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                            <div class="bg-gray-800 text-white text-xs font-bold px-4 py-2 uppercase tracking-wider">In-Person · Limited Seats</div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Weekend Resin Workshop — Hands-On</h3>
+                                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-calendar text-gray-500"></i> 2 Days (Sat–Sun)</div>
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-map-marker-alt text-gray-500"></i> Portland, OR Studio</div>
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-box text-gray-500"></i> All Materials Provided</div>
+                                    <div class="flex items-center gap-2 text-gray-600"><i class="fas fa-utensils text-gray-500"></i> Lunch Both Days</div>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-4">Max 8 students per session. Complete 1 small river table to take home. Intimate, hands-on setting with full instructor attention.</p>
+                                <button class="group flex items-center text-gray-700 font-semibold hover:text-gray-900 transition-colors duration-300">Book a Seat <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             STUDENT PORTFOLIO — HORIZONTAL SCROLL
+        ═══════════════════════════════════════════════════════════════ -->
+        <section id="portfolio" class="py-20 bg-gray-100 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 mb-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between">
+                    <div>
+                        <p class="text-yellow-600 text-xs font-semibold tracking-widest uppercase mb-2">Student Showcase</p>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 font-serif">Made by Our Students.<br>Worthy of Any Showroom.</h2>
+                    </div>
+                    <p class="text-gray-500 max-w-sm mt-4 md:mt-0 text-sm">Every piece below was built by a student who started exactly where you are.</p>
+                </div>
+            </div>
+
+            <!-- Horizontal Scroll Track -->
+            <div class="px-6">
+                <div class="scroll-track">
+                    <!-- Item 1 -->
+                    <div class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="h-52 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student1/600/400" alt="Blue River Table" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Epoxy River Table Intensive</span>
+                            <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2">The Blue River Table</h3>
+                            <p class="text-gray-400 text-xs mb-3">Alex M. — Batch #24</p>
+                            <blockquote class="text-gray-600 text-sm italic border-l-4 border-yellow-400 pl-4">"I went from never using power tools to selling this table for $3,200. The course paid for itself ten times over."</blockquote>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="h-52 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student2/600/400" alt="Minimalist Oak" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Master Table Builder</span>
+                            <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2">The Minimalist Oak Dining Table</h3>
+                            <p class="text-gray-400 text-xs mb-3">Sarah J. — Online Cohort #11</p>
+                            <blockquote class="text-gray-600 text-sm italic border-l-4 border-yellow-400 pl-4">"James's mentorship changed how I see wood — and what I believe I can build. I now take custom commissions from my garage studio."</blockquote>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="h-52 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student3/600/400" alt="Midnight Console" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Resin Art Fundamentals</span>
+                            <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2">The Midnight Console</h3>
+                            <p class="text-gray-400 text-xs mb-3">Daniel K. — Weekend Workshop</p>
+                            <blockquote class="text-gray-600 text-sm italic border-l-4 border-yellow-400 pl-4">"Two days, one table, and now I have a completely new career path. I could not believe what I made in a single weekend."</blockquote>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="h-52 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student4/600/400" alt="Raw Edge Coffee Table" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Master Table Builder</span>
+                            <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2">The Raw Edge Coffee Table</h3>
+                            <p class="text-gray-400 text-xs mb-3">Priya S. — Online Cohort #7</p>
+                            <blockquote class="text-gray-600 text-sm italic border-l-4 border-yellow-400 pl-4">"I built this table for my own living room and three neighbors immediately asked me to build one for them."</blockquote>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="h-52 overflow-hidden">
+                            <img src="https://picsum.photos/seed/student5/600/400" alt="Steel Walnut Slab Desk" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">CNC + Joinery Mastery</span>
+                            <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2">The Steel & Walnut Slab Desk</h3>
+                            <p class="text-gray-400 text-xs mb-3">Marcus T. — Batch #19</p>
+                            <blockquote class="text-gray-600 text-sm italic border-l-4 border-yellow-400 pl-4">"Learning CNC here opened the door to my own woodworking studio in Berlin. Worth every hour I invested."</blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <div class="max-w-7xl mx-auto px-6 mt-6 flex gap-3">
+                <button onclick="document.querySelector('.scroll-track').scrollBy({left:-340,behavior:'smooth'})" class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-yellow-500 hover:text-yellow-600 transition-colors"><i class="fas fa-arrow-left text-sm"></i></button>
+                <button onclick="document.querySelector('.scroll-track').scrollBy({left:340,behavior:'smooth'})" class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-yellow-500 hover:text-yellow-600 transition-colors"><i class="fas fa-arrow-right text-sm"></i></button>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             SOCIAL MEDIA — FOLLOW OUR CRAFT (Instagram Grid)
+        ═══════════════════════════════════════════════════════════════ -->
+        <section id="social" class="py-20 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-10">
+                    <p class="text-yellow-600 text-xs font-semibold tracking-widest uppercase mb-2">@ArtisanTableCo</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">Follow Our Craft.</h2>
+                    <p class="text-gray-600 max-w-xl mx-auto">Behind-the-scenes pours, time-lapses, student builds, and finished pieces. Join the community watching wood become art.</p>
+                </div>
+
+                <!-- Platform Stats -->
+                <div class="flex flex-wrap justify-center gap-8 mb-12 text-center">
+                    <div>
+                        <p class="text-2xl font-bold font-serif text-gray-900">148.2K</p>
+                        <p class="text-gray-500 text-sm flex items-center gap-1 justify-center"><i class="fab fa-instagram text-pink-500"></i> Followers</p>
+                    </div>
+                    <div class="w-px bg-gray-200"></div>
+                    <div>
+                        <p class="text-2xl font-bold font-serif text-gray-900">96.4K</p>
+                        <p class="text-gray-500 text-sm flex items-center gap-1 justify-center"><i class="fab fa-youtube text-red-500"></i> Subscribers · 90M+ Views</p>
+                    </div>
+                    <div class="w-px bg-gray-200"></div>
+                    <div>
+                        <p class="text-2xl font-bold font-serif text-gray-900">231K</p>
+                        <p class="text-gray-500 text-sm flex items-center gap-1 justify-center"><i class="fab fa-tiktok text-gray-800"></i> Followers</p>
+                    </div>
+                </div>
+
+                <!-- Instagram 3x3 Grid -->
+                <div class="grid grid-cols-3 gap-2 md:gap-3 max-w-3xl mx-auto mb-8">
+                    <div class="insta-item aspect-square rounded-lg overflow-hidden">
+                        <img src="https://picsum.photos/seed/insta1/400/400" alt="Instagram" class="w-full h-full object-cover">
+                        <div class="insta-overlay"><p class="text-white text-xs text-center px-2">The pour begins. 72 hours to glory.</p></div>
+                    </div>
+                    <div class="insta-item aspect-square rounded-lg overflow-hidden">
+                        <img src="https://picsum.photos/seed/insta2/400/400" alt="Instagram" class="w-full h-full object-cover">
+                        <div class="insta-overlay"><p class="text-white text-xs text-center px-2">Every slab has a story. This one is 200 years old.</p></div>
+                    </div>
+                    <div class="insta-item aspect-square rounded-lg overflow-hidden">
+                        <img src="https://picsum.photos/seed/insta3/400/400" alt="Instagram" class="w-full h-full object-cover">
+                        <div class="insta-overlay"><p class="text-white text-xs text-center px-2">Delivery day in Austin, TX. The client cried.</p></div>
+                    </div>
+                    <div class="insta-item aspect-square rounded-lg overflow-hidden">
+                        <img src="https://picsum.photos/seed/insta4/400/400" alt="Instagram" class="w-full h-full object-cover">
+                        <div class="insta-overlay"><p class="text-white text-xs text-center px-2">Student Sarah just sold her first table for $2,800.</p></div>
+                    </div>
+                    <div class="insta-item aspect-square rounded-lg overflow-hidden">
+                        <img src="https://picsum.photos/seed/insta5/400/400" alt="Instagram" class="w-full h-full object-cover">
+                        <div class="insta-overlay"><p class="text-white text-xs text-center px-2">CNC + hand finishing. Two worlds. One table.</p></div>
+                    </div>
+                    <div class="insta-item aspect-square rounded-lg overflow-hidden">
+                        <img src="https://picsum.photos/seed/insta6/400/400" alt="Instagram" class="w-full h-full object-cover">
+                        <div class="insta-overlay"><p class="text-white text-xs text-center px-2">Blue river epoxy. Three inches deep. Zero bubbles.</p></div>
+                    </div>
+                    <div class="insta-item aspect-square rounded-lg overflow-hidden">
+                        <img src="https://picsum.photos/seed/insta7/400/400" alt="Instagram" class="w-full h-full object-cover">
+                        <div class="insta-overlay"><p class="text-white text-xs text-center px-2">80-grit to 3000-grit. Night and day difference.</p></div>
+                    </div>
+                    <div class="insta-item aspect-square rounded-lg overflow-hidden">
+                        <img src="https://picsum.photos/seed/insta8/400/400" alt="Instagram" class="w-full h-full object-cover">
+                        <div class="insta-overlay"><p class="text-white text-xs text-center px-2">Weekend workshop — all 8 students taking tables home.</p></div>
+                    </div>
+                    <div class="insta-item aspect-square rounded-lg overflow-hidden">
+                        <img src="https://picsum.photos/seed/insta9/400/400" alt="Instagram" class="w-full h-full object-cover">
+                        <div class="insta-overlay"><p class="text-white text-xs text-center px-2">This walnut slab was air-drying for 4 years. Worth it.</p></div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="#" class="inline-flex items-center gap-2 border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-900 hover:text-white transition-all duration-300"><i class="fab fa-instagram"></i> Follow @ArtisanTableCo on Instagram</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             TRUSTED CLIENTS — LOGO MARQUEE
+        ═══════════════════════════════════════════════════════════════ -->
+        <section id="clients" class="py-16 bg-gray-100 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 mb-10 text-center">
+                <p class="text-gray-400 text-xs font-semibold tracking-widest uppercase">Trusted By</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 font-serif mt-2">Our Tables Live in the World's Finest Spaces.</h2>
+            </div>
+            <div class="relative overflow-hidden">
+                <div class="marquee-inner">
+                    <!-- Set 1 -->
+                    <div class="flex items-center">
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Architectural Digest</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Houzz</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Design Milk</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Remodelista</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Elle Decor</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Four Seasons Hotels</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">WeWork</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Marriott International</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Soho House</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Google HQ Interiors</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Microsoft Redmond Campus</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Dezeen</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Wallpaper Magazine</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Apartment Therapy</span>
+                    </div>
+                    <!-- Set 2 (duplicate for seamless loop) -->
+                    <div class="flex items-center">
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Architectural Digest</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Houzz</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Design Milk</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Remodelista</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Elle Decor</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Four Seasons Hotels</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">WeWork</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Marriott International</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Soho House</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Google HQ Interiors</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Microsoft Redmond Campus</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Dezeen</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Wallpaper Magazine</span>
+                        <span class="flex-shrink-0 mx-10 text-gray-400 font-bold text-sm tracking-wider">Apartment Therapy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             STUDENT & CLIENT REVIEWS
+        ═══════════════════════════════════════════════════════════════ -->
         <section id="testimonials" class="py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center font-serif">Voices of Trust
-                </h2>
+                <div class="text-center mb-16">
+                    <p class="text-yellow-600 text-xs font-semibold tracking-widest uppercase mb-2">What They're Saying</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">5 Stars. Every Table. Every Student.</h2>
+                </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Testimonial 1 -->
+                    <!-- Review 1 -->
                     <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
                         <div class="flex text-yellow-400 mb-4 text-sm">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <blockquote class="text-gray-600 italic mb-6 leading-relaxed">"The team's dedication to our
-                            project was outstanding. They delivered a solution that not only met but exceeded our
-                            expectations."</blockquote>
+                        <blockquote class="text-gray-600 italic mb-6 leading-relaxed">"After five years of daily use, our custom walnut dining table looks as stunning as the day it arrived. The craftsmanship is simply unmatched by anything we have seen at any price point."</blockquote>
                         <div class="flex items-center">
-                            <img src="https://picsum.photos/seed/user1/100/100" alt="User"
-                                class="w-12 h-12 rounded-full object-cover mr-4">
+                            <img src="https://picsum.photos/seed/rev1/100/100" alt="Margaret L." class="w-12 h-12 rounded-full object-cover mr-4">
                             <div>
-                                <h4 class="font-bold text-gray-900 text-sm">Sarah Jenkins</h4>
-                                <p class="text-xs text-gray-500">CTO, StartUp Inc.</p>
+                                <h4 class="font-bold text-gray-900 text-sm">Margaret L.</h4>
+                                <p class="text-xs text-gray-500">Private Client · Austin, TX</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Testimonial 2 -->
+                    <!-- Review 2 -->
                     <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
                         <div class="flex text-yellow-400 mb-4 text-sm">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <blockquote class="text-gray-600 italic mb-6 leading-relaxed">"Professional, creative, and
-                            incredibly responsive. The new website has significantly increased our donor engagement."
-                        </blockquote>
+                        <blockquote class="text-gray-600 italic mb-6 leading-relaxed">"The Epoxy Fundamentals course gave me the confidence to build my first river table. I sold it two weeks after completing the course. Best investment I have ever made in my own education."</blockquote>
                         <div class="flex items-center">
-                            <img src="https://picsum.photos/seed/user2/100/100" alt="User"
-                                class="w-12 h-12 rounded-full object-cover mr-4">
+                            <img src="https://picsum.photos/seed/rev2/100/100" alt="Alex M." class="w-12 h-12 rounded-full object-cover mr-4">
                             <div>
-                                <h4 class="font-bold text-gray-900 text-sm">Michael Ross</h4>
-                                <p class="text-xs text-gray-500">Director, NonProfit Org</p>
+                                <h4 class="font-bold text-gray-900 text-sm">Alex M.</h4>
+                                <p class="text-xs text-gray-500">Academy Student · Batch #24</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Testimonial 3 -->
+                    <!-- Review 3 -->
                     <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
                         <div class="flex text-yellow-400 mb-4 text-sm">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <blockquote class="text-gray-600 italic mb-6 leading-relaxed">"A seamless experience from start
-                            to finish. Their attention to detail and design aesthetics are truly world-class."
-                        </blockquote>
+                        <blockquote class="text-gray-600 italic mb-6 leading-relaxed">"We ordered a boardroom conference table for sixteen. The Forge Table arrived perfectly finished and immediately elevated every single client meeting we host in that room."</blockquote>
                         <div class="flex items-center">
-                            <img src="https://picsum.photos/seed/user3/100/100" alt="User"
-                                class="w-12 h-12 rounded-full object-cover mr-4">
+                            <img src="https://picsum.photos/seed/rev3/100/100" alt="David K." class="w-12 h-12 rounded-full object-cover mr-4">
                             <div>
-                                <h4 class="font-bold text-gray-900 text-sm">Emily Chen</h4>
-                                <p class="text-xs text-gray-500">Marketing Head, Global Co.</p>
+                                <h4 class="font-bold text-gray-900 text-sm">David K.</h4>
+                                <p class="text-xs text-gray-500">CEO, Summit Tech Corp. · Dubai</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="flex text-yellow-400 mb-4 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="text-gray-600 italic mb-6 leading-relaxed">"James's mentorship did not just teach me joinery — it taught me to see the furniture business completely differently. I now run my own studio full-time in Berlin with a six-month waiting list."</blockquote>
+                        <div class="flex items-center">
+                            <img src="https://picsum.photos/seed/rev4/100/100" alt="Marcus T." class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Marcus T.</h4>
+                                <p class="text-xs text-gray-500">Academy Alumna · Batch #19</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 5 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="flex text-yellow-400 mb-4 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="text-gray-600 italic mb-6 leading-relaxed">"The live-edge console we commissioned for our hotel lobby has become the single most photographed object in the entire building. Guests ask about it at check-in every single day."</blockquote>
+                        <div class="flex items-center">
+                            <img src="https://picsum.photos/seed/rev5/100/100" alt="Camille R." class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Camille R.</h4>
+                                <p class="text-xs text-gray-500">Interior Director · Boutique Hotel, Singapore</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 6 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="flex text-yellow-400 mb-4 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="text-gray-600 italic mb-6 leading-relaxed">"I built this table for my own living room and three neighbors immediately asked me to build one for them. I never expected that. Now I have a proper side business running out of my garage."</blockquote>
+                        <div class="flex items-center">
+                            <img src="https://picsum.photos/seed/rev6/100/100" alt="Priya S." class="w-12 h-12 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Priya S.</h4>
+                                <p class="text-xs text-gray-500">Academy Student · Online Cohort #7</p>
                             </div>
                         </div>
                     </div>
@@ -382,176 +906,303 @@
             </div>
         </section>
 
-        <!-- Volunteer / Team Section -->
-        <section id="team" class="py-20 px-6 bg-gray-50">
+        <!-- ═══════════════════════════════════════════════════════════════
+             RAW MATERIALS MARKETPLACE
+        ═══════════════════════════════════════════════════════════════ -->
+        <section id="materials" class="py-20 px-6 bg-gray-50">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16 text-center font-serif">Meet Our Team</h2>
+                <div class="text-center mb-16">
+                    <p class="text-yellow-600 text-xs font-semibold tracking-widest uppercase mb-2">The Materials Studio</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">Source What the Pros Use.</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">We stock and sell the exact same materials used in our workshop. Grade-A hardwoods, UV-resistant epoxies, and professional finishing supplies.</p>
+                </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                    <!-- Team Member 1 -->
-                    <div
-                        class="bg-white rounded-xl shadow-md overflow-hidden text-center p-6 hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://picsum.photos/seed/team1/300/300" alt="Team Member"
-                            class="w-32 h-32 rounded-full mx-auto object-cover mb-4 border-4 border-gray-100">
-                        <h3 class="text-lg font-bold text-gray-900">David Kim</h3>
-                        <span
-                            class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full font-semibold mt-2">Project
-                            Lead</span>
+                <!-- Category Tabs -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button class="px-5 py-2 bg-gray-900 text-white rounded-full text-sm font-medium">Wood Slabs</button>
+                    <button class="px-5 py-2 bg-white text-gray-600 rounded-full text-sm font-medium border border-gray-200 hover:bg-gray-100 transition-colors">Epoxy & Resins</button>
+                    <button class="px-5 py-2 bg-white text-gray-600 rounded-full text-sm font-medium border border-gray-200 hover:bg-gray-100 transition-colors">Tools & Accessories</button>
+                    <button class="px-5 py-2 bg-white text-gray-600 rounded-full text-sm font-medium border border-gray-200 hover:bg-gray-100 transition-colors">Finishing Supplies</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Wood 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://picsum.photos/seed/mat1/400/300" alt="American Black Walnut" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Hardwood · Grade A</span>
+                            <h3 class="text-lg font-bold mt-1 mb-2">American Black Walnut</h3>
+                            <p class="text-gray-500 text-sm mb-1">Air-dried 24 months · 8/4 thickness · Book-matched pairs available</p>
+                            <p class="text-gray-400 text-xs mb-3">Slabs from 36" to 120" length</p>
+                            <p class="text-gray-900 font-bold mb-4">From $18 per board foot</p>
+                            <div class="mt-auto">
+                                <button class="group flex items-center text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">Add to Cart <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Team Member 2 -->
-                    <div
-                        class="bg-white rounded-xl shadow-md overflow-hidden text-center p-6 hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://picsum.photos/seed/team2/300/300" alt="Team Member"
-                            class="w-32 h-32 rounded-full mx-auto object-cover mb-4 border-4 border-gray-100">
-                        <h3 class="text-lg font-bold text-gray-900">Lisa Wong</h3>
-                        <span
-                            class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full font-semibold mt-2">Designer</span>
+                    <!-- Wood 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://picsum.photos/seed/mat2/400/300" alt="White Oak" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Hardwood · Grade A</span>
+                            <h3 class="text-lg font-bold mt-1 mb-2">White Oak</h3>
+                            <p class="text-gray-500 text-sm mb-1">Kiln-dried · Quarter-sawn available · Natural silver ray figure</p>
+                            <p class="text-gray-400 text-xs mb-3">Slabs from 30" to 96" length</p>
+                            <p class="text-gray-900 font-bold mb-4">From $12 per board foot</p>
+                            <div class="mt-auto">
+                                <button class="group flex items-center text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">Add to Cart <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Team Member 3 -->
-                    <div
-                        class="bg-white rounded-xl shadow-md overflow-hidden text-center p-6 hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://picsum.photos/seed/team3/300/300" alt="Team Member"
-                            class="w-32 h-32 rounded-full mx-auto object-cover mb-4 border-4 border-gray-100">
-                        <h3 class="text-lg font-bold text-gray-900">James Carter</h3>
-                        <span
-                            class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full font-semibold mt-2">Developer</span>
+                    <!-- Wood 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://picsum.photos/seed/mat3/400/300" alt="Burmese Teak" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Exotic · FSC Certified</span>
+                            <h3 class="text-lg font-bold mt-1 mb-2">Burmese Teak</h3>
+                            <p class="text-gray-500 text-sm mb-1">Sustainably certified · Natural oil content · Weather & rot resistant</p>
+                            <p class="text-gray-400 text-xs mb-3">Slabs from 48" to 108" length</p>
+                            <p class="text-gray-900 font-bold mb-4">From $22 per board foot</p>
+                            <div class="mt-auto">
+                                <button class="group flex items-center text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">Add to Cart <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Team Member 4 -->
-                    <div
-                        class="bg-white rounded-xl shadow-md overflow-hidden text-center p-6 hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://picsum.photos/seed/team4/300/300" alt="Team Member"
-                            class="w-32 h-32 rounded-full mx-auto object-cover mb-4 border-4 border-gray-100">
-                        <h3 class="text-lg font-bold text-gray-900">Anna Belova</h3>
-                        <span
-                            class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full font-semibold mt-2">Coordinator</span>
+                    <!-- Wood 4 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://picsum.photos/seed/mat4/400/300" alt="Hard Maple" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Domestic · Premium</span>
+                            <h3 class="text-lg font-bold mt-1 mb-2">Hard Maple</h3>
+                            <p class="text-gray-500 text-sm mb-1">Tight grain · Ideal for CNC work · Excellent for painted or stained finishes</p>
+                            <p class="text-gray-400 text-xs mb-3">Slabs from 24" to 84" length</p>
+                            <p class="text-gray-900 font-bold mb-4">From $9 per board foot</p>
+                            <div class="mt-auto">
+                                <button class="group flex items-center text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">Add to Cart <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Epoxy 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://picsum.photos/seed/mat5/400/300" alt="CrystalClear Pro Epoxy" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Deep Pour · UV Resistant</span>
+                            <h3 class="text-lg font-bold mt-1 mb-2">CrystalClear Pro Epoxy</h3>
+                            <p class="text-gray-500 text-sm mb-1">Up to 3" single pour · Zero yellowing guarantee · 72hr full cure · Food safe</p>
+                            <p class="text-gray-400 text-xs mb-3">1 Gallon · 2 Gallon · 5 Gallon Bulk</p>
+                            <p class="text-gray-900 font-bold mb-4">From $89 per kit</p>
+                            <div class="mt-auto">
+                                <button class="group flex items-center text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">Shop Epoxy <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Epoxy 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://picsum.photos/seed/mat6/400/300" alt="ArtisanCoat Table Top Epoxy" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Table Top · Self-Leveling</span>
+                            <h3 class="text-lg font-bold mt-1 mb-2">ArtisanCoat Table Top Epoxy</h3>
+                            <p class="text-gray-500 text-sm mb-1">Self-leveling formula · High-gloss finish · 1/4" per layer · 24hr cure time</p>
+                            <p class="text-gray-400 text-xs mb-3">Quart · Gallon · 2-Gallon Kit</p>
+                            <p class="text-gray-900 font-bold mb-4">From $49 per kit</p>
+                            <div class="mt-auto">
+                                <button class="group flex items-center text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">Shop Epoxy <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Epoxy 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-44 overflow-hidden">
+                            <img src="https://picsum.photos/seed/mat7/400/300" alt="Metallic Pigment Set" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <span class="text-xs font-semibold text-yellow-600 uppercase tracking-wider">Pigment & Dye</span>
+                            <h3 class="text-lg font-bold mt-1 mb-2">Metallic & Pearl Pigment Set</h3>
+                            <p class="text-gray-500 text-sm mb-1">Gold, Silver, Copper, Bronze + 8 pearl shades · Compatible with all epoxy brands</p>
+                            <p class="text-gray-400 text-xs mb-3">12-color set</p>
+                            <p class="text-gray-900 font-bold mb-4">$34.99 per set</p>
+                            <div class="mt-auto">
+                                <button class="group flex items-center text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">Add to Cart <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Blog / Story Section -->
-        <section id="blog" class="py-20 px-6 bg-white">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center font-serif">Latest Stories
-                </h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- Blog Post 1 -->
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-xl mb-4">
-                            <img src="https://picsum.photos/seed/blog1/800/400" alt="Blog Post"
-                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <span class="text-blue-600 text-sm font-semibold uppercase tracking-wider">Innovation</span>
-                        <h3
-                            class="text-2xl font-bold text-gray-900 mt-2 mb-3 group-hover:text-blue-700 transition-colors">
-                            The Future of Sustainable Tech</h3>
-                        <p class="text-gray-600 mb-4">Exploring how new technologies are shaping a greener, more
-                            sustainable future for everyone.</p>
-                        <a href="#"
-                            class="inline-flex items-center text-gray-900 font-semibold group-hover:text-blue-600 transition-colors">
-                            Read Article <i
-                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform duration-300"></i>
-                        </a>
-                    </div>
-
-                    <!-- Blog Post 2 -->
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-xl mb-4">
-                            <img src="https://picsum.photos/seed/blog2/800/400" alt="Blog Post"
-                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <span class="text-blue-600 text-sm font-semibold uppercase tracking-wider">Community</span>
-                        <h3
-                            class="text-2xl font-bold text-gray-900 mt-2 mb-3 group-hover:text-blue-700 transition-colors">
-                            Building Bridges, Not Walls</h3>
-                        <p class="text-gray-600 mb-4">How local community initiatives are fostering connection and
-                            understanding in diverse neighborhoods.</p>
-                        <a href="#"
-                            class="inline-flex items-center text-gray-900 font-semibold group-hover:text-blue-600 transition-colors">
-                            Read Article <i
-                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform duration-300"></i>
-                        </a>
-                    </div>
+        <!-- ═══════════════════════════════════════════════════════════════
+             NEWSLETTER BANNER
+        ═══════════════════════════════════════════════════════════════ -->
+        <section class="py-20 px-6 bg-gray-900 text-white">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Join the Inner Circle.</h2>
+                <p class="text-gray-400 mb-8 text-lg">Get build tips, new course launches, material restocks, and exclusive subscriber-only discounts — straight to your inbox.</p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+                    <input type="email" placeholder="your@email.com" class="flex-1 px-5 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm">
+                    <button class="bg-yellow-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-yellow-700 transition-colors whitespace-nowrap">Join Now</button>
                 </div>
+                <p class="text-gray-500 text-xs mt-4">No spam. Unsubscribe anytime. We hate junk mail as much as you do.</p>
             </div>
         </section>
 
     </main>
 
-    <!-- Professional Footer -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <!-- ═══════════════════════════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════════════════════════ -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-0 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
             <!-- Column 1: Brand -->
-            <div>
-                <a href="#" class="text-2xl font-bold font-serif mb-6 block">Lumina.</a>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                    Creating digital experiences that matter. We are dedicated to innovation, quality, and social
-                    impact.
-                </p>
+            <div class="lg:col-span-1">
+                <a href="#" class="text-xl font-bold font-serif mb-2 block">ARTISAN TABLE CO.</a>
+                <p class="text-yellow-500 text-xs tracking-widest mb-4">Est. 2009 · Portland, Oregon</p>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Crafted with intention. Built to outlast us all.</p>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
-                            class="fab fa-twitter text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
-                            class="fab fa-github text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
-                            class="fab fa-linkedin text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
-                            class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-pinterest text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
                 </div>
             </div>
 
-            <!-- Column 2: Quick Links -->
+            <!-- Column 2: Company -->
             <div>
-                <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Company</h4>
                 <ul class="space-y-3 text-gray-400 text-sm">
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">About Us</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Our Projects</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Latest News</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Careers</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Our Story</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Virtual Workshop Tour</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Press & Media</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Careers</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3: Our Services -->
+            <!-- Column 3: Shop -->
             <div>
-                <h4 class="text-lg font-bold mb-6">Our Services</h4>
+                <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Shop</h4>
                 <ul class="space-y-3 text-gray-400 text-sm">
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Web Development</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">UI/UX Design</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Digital Marketing</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Consultancy</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Solid Wood Tables</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Epoxy River Tables</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Live Edge Tables</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Conference Tables</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Request Custom Quote</a></li>
                 </ul>
             </div>
 
-            <!-- Column 4: Contact -->
+            <!-- Column 4: Academy -->
             <div>
-                <h4 class="text-lg font-bold mb-6">Contact Us</h4>
+                <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Academy</h4>
                 <ul class="space-y-3 text-gray-400 text-sm">
-                    <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i> 123
-                        Innovation Dr, Tech City, TC 90210</li>
-                    <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-blue-500"></i> +1 (555) 123-4567
-                    </li>
-                    <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-500"></i> hello@lumina.com
-                    </li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">All Courses</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Epoxy Resin Fundamentals</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Master Table Builder</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Weekend Workshops</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Student Showcase</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Support -->
+            <div>
+                <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Support</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-yellow-500"></i>12 Workshop Lane, Portland, OR 97201</li>
+                    <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-yellow-500"></i> +1 (503) 847-2291</li>
+                    <li class="flex items-center"><i class="fas fa-envelope mr-3 text-yellow-500"></i> hello@artisantableco.com</li>
+                </ul>
+                <ul class="space-y-3 text-gray-400 text-sm mt-5">
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Shipping & Delivery</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Returns & Warranty</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Care & Maintenance Guide</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">FAQ</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-            <p>&copy; 2025 Lumina Digital Agency. All rights reserved.</p>
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-800 py-6">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-gray-500 text-sm">
+                <p>© 2025 Artisan Table Co. All rights reserved. Made with care in Portland, Oregon.</p>
+                <div class="flex gap-5">
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Terms & Conditions</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Legal Strip -->
+        <div class="bg-black py-2 px-6 text-center text-gray-500 text-xs">
+            All tables are made to order. Lead time: 8–12 weeks. Lifetime structural warranty included on every build.
         </div>
     </footer>
 
     <!-- Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- Custom Scripts -->
-    <!-- Kept for compatibility, though hero now uses an image -->
-    <script src="animations.js"></script>
-</body>
 
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Hero Section Fade Up
+        gsap.from("#hero .hero-content > *", {
+            y: 60, opacity: 0, duration: 1.5,
+            stagger: 0.2, ease: "power4.out", delay: 0.5
+        });
+
+        // 2. Generic Reveal-on-Scroll for all sections
+        const sectionsToAnimate = [
+            "#metrics", "#gallery", "#process", "#academy",
+            "#portfolio", "#social", "#clients", "#testimonials",
+            "#materials", "footer"
+        ];
+
+        sectionsToAnimate.forEach((selector) => {
+            const section = document.querySelector(selector);
+            if (!section) return;
+            const targets = section.querySelectorAll(
+                ".grid > div, .space-y-4 > div, .space-y-6 > div, h2, p, .max-w-7xl > div, .scroll-card"
+            );
+            gsap.from(targets, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50, opacity: 0, duration: 0.8,
+                stagger: 0.1, ease: "power3.out"
+            });
+        });
+
+        // 3. Stat counter animation
+        document.querySelectorAll('.stat-number').forEach(el => {
+            ScrollTrigger.create({
+                trigger: el,
+                start: "top 80%",
+                once: true,
+                onEnter: () => {
+                    const target = parseInt(el.dataset.target);
+                    gsap.to({ val: 0 }, {
+                        val: target, duration: 2, ease: "power2.out",
+                        onUpdate: function() { el.textContent = Math.round(this.targets()[0].val) + el.dataset.suffix; }
+                    });
+                }
+            });
+        });
+    });
+    </script>
+</body>
 </html>
