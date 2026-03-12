@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  /* Font family is handled by Tailwind classes in HTML */
   overflow-x: hidden;
+  font-family: "Inter", sans-serif;
 }
 
 /* Custom Scrollbar */
@@ -28,4 +28,143 @@ body {
 .client-logos img:hover {
   filter: grayscale(0%) contrast(100%);
   opacity: 1;
+}
+
+.font-serif {
+  font-family: "Playfair Display", serif;
+}
+
+/* Horizontal Scroll Portfolio */
+.scroll-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 1rem;
+}
+
+.scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Instagram Grid hover overlay */
+.insta-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.insta-item img {
+  transition: transform 0.4s ease;
+}
+
+.insta-item:hover img {
+  transform: scale(1.08);
+}
+
+.insta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.insta-item:hover .insta-overlay {
+  opacity: 1;
+}
+
+/* Gallery hover */
+.gallery-card img {
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 1.5rem;
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* Process step number watermark */
+.process-watermark {
+  position: absolute;
+  top: -1rem;
+  right: 1rem;
+  font-size: 7rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.04);
+  font-family: "Playfair Display", serif;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Gold accent color */
+.text-gold {
+  color: #d97706;
+}
+
+.bg-gold {
+  background-color: #d97706;
+}
+
+.border-gold {
+  border-color: #d97706;
+}
+
+.hover\:bg-gold-dark:hover {
+  background-color: #b45309;
+}
+
+/* Sticky legal strip */
+.legal-strip {
+  background: #111;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-inner:hover {
+  animation-play-state: paused;
 }

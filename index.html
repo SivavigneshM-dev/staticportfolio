@@ -4,207 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nilal Arts — Premium Custom Tables & Woodworking Academy</title>
-    <meta name="description" content="Handcrafted custom dining, epoxy river, and live-edge tables shipped worldwide. Join our certified woodworking academy for professional training.">
-    <meta name="keywords" content="custom tables, epoxy resin table, woodworking academy, live edge table, walnut table, furniture craftsmanship, river table, CNC woodworking">
+    <title>Nilal Arts | Resin Art Studio & Epoxy Table Manufacturing Institute</title>
+    <meta name="description"
+        content="Nilal Arts is a professional resin art studio and training institute specializing in custom epoxy resin tables, handcrafted furniture, and advanced resin art classes for beginners and professionals.">
+    <meta name="keywords"
+        content="Nilal Arts, resin art studio, epoxy resin tables, custom epoxy tables, epoxy river tables, resin dining tables, resin furniture makers, epoxy furniture design, resin art classes, advanced resin art training, resin table manufacturing, customized epoxy tables, resin art institute">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        body {
-            margin: 0;
-            overflow-x: hidden;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        /* Client Marquee */
-        .client-logos img {
-            filter: grayscale(100%) contrast(70%);
-            opacity: 0.7;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .client-logos img:hover {
-            filter: grayscale(0%) contrast(100%);
-            opacity: 1;
-        }
-
-        /* Horizontal Scroll Portfolio */
-        .scroll-track {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            padding-bottom: 1rem;
-        }
-
-        .scroll-track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .scroll-card {
-            scroll-snap-align: start;
-            flex-shrink: 0;
-        }
-
-        /* Instagram Grid hover overlay */
-        .insta-item {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .insta-item img {
-            transition: transform 0.4s ease;
-        }
-
-        .insta-item:hover img {
-            transform: scale(1.08);
-        }
-
-        .insta-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.55);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .insta-item:hover .insta-overlay {
-            opacity: 1;
-        }
-
-        /* Gallery hover */
-        .gallery-card img {
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: flex-end;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            padding: 1.5rem;
-        }
-
-        .gallery-card:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* Process step number watermark */
-        .process-watermark {
-            position: absolute;
-            top: -1rem;
-            right: 1rem;
-            font-size: 7rem;
-            font-weight: 900;
-            color: rgba(0, 0, 0, 0.04);
-            font-family: 'Playfair Display', serif;
-            line-height: 1;
-            pointer-events: none;
-            user-select: none;
-        }
-
-        /* Gold accent color */
-        .text-gold {
-            color: #d97706;
-        }
-
-        .bg-gold {
-            background-color: #d97706;
-        }
-
-        .border-gold {
-            border-color: #d97706;
-        }
-
-        .hover\:bg-gold-dark:hover {
-            background-color: #b45309;
-        }
-
-        /* Sticky legal strip */
-        .legal-strip {
-            background: #111;
-            color: #9ca3af;
-            font-size: 0.75rem;
-            text-align: center;
-            padding: 0.5rem 1rem;
-        }
-
-        /* Marquee animation */
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .marquee-inner {
-            display: flex;
-            width: max-content;
-            animation: marquee 30s linear infinite;
-        }
-
-        .marquee-inner:hover {
-            animation-play-state: paused;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         NAVIGATION
-    ═══════════════════════════════════════════════════════════════ -->
+    <!--        NAVIGATION      -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#" class="font-serif">
-                        <span class="text-2xl font-bold text-gray-900">ARTISAN TABLE CO.</span>
-                        <span class="block text-xs text-gray-400 font-sans tracking-widest">Est. 2009 · Handcrafted in
-                            the USA</span>
+                        <span class="text-2xl font-bold text-gray-900">NILAL ARTS </span>
+                        <span class="block text-xs text-gray-400 font-sans tracking-widest">Tirupur - TamilNadu -
+                            India</span>
                     </a>
                 </div>
 
@@ -222,9 +48,8 @@
                         </button>
                         <div
                             class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50 border border-gray-100">
-                            <a href="#gallery"
-                                class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600 first:rounded-t-lg">Solid
-                                Wood</a>
+                            <a href="seathemes.html"
+                                class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600 first:rounded-t-lg">Beach Themes</a>
                             <a href="#gallery"
                                 class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">Epoxy
                                 Resin</a>
@@ -287,21 +112,19 @@
     <header id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <img src="https://picsum.photos/seed/workshop1/1920/1080" alt="Workshop Background"
+            <img src="https://nilalarts.com/wp-content/uploads/2024/07/workshop-4.jpg" alt="Workshop Background"
                 class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/60"></div>
         </div>
 
         <!-- Content -->
         <div class="relative z-10 text-center px-6 max-w-4xl mx-auto hero-content">
-            <p class="text-yellow-400 text-sm font-semibold tracking-widest uppercase mb-4">✦ Trusted by 500+ Clients
-                Across 15 Countries</p>
+            <p class="text-yellow-400 text-sm font-semibold tracking-widest uppercase mb-4">✦ Premium Resin Tables • Professional Training</p>
             <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 font-serif tracking-tight leading-tight">
-                Mastering the Art <br> <span class="text-yellow-400">of Modern Tables.</span>
+                Mastering the Art <br> <span class="text-yellow-400">of Resin Tables.</span>
             </h1>
             <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
-                Where century-old woodworking traditions meet contemporary design. Every table we build is a signature —
-                signed in grain, sealed in resin.
+                Experience the beauty of custom resin furniture. Nilal Arts specializes in premium epoxy tables and advanced resin art training for creators and entrepreneurs.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#gallery"
@@ -341,7 +164,7 @@
                         Numbers</p>
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">A Legacy Built in Every
                         Table.</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">14 years of sawdust, resin, and relentless craftsmanship
+                    <p class="text-gray-600 max-w-2xl mx-auto">10+ years of sawdust, resin, and relentless craftsmanship
                         — measured in the families who eat, work, and gather around our tables.</p>
                 </div>
 
@@ -412,8 +235,8 @@
                     <div
                         class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
                         <div class="h-56 overflow-hidden relative">
-                            <img src="https://i.etsystatic.com/26242188/r/il/f8a2d2/4329515349/il_570xN.4329515349_92mu.jpg" alt="Walnut Estate Table"
-                                class="w-full h-full object-cover">
+                            <img src="https://i.etsystatic.com/26242188/r/il/f8a2d2/4329515349/il_570xN.4329515349_92mu.jpg"
+                                alt="Walnut Estate Table" class="w-full h-full object-cover">
                             <div class="gallery-overlay">
                                 <span class="text-white font-semibold text-sm">View Project →</span>
                             </div>
@@ -430,8 +253,8 @@
                     <div
                         class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
                         <div class="h-56 overflow-hidden relative">
-                            <img src="https://i.etsystatic.com/26085079/r/il/59d85e/3338229923/il_570xN.3338229923_1cp2.jpg" alt="Blue River Table"
-                                class="w-full h-full object-cover">
+                            <img src="https://i.etsystatic.com/26085079/r/il/59d85e/3338229923/il_570xN.3338229923_1cp2.jpg"
+                                alt="Blue River Table" class="w-full h-full object-cover">
                             <div class="gallery-overlay">
                                 <span class="text-white font-semibold text-sm">View Project →</span>
                             </div>
@@ -449,8 +272,8 @@
                     <div
                         class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
                         <div class="h-56 overflow-hidden relative">
-                            <img src="https://www.bestbartopepoxy.com/cdn/shop/articles/best-epoxy-for-live-edge-tables-00r.jpg?v=1755624938" alt="Minimalist Oak"
-                                class="w-full h-full object-cover">
+                            <img src="https://www.bestbartopepoxy.com/cdn/shop/articles/best-epoxy-for-live-edge-tables-00r.jpg?v=1755624938"
+                                alt="Minimalist Oak" class="w-full h-full object-cover">
                             <div class="gallery-overlay">
                                 <span class="text-white font-semibold text-sm">View Project →</span>
                             </div>
@@ -468,8 +291,8 @@
                     <div
                         class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
                         <div class="h-56 overflow-hidden relative">
-                            <img src="https://farm7.static.flickr.com/6029/5974100825_2f178af794_z.jpg" alt="Forge Conference Table"
-                                class="w-full h-full object-cover">
+                            <img src="https://farm7.static.flickr.com/6029/5974100825_2f178af794_z.jpg"
+                                alt="Forge Conference Table" class="w-full h-full object-cover">
                             <div class="gallery-overlay">
                                 <span class="text-white font-semibold text-sm">View Project →</span>
                             </div>
@@ -486,8 +309,8 @@
                     <div
                         class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
                         <div class="h-56 overflow-hidden relative">
-                            <img src="https://www.bestbartopepoxy.com/cdn/shop/articles/00-epoxy-tables-with-lore_98406884-4f13-49da-b768-efee38f92206.jpg?v=1768891986" alt="Midnight Galaxy Table"
-                                class="w-full h-full object-cover">
+                            <img src="https://www.bestbartopepoxy.com/cdn/shop/articles/00-epoxy-tables-with-lore_98406884-4f13-49da-b768-efee38f92206.jpg?v=1768891986"
+                                alt="Midnight Galaxy Table" class="w-full h-full object-cover">
                             <div class="gallery-overlay">
                                 <span class="text-white font-semibold text-sm">View Project →</span>
                             </div>
@@ -505,8 +328,8 @@
                     <div
                         class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
                         <div class="h-56 overflow-hidden relative">
-                            <img src="https://i.pinimg.com/736x/60/ce/ba/60ceba471a1f6eb6f609794fb68b32f6.jpg" alt="Nordic Farmhouse Table"
-                                class="w-full h-full object-cover">
+                            <img src="https://i.pinimg.com/736x/60/ce/ba/60ceba471a1f6eb6f609794fb68b32f6.jpg"
+                                alt="Nordic Farmhouse Table" class="w-full h-full object-cover">
                             <div class="gallery-overlay">
                                 <span class="text-white font-semibold text-sm">View Project →</span>
                             </div>
@@ -524,8 +347,8 @@
                     <div
                         class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
                         <div class="h-56 overflow-hidden relative">
-                            <img src="https://www.woodify.ca/wp-content/uploads/2022/04/1649941576006.jpg" alt="Teak River Console"
-                                class="w-full h-full object-cover">
+                            <img src="https://www.woodify.ca/wp-content/uploads/2022/04/1649941576006.jpg"
+                                alt="Teak River Console" class="w-full h-full object-cover">
                             <div class="gallery-overlay">
                                 <span class="text-white font-semibold text-sm">View Project →</span>
                             </div>
@@ -543,8 +366,8 @@
                     <div
                         class="gallery-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
                         <div class="h-56 overflow-hidden relative">
-                            <img src="https://m.media-amazon.com/images/I/71wFQYnV6dL._AC_UF894,1000_QL80_.jpg" alt="Studio Float Table"
-                                class="w-full h-full object-cover">
+                            <img src="https://m.media-amazon.com/images/I/71wFQYnV6dL._AC_UF894,1000_QL80_.jpg"
+                                alt="Studio Float Table" class="w-full h-full object-cover">
                             <div class="gallery-overlay">
                                 <span class="text-white font-semibold text-sm">View Project →</span>
                             </div>
@@ -743,7 +566,8 @@
                         <!-- Instructor Bio -->
                         <div class="bg-gray-900 text-white p-6 rounded-lg mt-6">
                             <div class="flex items-center mb-4">
-                                <img src="https://www.ziprecruiter.com/svc/fotomat/public-ziprecruiter/cms/846591048CarpenterPerDiem.jpg=ws1280x960" alt="James R. Caldwell"
+                                <img src="https://www.ziprecruiter.com/svc/fotomat/public-ziprecruiter/cms/846591048CarpenterPerDiem.jpg=ws1280x960"
+                                    alt="James R. Caldwell"
                                     class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-yellow-500">
                                 <div>
                                     <h4 class="font-bold text-lg">James R. Caldwell</h4>
@@ -869,7 +693,8 @@
                     <div
                         class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <div class="h-52 overflow-hidden">
-                            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/1/WI/LK/EP/109413131/product-jpeg.jpg" alt="Blue River Table"
+                            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/1/WI/LK/EP/109413131/product-jpeg.jpg"
+                                alt="Blue River Table"
                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
@@ -886,7 +711,8 @@
                     <div
                         class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <div class="h-52 overflow-hidden">
-                            <img src="https://sfd-craft.com/wp-content/uploads/2018/02/basic-tre-ii-oak-wood-dining-table_sfd-furniture-design5.webp" alt="Minimalist Oak"
+                            <img src="https://sfd-craft.com/wp-content/uploads/2018/02/basic-tre-ii-oak-wood-dining-table_sfd-furniture-design5.webp"
+                                alt="Minimalist Oak"
                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
@@ -903,7 +729,8 @@
                     <div
                         class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <div class="h-52 overflow-hidden">
-                            <img src="https://5.imimg.com/data5/SELLER/Default/2021/9/RT/LS/RT/137033237/capture-186-500x500.jpg" alt="Midnight Console"
+                            <img src="https://5.imimg.com/data5/SELLER/Default/2021/9/RT/LS/RT/137033237/capture-186-500x500.jpg"
+                                alt="Midnight Console"
                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
@@ -920,7 +747,8 @@
                     <div
                         class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <div class="h-52 overflow-hidden">
-                            <img src="https://cdn.shopify.com/s/files/1/0616/1711/1178/files/IMG_8085_600x400_d56b6224-7372-43df-ad6d-fad26b922727_600x600.jpg?v=1692982023" alt="Raw Edge Coffee Table"
+                            <img src="https://cdn.shopify.com/s/files/1/0616/1711/1178/files/IMG_8085_600x400_d56b6224-7372-43df-ad6d-fad26b922727_600x600.jpg?v=1692982023"
+                                alt="Raw Edge Coffee Table"
                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
@@ -937,7 +765,8 @@
                     <div
                         class="scroll-card w-80 bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <div class="h-52 overflow-hidden">
-                            <img src="https://preview.redd.it/made-another-studio-desk-but-in-walnut-this-time-with-a-v0-uumgof1o2ev81.jpg?width=640&crop=smart&auto=webp&s=0097030e9de8cfe89ab7efd161dded504b266742" alt="Steel Walnut Slab Desk"
+                            <img src="https://preview.redd.it/made-another-studio-desk-but-in-walnut-this-time-with-a-v0-uumgof1o2ev81.jpg?width=640&crop=smart&auto=webp&s=0097030e9de8cfe89ab7efd161dded504b266742"
+                                alt="Steel Walnut Slab Desk"
                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
@@ -954,7 +783,7 @@
             </div>
 
             <!-- Navigation Arrows -->
-            <div class="max-w-7xl mx-auto px-6 mt-6 flex gap-3">
+            <div class="max-w-7xl mx-auto px-6 mt-6 flex gap-3 justify-center">
                 <button onclick="document.querySelector('.scroll-track').scrollBy({left:-340,behavior:'smooth'})"
                     class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-yellow-500 hover:text-yellow-600 transition-colors"><i
                         class="fas fa-arrow-left text-sm"></i></button>
@@ -979,92 +808,92 @@
                 <!-- Platform Stats -->
                 <div class="flex flex-wrap justify-center gap-8 mb-12 text-center">
                     <div>
-                        <p class="text-2xl font-bold font-serif text-gray-900">148.2K</p>
+                        <p class="text-2xl font-bold font-serif text-gray-900">345K</p>
                         <p class="text-gray-500 text-sm flex items-center gap-1 justify-center"><i
                                 class="fab fa-instagram text-pink-500"></i> Followers</p>
                     </div>
                     <div class="w-px bg-gray-200"></div>
                     <div>
-                        <p class="text-2xl font-bold font-serif text-gray-900">96.4K</p>
+                        <p class="text-2xl font-bold font-serif text-gray-900">137K</p>
                         <p class="text-gray-500 text-sm flex items-center gap-1 justify-center"><i
-                                class="fab fa-youtube text-red-500"></i> Subscribers · 90M+ Views</p>
+                                class="fab fa-youtube text-red-500"></i> Subscribers · 67M+ Views</p>
                     </div>
                     <div class="w-px bg-gray-200"></div>
                     <div>
-                        <p class="text-2xl font-bold font-serif text-gray-900">231K</p>
-                        <p class="text-gray-500 text-sm flex items-center gap-1 justify-center"><i
-                                class="fab fa-tiktok text-gray-800"></i> Followers</p>
+                        <p class="text-2xl font-bold font-serif text-gray-900">77K</p>
+                        <p class="text-gray-500 text-sm flex items-center gap-1 justify-center">
+                            <i class="fab fa-facebook-square text-blue-500"></i> Followers</p>
                     </div>
                 </div>
 
                 <!-- Instagram 3x3 Grid -->
                 <div class="grid grid-cols-3 gap-2 md:gap-3 max-w-3xl mx-auto mb-8">
                     <div class="insta-item aspect-square rounded-lg overflow-hidden">
-                        <img src="https://masterplankuk.com/cdn/shop/files/preview_images/c4ca3d320c6c488599f3c3e13fed565d.thumbnail.0000000000.jpg?v=1741031218&width=1500" alt="Instagram"
-                            class="w-full h-full object-cover">
+                        <img src="https://masterplankuk.com/cdn/shop/files/preview_images/c4ca3d320c6c488599f3c3e13fed565d.thumbnail.0000000000.jpg?v=1741031218&width=1500"
+                            alt="Instagram" class="w-full h-full object-cover">
                         <div class="insta-overlay">
                             <p class="text-white text-xs text-center px-2">The pour begins. 72 hours to glory.</p>
                         </div>
                     </div>
                     <div class="insta-item aspect-square rounded-lg overflow-hidden">
-                        <img src="https://preview.redd.it/i-cut-200-tons-of-wood-here-some-slabs-v0-vxqajnuyu1ef1.jpg?width=1080&crop=smart&auto=webp&s=6bcc0b4885ba554407a47fa3b534b60c3c527ea6" alt="Instagram"
-                            class="w-full h-full object-cover">
+                        <img src="https://preview.redd.it/i-cut-200-tons-of-wood-here-some-slabs-v0-vxqajnuyu1ef1.jpg?width=1080&crop=smart&auto=webp&s=6bcc0b4885ba554407a47fa3b534b60c3c527ea6"
+                            alt="Instagram" class="w-full h-full object-cover">
                         <div class="insta-overlay">
                             <p class="text-white text-xs text-center px-2">Every slab has a story. This one is 200 years
                                 old.</p>
                         </div>
                     </div>
                     <div class="insta-item aspect-square rounded-lg overflow-hidden">
-                        <img src="https://media.insider.in/image/upload/c_crop,g_custom/v1754378270/nxlf6ttt3uvg6datuigl.jpg" alt="Instagram"
-                            class="w-full h-full object-cover">
+                        <img src="https://media.insider.in/image/upload/c_crop,g_custom/v1754378270/nxlf6ttt3uvg6datuigl.jpg"
+                            alt="Instagram" class="w-full h-full object-cover">
                         <div class="insta-overlay">
                             <p class="text-white text-xs text-center px-2">Delivery day in Austin, TX. The client cried.
                             </p>
                         </div>
                     </div>
                     <div class="insta-item aspect-square rounded-lg overflow-hidden">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAL4fzaOP7Z8pbqxmAGjDuay13OZTJxxaKiw&s" alt="Instagram"
-                            class="w-full h-full object-cover">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAL4fzaOP7Z8pbqxmAGjDuay13OZTJxxaKiw&s"
+                            alt="Instagram" class="w-full h-full object-cover">
                         <div class="insta-overlay">
                             <p class="text-white text-xs text-center px-2">Student Sarah just sold her first table for
                                 $2,800.</p>
                         </div>
                     </div>
                     <div class="insta-item aspect-square rounded-lg overflow-hidden">
-                        <img src="https://moruxo.com/wp-content/uploads/2025/08/Untitled-design-2025-08-04T183950.494-1024x683.png" alt="Instagram"
-                            class="w-full h-full object-cover">
+                        <img src="https://moruxo.com/wp-content/uploads/2025/08/Untitled-design-2025-08-04T183950.494-1024x683.png"
+                            alt="Instagram" class="w-full h-full object-cover">
                         <div class="insta-overlay">
                             <p class="text-white text-xs text-center px-2">CNC + hand finishing. Two worlds. One table.
                             </p>
                         </div>
                     </div>
                     <div class="insta-item aspect-square rounded-lg overflow-hidden">
-                        <img src="https://i.etsystatic.com/20725267/r/il/7a9c24/2442193408/il_570xN.2442193408_8ndu.jpg" alt="Instagram"
-                            class="w-full h-full object-cover">
+                        <img src="https://i.etsystatic.com/20725267/r/il/7a9c24/2442193408/il_570xN.2442193408_8ndu.jpg"
+                            alt="Instagram" class="w-full h-full object-cover">
                         <div class="insta-overlay">
                             <p class="text-white text-xs text-center px-2">Blue river epoxy. Three inches deep. Zero
                                 bubbles.</p>
                         </div>
                     </div>
                     <div class="insta-item aspect-square rounded-lg overflow-hidden">
-                        <img src="https://media.istockphoto.com/id/530997702/photo/carpenter-worker-sanding-wooden-table-with-sander.jpg?s=612x612&w=0&k=20&c=cFiBsdFPNLko4JVr4hB9cj_DGIemHvZ41Ne11xxUrYM=" alt="Instagram"
-                            class="w-full h-full object-cover">
+                        <img src="https://media.istockphoto.com/id/530997702/photo/carpenter-worker-sanding-wooden-table-with-sander.jpg?s=612x612&w=0&k=20&c=cFiBsdFPNLko4JVr4hB9cj_DGIemHvZ41Ne11xxUrYM="
+                            alt="Instagram" class="w-full h-full object-cover">
                         <div class="insta-overlay">
                             <p class="text-white text-xs text-center px-2">80-grit to 3000-grit. Night and day
                                 difference.</p>
                         </div>
                     </div>
                     <div class="insta-item aspect-square rounded-lg overflow-hidden">
-                        <img src="https://lh6.googleusercontent.com/proxy/WJS6Atj9dPULKN8yFMHE6A2j4Y535XipEBPL4HV7T2OeEDBXsmaLkc0N10woXgEq3iSqTMkLNzlnwlbFCw_E3MGdmBw3" alt="Instagram"
-                            class="w-full h-full object-cover">
+                        <img src="https://lh6.googleusercontent.com/proxy/WJS6Atj9dPULKN8yFMHE6A2j4Y535XipEBPL4HV7T2OeEDBXsmaLkc0N10woXgEq3iSqTMkLNzlnwlbFCw_E3MGdmBw3"
+                            alt="Instagram" class="w-full h-full object-cover">
                         <div class="insta-overlay">
                             <p class="text-white text-xs text-center px-2">Weekend workshop — all 8 students taking
                                 tables home.</p>
                         </div>
                     </div>
                     <div class="insta-item aspect-square rounded-lg overflow-hidden">
-                        <img src="https://woodweb.com/knowledge_base_images/zp/drying_a_walnut_slab_3.jpg" alt="Instagram"
-                            class="w-full h-full object-cover">
+                        <img src="https://woodweb.com/knowledge_base_images/zp/drying_a_walnut_slab_3.jpg"
+                            alt="Instagram" class="w-full h-full object-cover">
                         <div class="insta-overlay">
                             <p class="text-white text-xs text-center px-2">This walnut slab was air-drying for 4 years.
                                 Worth it.</p>
@@ -1073,16 +902,14 @@
                 </div>
 
                 <div class="text-center">
-                    <a href="#"
+                    <a href="https://www.instagram.com/nilal_arts_manish?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                         class="inline-flex items-center gap-2 border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-900 hover:text-white transition-all duration-300"><i
-                            class="fab fa-instagram"></i> Follow @ArtisanTableCo on Instagram</a>
+                            class="fab fa-instagram"></i> Follow @nilal_arts_manish on Instagram</a>
                 </div>
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════════════════════
-             TRUSTED CLIENTS — LOGO MARQUEE
-        ═══════════════════════════════════════════════════════════════ -->
+        <!--  TRUSTED CLIENTS — LOGO MARQUEE  -->
         <section id="clients" class="py-16 bg-gray-100 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 mb-10 text-center">
                 <p class="text-gray-400 text-xs font-semibold tracking-widest uppercase">Trusted By</p>
@@ -1500,14 +1327,14 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
             <!-- Column 1: Brand -->
             <div class="lg:col-span-1">
-                <a href="#" class="text-xl font-bold font-serif mb-2 block">ARTISAN TABLE CO.</a>
-                <p class="text-yellow-500 text-xs tracking-widest mb-4">Est. 2009 · Portland, Oregon</p>
+                <a href="#" class="text-xl font-bold font-serif mb-2 block">Nilal Arts.</a>
+                <p class="text-yellow-500 text-xs tracking-widest mb-4">Tirupur, Tamilnadu</p>
                 <p class="text-gray-400 text-sm leading-relaxed mb-6">Crafted with intention. Built to outlast us all.
                 </p>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                    <a href="https://www.instagram.com/nilal_arts_manish?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-gray-400 hover:text-white transition-colors"><i
                             class="fab fa-instagram text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                    <a href="https://www.youtube.com/@nilal_artisan" class="text-gray-400 hover:text-white transition-colors"><i
                             class="fab fa-youtube text-xl"></i></a>
                     <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
                             class="fab fa-tiktok text-xl"></i></a>
@@ -1546,7 +1373,7 @@
             <div>
                 <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Academy</h4>
                 <ul class="space-y-3 text-gray-400 text-sm">
-                    <li><a href="#" class="hover:text-yellow-400 transition-colors">All Courses</a></li>
+                    <li><a href="#academy" class="hover:text-yellow-400 transition-colors">All Courses</a></li>
                     <li><a href="#" class="hover:text-yellow-400 transition-colors">Epoxy Resin Fundamentals</a></li>
                     <li><a href="#" class="hover:text-yellow-400 transition-colors">Master Table Builder</a></li>
                     <li><a href="#" class="hover:text-yellow-400 transition-colors">Weekend Workshops</a></li>
@@ -1558,12 +1385,10 @@
             <div>
                 <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Support</h4>
                 <ul class="space-y-3 text-gray-400 text-sm">
-                    <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-yellow-500"></i>12
-                        Workshop Lane, Portland, OR 97201</li>
-                    <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-yellow-500"></i> +1 (503)
-                        847-2291</li>
+                    <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-yellow-500"></i>Sardar St, Udumalapet ,Tirupur Dt , Tamil Nadu-642126 , India</li>
+                    <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-yellow-500"></i> +91 94891 58550</li>
                     <li class="flex items-center"><i class="fas fa-envelope mr-3 text-yellow-500"></i>
-                        hello@artisantableco.com</li>
+                        nilalarts@gamil.com</li>
                 </ul>
                 <ul class="space-y-3 text-gray-400 text-sm mt-5">
                     <li><a href="#" class="hover:text-yellow-400 transition-colors">Shipping & Delivery</a></li>
