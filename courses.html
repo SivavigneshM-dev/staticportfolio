@@ -14,6 +14,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- GSAP (Required for existing animations) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
@@ -22,58 +25,80 @@
 
 <body>
 
-    <!-- NAVIGATION -->
-    <nav
-        class="sticky top-0 z-50 bg-black border-b border-gray-800 py-4 px-6 md:px-12 flex justify-between items-center">
-        <div class="flex items-center gap-4">
-            <a href="index.html" class="text-white/70 hover:text-gold transition-colors flex items-center gap-2">
-                <i class="fas fa-long-arrow-alt-left"></i> <span
-                    class="hidden md:inline font-medium uppercase tracking-widest text-xs">Back</span>
-            </a>
-            <a href="index.html" class="font-serif text-2xl font-bold tracking-tighter text-gold">Nilal Arts</a>
-        </div>
-        <div class="hidden md:flex gap-10 items-center text-[10px] font-bold uppercase tracking-[0.2em]">
-            <a href="index.html" class="nav-link hover:text-gold transition-all">Home</a>
-            <a href="#courses" class="nav-link text-gold border-b border-gold pb-1">Workshops</a>
-            <a href="index.html#process" class="nav-link hover:text-gold transition-colors">About</a>
-            <a href="index.html#contact" class="nav-link hover:text-gold transition-colors">Contact</a>
-        </div>
-        <button class="md:hidden text-gold"><i class="fas fa-bars text-xl"></i></button>
-    </nav>
-
     <!-- HERO SECTION -->
-    <section class="relative py-24 px-6 text-center overflow-hidden bg-gradient-to-b from-gray-900 to-black">
-        <div class="absolute inset-0 opacity-20 pointer-events-none"
-            style="background-image: radial-gradient(circle at center, var(--gold) 0%, transparent 70%);"></div>
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+
+        <!-- Back Button -->
+        <a href="index.html"
+            class="absolute top-8 left-8 z-50 text-black/80 hover:bg-white hover:text-black hover:shadow-[0_0_15px_rgba(30,58,138,0.5)] transition-all duration-300 flex items-center gap-2 backdrop-blur-sm bg-black/20 px-4 py-2 rounded-full border border-white/10">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+
+        <!-- Centered Logo Area -->
+        <div class="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
+            <img src="https://placehold.co/120x60/transparent/white?text=NAIC" alt="NAIC Logo"
+                class="h-12 w-auto object-contain">
+        </div>
+
+        <!-- Carousel Slides -->
+        <div id="hero-carousel" class="absolute inset-0 w-full h-full">
+            <div class="hero-slide"><img
+                    src="https://thumbs.dreamstime.com/b/epoxy-resin-art-depicting-coastal-landscape-studio-table-intricately-crafted-d-featuring-stunning-displayed-showcasing-318509546.jpg"
+                    class="w-full h-full object-cover"></div>
+            <div class="hero-slide active"><img src="https://nilalarts.com/wp-content/uploads/2024/07/workshop-4.jpg"
+                    class="w-full h-full object-cover"></div>
+            <div class="hero-slide"><img
+                    src="https://resin4decor.com/cdn/shop/articles/76253405-6190-4d24-b2a4-c2504a978afb.jpg?v=1758195401"
+                    class="w-full h-full object-cover"></div>
+            <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+        </div>
 
         <div class="relative z-10 max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-4">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
                 The <span class="hero-underline">Resin </span> Academy
             </h1>
-            <h2 class="text-xl md:text-2xl text-gold font-medium mb-6 uppercase tracking-[0.3em]">Choose Your Journey
-            </h2>
+            <h2 class="text-lg md:text-xl text-gold font-medium mb-8 uppercase tracking-[0.3em] font-sans">Choose Your
+                Journey</h2>
             <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
                 From absolute beginner to professional resin artist — structured courses designed by master craftsmen.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#courses"
-                    class="bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-full font-bold transition-all shadow-lg uppercase tracking-widest text-xs">View
+                    class="bg-gold hover:bg-gold-dark text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-yellow-500/30 uppercase tracking-widest text-xs">View
                     Workshop Catalog</a>
-                <button onclick="openVideoModal('2mHTuQKmbUo')"
-                    class="border-2 border-gold text-gold hover:bg-gold hover:text-white px-10 py-4 rounded-full font-bold transition-all">Watch
+                <button onclick="openVideoModal('hWTx6E664x4')"
+                    class="border border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full font-bold transition-all uppercase tracking-widest text-xs">Watch
                     Preview</button>
             </div>
         </div>
+
+        <!-- Scroll Indicator -->
+        <div
+            class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
+            <span class="text-[10px] tracking-widest uppercase font-sans">Scroll to Explore</span>
+            <i class="fas fa-chevron-down animate-bounce"></i>
+        </div>
     </section>
 
+    <!-- MARQUEE SECTION (Ocean Theme Element) -->
+    <div class="bg-gold py-3 overflow-hidden border-y border-white/10 relative z-20">
+        <div
+            class="marquee-inner whitespace-nowrap text-black font-bold uppercase tracking-widest text-sm flex gap-10 animate-marquee">
+            <span>Resin Art Mastery</span> • <span>Epoxy Furniture Design</span> • <span>Live Edge Woodworking</span> •
+            <span>Ocean Wave Techniques</span> • <span>Business of Art</span> • <span>Handcrafted Excellence</span> •
+            <span>Resin Art Mastery</span> • <span>Epoxy Furniture Design</span> • <span>Live Edge Woodworking</span> •
+            <span>Ocean Wave Techniques</span> • <span>Business of Art</span> • <span>Handcrafted Excellence</span>
+        </div>
+    </div>
+
     <!-- COURSE CARDS SECTION -->
-    <section id="courses" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="courses" class="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-black">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             <!-- CARD 1: BEGINNER -->
             <div
-                class="course-card reveal p-8 flex flex-col h-full relative group border-t-4 border-t-gray-800 hover:border-t-gold">
+                class="glass-panel rounded-xl reveal p-8 flex flex-col h-full relative group transition-all duration-300 hover:-translate-y-2 shadow-glow">
                 <div class="mb-6">
                     <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-2">Fundamental
                         Module</span>
@@ -87,7 +112,7 @@
                     <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Practical Highlights:</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         Focus on chemical safety, precise mixing ratios, and overcoming the "first-pour" anxiety through
-                        3 hands-on mini-projects.
+                        hands-on mini-projects.
                     </p>
                 </div>
 
@@ -119,16 +144,16 @@
 
                 <div class="mt-auto space-y-4">
                     <button onclick="toggleReadMore('readMore1', this)"
-                        class="w-full border border-gray-800 text-gray-400 py-3 text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition-all font-bold">Details</button>
+                        class="w-full border border-gray-700 text-gray-300 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-gray-800 transition-all font-bold">Details</button>
                     <button
-                        class="w-full bg-white text-black hover:bg-gold hover:text-white py-4 font-bold transition-all uppercase tracking-widest text-xs">Register
+                        class="w-full bg-white text-black hover:bg-gray-100 hover:text-red-500 py-3 rounded-full font-bold transition-all uppercase tracking-widest text-xs shadow-lg">Register
                         Interest</button>
                 </div>
             </div>
 
             <!-- CARD 2: INTERMEDIATE -->
             <div
-                class="course-card reveal p-8 flex flex-col h-full relative group border-t-4 border-t-gray-800 hover:border-t-gold">
+                class="glass-panel rounded-xl reveal p-8 flex flex-col h-full relative group transition-all duration-300 hover:-translate-y-2 shadow-glow">
                 <div class="mb-6">
                     <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-2">Advanced
                         Specialization</span>
@@ -175,16 +200,16 @@
 
                 <div class="mt-auto space-y-4">
                     <button onclick="toggleReadMore('readMore2', this)"
-                        class="w-full border border-gray-800 text-gray-400 py-3 text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition-all font-bold">Details</button>
+                        class="w-full border border-gray-700 text-gray-300 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-gray-800 transition-all font-bold">Details</button>
                     <button
-                        class="w-full bg-white text-black hover:bg-gold hover:text-white py-4 font-bold transition-all uppercase tracking-widest text-xs">Register
+                        class="w-full bg-white text-black hover:bg-gray-100 hover:text-red-500 py-3 rounded-full font-bold transition-all uppercase tracking-widest text-xs shadow-lg">Register
                         Interest</button>
                 </div>
             </div>
 
             <!-- CARD 3: ADVANCED -->
             <div
-                class="course-card reveal p-8 flex flex-col h-full relative group border-t-4 border-t-gray-800 hover:border-t-gold">
+                class="glass-panel rounded-xl reveal p-8 flex flex-col h-full relative group transition-all duration-300 hover:-translate-y-2 shadow-glow">
                 <div class="mb-6">
                     <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-2">Professional
                         Path</span>
@@ -230,16 +255,16 @@
 
                 <div class="mt-auto space-y-4">
                     <button onclick="toggleReadMore('readMore3', this)"
-                        class="w-full border border-gray-800 text-gray-400 py-3 text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition-all font-bold">Details</button>
+                        class="w-full border border-gray-700 text-gray-300 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-gray-800 transition-all font-bold">Details</button>
                     <button
-                        class="w-full bg-white text-black hover:bg-gold hover:text-white py-4 font-bold transition-all uppercase tracking-widest text-xs">Register
+                        class="w-full bg-white text-black hover:bg-gray-100 hover:text-red-500 py-3 rounded-full font-bold transition-all uppercase tracking-widest text-xs shadow-lg">Register
                         Interest</button>
                 </div>
             </div>
 
             <!-- CARD 4: MASTERCLASS -->
             <div
-                class="course-card reveal border border-gold p-8 flex flex-col h-full relative group overflow-hidden border-t-4 border-t-gold">
+                class="glass-panel rounded-xl reveal border border-gold p-8 flex flex-col h-full relative group overflow-hidden transition-all duration-300 hover:-translate-y-2 shadow-[0_0_30px_rgba(217,119,6,0.15)]">
                 <div
                     class="absolute top-4 right-4 text-[8px] font-bold animate-pulse uppercase tracking-widest text-gold">
                     Waitlist Open</div>
@@ -289,10 +314,10 @@
 
                 <div class="mt-auto space-y-4">
                     <button onclick="openCurriculumModal()"
-                        class="w-full border border-gold text-gold py-3 rounded-xl hover:bg-gold/10 transition-all font-semibold">View
+                        class="w-full border border-gold text-gold py-3 rounded-full hover:bg-gold/10 transition-all font-bold uppercase tracking-wider text-xs">View
                         Full Details</button>
                     <button
-                        class="w-full shimmer-btn text-black py-4 rounded-xl font-black transition-all uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(217,119,6,0.4)]">Claim
+                        class="w-full shimmer-btn text-black py-3 rounded-full font-black transition-all uppercase tracking-widest text-xs shadow-[0_0_20px_rgba(217,119,6,0.4)] hover:scale-105">Claim
                         Your Spot</button>
                     <div class="text-center">
                         <a href="#preview"
@@ -309,19 +334,19 @@
     </section>
 
     <!-- COMPARISON TABLE SECTION -->
-    <section class="py-24 px-6 bg-gray-900/50">
+    <section class="py-24 px-6 bg-black">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-serif font-bold mb-4">Workshop Comparison</h2>
+                <h2 class="text-4xl font-serif font-bold mb-4 text-white">Workshop Comparison</h2>
                 <div class="w-24 h-1 bg-gold mx-auto"></div>
             </div>
 
-            <div class="overflow-x-auto border border-gray-800 shadow-2xl">
-                <table class="w-full text-left border-collapse min-w-[800px] bg-black/40">
+            <div class="overflow-x-auto border border-gray-800 rounded-xl shadow-2xl">
+                <table class="w-full text-left border-collapse min-w-[800px] bg-gray-900/40 backdrop-blur-sm">
                     <thead>
-                        <tr class="bg-black text-gold uppercase text-xs tracking-widest">
-                            <th class="p-6 border-b border-gray-800">Feature</th>
-                            <th class="p-6 border-b border-gray-800">Beginner</th>
+                        <tr class="bg-black/80 text-gold uppercase text-xs tracking-widest">
+                            <th class="p-6 border-b border-gray-800 font-bold">Feature</th>
+                            <th class="p-6 border-b border-gray-800 font-bold">Beginner</th>
                             <th class="p-6 border-b border-gray-800">Intermediate</th>
                             <th class="p-6 border-b border-gray-800">Advanced</th>
                             <th class="p-6 border-b border-gray-800 bg-gold/5">Masterclass</th>
@@ -370,10 +395,10 @@
     </section>
 
     <!-- VIDEO PREVIEW SECTION -->
-    <section id="preview" class="py-24 px-6">
+    <section id="preview" class="py-24 px-6 bg-black">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-serif font-bold mb-4">Course Preview</h2>
+                <h2 class="text-4xl font-serif font-bold mb-4 text-white">Course Preview</h2>
                 <p class="text-gray-500 uppercase tracking-widest text-xs">Watch a Sneak Peek</p>
             </div>
 
@@ -434,9 +459,9 @@
     </section>
 
     <!-- FACILITIES SECTION -->
-    <section class="py-24 px-6 bg-black border-t border-gray-900">
+    <section class="py-24 px-6 bg-black border-t border-gray-800">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-            <div class="md:w-1/2 relative reveal">
+            <div class="md:w-1/2 relative reveal group">
                 <div class="absolute inset-0 bg-gold blur-[100px] opacity-10"></div>
                 <img src="https://picsum.photos/seed/living/800/600" alt="Student Accommodation"
                     class="relative rounded-2xl shadow-2xl border border-gray-800 z-10 grayscale hover:grayscale-0 transition-all duration-500">
@@ -494,7 +519,7 @@
     <!-- STUDENT REVIEW SHORTS SECTION -->
     <section class="py-24 px-6 bg-black border-t border-gray-800">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-8">
                 <h2 class="text-4xl font-serif font-bold mb-4">Student <span class="text-gold">Reviews</span></h2>
                 <p class="text-gray-400 text-xs uppercase tracking-widest">Watch Real Success Stories</p>
             </div>
@@ -512,7 +537,7 @@
 
                 <!-- Carousel Track -->
                 <div id="shortsTrack"
-                    class="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-12 px-4 scroll-smooth">
+                    class="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 scroll-smooth">
                     <!-- Video 1 -->
                     <div class="mobile-card flex-shrink-0 snap-center">
                         <div class="mobile-frame">
@@ -525,8 +550,8 @@
                     <!-- Video 2 -->
                     <div class="mobile-card flex-shrink-0 snap-center">
                         <div class="mobile-frame">
-                            <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/OFG4IHU_7L0?si=ei-6zWr98RTNWpeJ"
-                                title="Review 2" loading="lazy" frameborder="0"
+                            <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/lumfP3K7G6k"
+                                title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen></iframe>
                         </div>
@@ -573,11 +598,11 @@
     </section>
 
     <!-- TESTIMONIALS SECTION -->
-    <section class="py-24 px-6 bg-gray-900/30">
+    <section class="py-24 px-6 bg-black">
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="course-card p-8 reveal border border-gray-800">
+                <!-- Testimonial 1 (Glass Panel) -->
+                <div class="glass-panel p-8 reveal rounded-xl hover:border-gold transition-colors duration-300">
                     <div class="text-gold mb-4 text-xs">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -595,8 +620,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 2 -->
-                <div class="course-card p-8 reveal border border-gray-800">
+                <!-- Testimonial 2 (Glass Panel) -->
+                <div class="glass-panel p-8 reveal rounded-xl hover:border-gold transition-colors duration-300">
                     <div class="text-gold mb-4 text-xs">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -613,8 +638,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 3 -->
-                <div class="course-card p-8 reveal border border-gray-800">
+                <!-- Testimonial 3 (Glass Panel) -->
+                <div class="glass-panel p-8 reveal rounded-xl hover:border-gold transition-colors duration-300">
                     <div class="text-gold mb-4 text-xs">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -637,16 +662,16 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section class="py-24 px-6 max-w-3xl mx-auto">
+    <section class="py-24 px-6 max-w-3xl mx-auto bg-black">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-serif font-bold mb-4 tracking-tight">Academy <span
+            <h2 class="text-4xl font-serif font-bold mb-4 tracking-tight text-white">Academy <span
                     class="text-gold italic">Insights</span></h2>
             <p class="text-xs uppercase tracking-[0.3em] text-gray-500">Essential Knowledge</p>
         </div>
 
         <div class="space-y-4">
             <!-- FAQ 1 -->
-            <div class="border border-gray-800 overflow-hidden bg-gray-900/30">
+            <div class="border border-gray-800 overflow-hidden bg-gray-900/20 rounded-lg">
                 <button onclick="toggleFaq(this)"
                     class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-gold/5">
                     <span class="font-serif text-lg">Do I need any previous experience?</span>
@@ -659,7 +684,7 @@
                 </div>
             </div>
             <!-- FAQ 2 -->
-            <div class="border border-gray-800 overflow-hidden bg-gray-900/30">
+            <div class="border border-gray-800 overflow-hidden bg-gray-900/20 rounded-lg">
                 <button onclick="toggleFaq(this)"
                     class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-gold/5">
                     <span class="font-serif text-lg">Are materials included in the price?</span>
@@ -672,7 +697,7 @@
                 </div>
             </div>
             <!-- FAQ 3 -->
-            <div class="border border-gray-800 overflow-hidden bg-gray-900/30">
+            <div class="border border-gray-800 overflow-hidden bg-gray-900/20 rounded-lg">
                 <button onclick="toggleFaq(this)"
                     class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-gold/5">
                     <span class="font-serif text-lg">Is there a certificate provided?</span>
@@ -685,7 +710,7 @@
                 </div>
             </div>
             <!-- FAQ 4 -->
-            <div class="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/30">
+            <div class="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/20">
                 <button onclick="toggleFaq(this)"
                     class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-white/5">
                     <span class="font-medium">Can I access the course on my mobile?</span>
@@ -697,7 +722,7 @@
                 </div>
             </div>
             <!-- FAQ 5 -->
-            <div class="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/30">
+            <div class="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/20">
                 <button onclick="toggleFaq(this)"
                     class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-white/5">
                     <span class="font-medium">What if I have doubts during the course?</span>
@@ -716,7 +741,8 @@
     <footer class="bg-black border-t border-gray-800 pt-20 pb-10 px-6 md:px-12">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div class="col-span-1 md:col-span-2">
-                <h4 class="font-serif text-3xl font-bold text-gold mb-6">Nilal Arts.</h4>
+                <h4 class="font-serif text-3xl font-bold text-white mb-2">Nilal Arts.</h4>
+                <p class="text-gold text-xs tracking-widest mb-6 uppercase">Academy & Studio</p>
                 <p class="text-gray-500 max-w-xs mb-8">Elevating resin art from a hobby to a high-ticket craft. Join
                     2,000+ students globally.</p>
                 <div class="flex gap-4">
@@ -757,23 +783,22 @@
     </footer>
 
     <!-- MODAL: VIDEO PLAYER -->
-    <div id="videoModal"
-        class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 hidden transition-opacity duration-300">
-        <button onclick="closeVideoModal()"
-            class="absolute top-8 right-8 text-white text-4xl hover:text-gold transition-colors z-[110]">&times;</button>
-        <div class="w-full max-w-5xl aspect-video relative">
+    <div id="videoModal" class="fixed inset-0 z-[9999] bg-[rgba(0,0,0,0.85)] flex items-center justify-center hidden">
+        <div class="absolute inset-0 z-40" onclick="closeVideoModal()"></div>
+        <div class="relative w-[200px] h-[150px] z-50">
+            <button onclick="closeVideoModal()"
+                class="absolute -top-12 -right-10 text-white text-5xl font-bold hover:text-gold transition-colors">&times;</button>
             <iframe id="videoIframe" class="w-full h-full rounded-2xl shadow-2xl" src="" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         </div>
-        <div class="absolute inset-0 z-[105]" onclick="closeVideoModal()"></div>
     </div>
 
     <!-- MODAL: MASTERCLASS CURRICULUM -->
     <div id="curriculumModal"
         class="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 hidden backdrop-blur-sm">
         <div
-            class="bg-gray-900 border-2 border-gold/30 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-10 relative z-[110] shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+            class="bg-gray-900 border border-gold/30 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-10 relative z-[110] shadow-[0_0_50px_rgba(217,119,6,0.2)]">
             <button onclick="closeCurriculumModal()"
                 class="absolute top-6 right-6 text-gray-500 hover:text-gold text-3xl transition-all">&times;</button>
             <h2 class="font-serif text-3xl font-bold mb-2 text-gold">Masterclass Curriculum</h2>
@@ -810,8 +835,36 @@
         <div class="absolute inset-0 z-[105]" onclick="closeCurriculumModal()"></div>
     </div>
 
+    <!-- Social Floating Menu -->
+    <div class="fixed bottom-24 right-8 z-50 flex flex-col items-center gap-4">
+        <a href="https://instagram.com/nilal_arts_manish?igsh=NTc4MTIwNjQ2YQ==" target="_blank"
+            class="w-12 h-12 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=918940118861&text=" target="_blank"
+            class="w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn"
+        class="fixed bottom-8 right-8 z-50 bg-yellow-600 text-white w-12 h-12 rounded-full shadow-lg translate-y-24 opacity-0 transition-all duration-300 hover:bg-yellow-700 flex items-center justify-center border border-white/20">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- JAVASCRIPT -->
     <script src="courses.js"></script>
+    <script>
+        // Simple Carousel Logic (Inline for specific page behavior)
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+    </script>
 </body>
 
 </html>

@@ -41,10 +41,8 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="font-serif">
-                        <span class="text-2xl font-bold text-gray-900">NILAL ARTS </span>
-                        <span class="block text-xs text-gray-400 font-sans tracking-widest">Tirupur - TamilNadu -
-                            India</span>
+                    <a href="#" class="font-serif flex items-center justify-center">
+                        <img src="https://placehold.co/150x50/transparent/black?text=NAIC" alt="Nilal Arts Logo" class="h-12 w-auto object-contain">
                     </a>
                 </div>
 
@@ -86,7 +84,7 @@
                         </button>
                         <div
                             class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50 border border-gray-100">
-                            <a href="#academy"
+                            <a href="courses.html"
                                 class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600 first:rounded-t-lg">All
                                 Courses</a>
                             <a href="#academy"
@@ -139,7 +137,7 @@
 
                 <div class="flex flex-col gap-3 pl-4 border-l-2 border-gray-100">
                     <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">The Academy</span>
-                    <a href="#academy" class="text-gray-600 hover:text-yellow-600 font-medium">All Courses</a>
+                    <a href="courses.html" class="text-gray-600 hover:text-yellow-600 font-medium">All Courses</a>
                 </div>
 
                 <a href="#materials" class="text-gray-900 hover:text-yellow-600 font-bold text-lg">Raw Materials</a>
@@ -172,8 +170,8 @@
                     class="w-full h-full object-cover">
             </div>
             <div class="hero-slide">
-                <img src="https://preview.redd.it/beach-epoxy-furniture-v0-gx8w1j60l2951.jpg?width=640&crop=smart&auto=webp&s=b253393caa8b1bf03dac0347694c3679f24854c6" alt="Craftsmanship"
-                    class="w-full h-full object-cover">
+                <img src="https://preview.redd.it/beach-epoxy-furniture-v0-gx8w1j60l2951.jpg?width=640&crop=smart&auto=webp&s=b253393caa8b1bf03dac0347694c3679f24854c6"
+                    alt="Craftsmanship" class="w-full h-full object-cover">
             </div>
             <div class="absolute inset-0 bg-black/60"></div>
         </div>
@@ -209,7 +207,7 @@
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
             <span class="text-xs tracking-widest uppercase">Scroll to Explore</span>
             <i class="fas fa-chevron-down animate-bounce"></i>
         </div>
@@ -1441,7 +1439,7 @@
             <div>
                 <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Academy</h4>
                 <ul class="space-y-3 text-gray-400 text-sm">
-                    <li><a href="#academy" class="hover:text-yellow-400 transition-colors">All Courses</a></li>
+                    <li><a href="courses.html" class="hover:text-yellow-400 transition-colors">All Courses</a></li>
                     <li><a href="#" class="hover:text-yellow-400 transition-colors">Epoxy Resin Fundamentals</a></li>
                     <li><a href="#" class="hover:text-yellow-400 transition-colors">Master Table Builder</a></li>
                     <li><a href="#" class="hover:text-yellow-400 transition-colors">Weekend Workshops</a></li>
@@ -1490,19 +1488,14 @@
 
     <!-- Social Floating Menu -->
     <div class="fixed bottom-24 right-8 z-50 flex flex-col items-center gap-4">
-        <div id="social-menu" class="flex flex-col gap-4 mb-2 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
-            <a href="https://instagram.com/nilal_arts_manish?igsh=NTc4MTIwNjQ2YQ==" target="_blank"
-                class="w-12 h-12 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
-                <i class="fab fa-instagram text-xl"></i>
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=918940118861&text=" target="_blank"
-                class="w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
-                <i class="fab fa-whatsapp text-2xl"></i>
-            </a>
-        </div>
-        <button id="social-toggle" class="w-12 h-12 bg-yellow-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-yellow-700 transition-colors border border-white/20">
-            <i class="fas fa-comment-dots text-xl" id="social-icon"></i>
-        </button>
+        <a href="https://instagram.com/nilal_arts_manish?igsh=NTc4MTIwNjQ2YQ==" target="_blank"
+            class="w-12 h-12 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=918940118861&text=" target="_blank"
+            class="w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
     </div>
 
     <!-- Scroll To Top Button -->
@@ -1598,22 +1591,6 @@
             scrollBtn.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-
-            // Social Menu Toggle Logic
-            const socialToggle = document.getElementById('social-toggle');
-            const socialMenu = document.getElementById('social-menu');
-            const socialIcon = document.getElementById('social-icon');
-
-            if (socialToggle && socialMenu) {
-                socialToggle.addEventListener('click', () => {
-                    const isHidden = socialMenu.classList.contains('opacity-0');
-                    socialMenu.classList.toggle('opacity-0', !isHidden);
-                    socialMenu.classList.toggle('translate-y-4', !isHidden);
-                    socialMenu.classList.toggle('pointer-events-none', !isHidden);
-                    socialIcon.classList.toggle('fa-comment-dots', !isHidden);
-                    socialIcon.classList.toggle('fa-times', isHidden);
-                });
-            }
         });
     </script>
 </body>

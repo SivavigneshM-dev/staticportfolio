@@ -1,214 +1,303 @@
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 :root {
-    --gold: #D97706;
-    --gold-dark: #B45309;
-    --bg: #000000;
-    --card-bg: #111827;
+  --gold: #d97706;
+  --gold-dark: #b45309;
+  --bg: #000000; /* Pure Black */
+  --card-bg: #111827;
 }
 
 body {
-    background-color: var(--bg);
-    color: white;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+  background-color: var(--bg);
+  color: white;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
 }
 
 .font-serif {
-    font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
+}
+
+/* --- Hero Carousel --- */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 0;
+}
+
+.hero-slide.active {
+  opacity: 0.45;
 }
 
 /* --- Animations --- */
 @keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
+  0% {
+    background-position: -200% 0;
+  }
 
-    100% {
-        background-position: 200% 0;
-    }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(217, 119, 6, 0.5);
+  }
 
-    0%,
-    100% {
-        box-shadow: 0 0 5px rgba(217, 119, 6, 0.5);
-    }
-
-    50% {
-        box-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
-    }
+  50% {
+    box-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
+  }
 }
 
 @keyframes underline-shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(-100%);
+  }
 
-    100% {
-        transform: translateX(100%);
-    }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .shimmer-btn {
-    background: linear-gradient(90deg, var(--gold) 0%, #fbbf24 50%, var(--gold) 100%);
-    background-size: 200% 100%;
-    animation: shimmer 3s infinite linear;
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    #fbbf24 50%,
+    var(--gold) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-inner:hover {
+  animation-play-state: paused;
 }
 
 .pulse-badge {
-    animation: pulse-glow 2s infinite;
+  animation: pulse-glow 2s infinite;
 }
 
 .hero-underline {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .hero-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--gold);
-    overflow: hidden;
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gold);
+  overflow: hidden;
 }
 
 .hero-underline::before {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, white, transparent);
-    z-index: 1;
-    animation: underline-shimmer 2s infinite linear;
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+  z-index: 1;
+  animation: underline-shimmer 2s infinite linear;
 }
 
 /* --- Card Effects --- */
 .course-card {
-    background-color: #0a0a0a;
-    transition: all 0.3s ease;
-    border: 1px solid #1f2937;
+  background-color: #0a0a0a;
+  transition: all 0.3s ease;
+  border: 1px solid #1f2937;
 }
 
 .course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px -20px rgba(217, 119, 6, 0.3);
-    border-color: var(--gold);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -20px rgba(217, 119, 6, 0.3);
+  border-color: var(--gold);
 }
 
 .read-more-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
 }
 
 .read-more-content.open {
-    max-height: 1000px;
+  max-height: 1000px;
 }
 
 /* --- Custom Scrollbar --- */
 ::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #000;
+  background: #000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 10px;
+  background: #333;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--gold);
+  background: var(--gold);
 }
 
 /* --- Tooltip --- */
 .tooltip-container {
-    position: relative;
+  position: relative;
 }
 
 .tooltip-text {
-    visibility: hidden;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 50;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-size: 0.75rem;
-    white-space: nowrap;
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 50;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.75rem;
+  white-space: nowrap;
 }
 
 .tooltip-container:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 /* --- Intersection Observer --- */
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
 }
 
 .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .gold-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 /* --- Student Shorts Carousel --- */
+#shortsTrack {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .mobile-card {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .mobile-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    z-index: 10;
+  transform: translateY(-10px) scale(1.02);
+  z-index: 10;
 }
 
 .mobile-frame {
-    width: 280px;
-    height: 500px;
-    border-radius: 30px;
-    border: 8px solid #1f2937; /* gray-800 */
-    background-color: #000;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
+  width: 270px;
+  height: 480px;
+  border-radius: 30px;
+  border: 8px solid #1f2937; /* gray-800 */
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
 }
 
 .mobile-card:hover .mobile-frame {
-    border-color: var(--gold);
-    box-shadow: 0 0 25px rgba(217, 119, 6, 0.4);
+  border-color: var(--gold);
+  box-shadow: 0 0 25px rgba(217, 119, 6, 0.4);
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* --- Ocean Theme & Glassmorphism Additions --- */
+.shadow-glow:hover {
+  box-shadow:
+    0 20px 25px -5px rgba(217, 119, 6, 0.15),
+    0 8px 10px -6px rgba(217, 119, 6, 0.1);
+  border-color: var(--gold);
+}
+
+.glass-panel {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bg-black-900 {
+  background-color: #000000;
+}
+
+/* Ensure the Course Hero matches the Home Hero height and feel */
+.course-hero-carousel {
+  position: relative;
+  height: 80vh; /* Shorter than home, but still cinematic */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Match the Home Page card style */
+.glass-panel {
+  background: rgba(15, 15, 15, 0.7) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(217, 119, 6, 0.1) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border-color: #d97706 !important;
+  box-shadow: 0 0 30px rgba(217, 119, 6, 0.2);
+  transform: translateY(-10px);
+}
+
+/* Gold Gradient for the main CTA */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
 }
