@@ -451,15 +451,6 @@
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                 </iframe>
             </div>
-
-            <!-- Local Video -->
-            <div class="mt-12 max-w-2xl mx-auto">
-                <video controls class="w-full rounded-xl shadow-lg border border-gray-800 object-cover"
-                    style="aspect-ratio: 1 / 1;">
-                    <source src="videos/Sea theme Video.mp4" type="video/mp4">
-                </video>
-            </div>
-
         </div>
 
     </section>
@@ -516,6 +507,23 @@
 
     </section>
 
+    <!-- Social Floating Menu -->
+    <div class="fixed bottom-24 right-8 z-50 flex flex-col items-center gap-4">
+        <div id="social-menu" class="flex flex-col gap-4 mb-2 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+            <a href="https://instagram.com/nilal_arts_manish?igsh=NTc4MTIwNjQ2YQ==" target="_blank"
+                class="w-12 h-12 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+                <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=918940118861&text=" target="_blank"
+                class="w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </a>
+        </div>
+        <button id="social-toggle" class="w-12 h-12 bg-gold text-white rounded-full shadow-lg flex items-center justify-center hover:bg-gold-dark transition-colors border border-white/20">
+            <i class="fas fa-comment-dots text-xl" id="social-icon"></i>
+        </button>
+    </div>
+
     <!-- Scroll To Top Button -->
     <button id="scrollTopBtn"
         class="fixed bottom-8 right-8 z-50 bg-gold text-white w-12 h-12 rounded-full shadow-lg translate-y-24 opacity-0 transition-all duration-300 hover:bg-gold-dark flex items-center justify-center border border-white/20">
@@ -547,6 +555,22 @@
         scrollBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Social Menu Toggle Logic
+        const socialToggle = document.getElementById('social-toggle');
+        const socialMenu = document.getElementById('social-menu');
+        const socialIcon = document.getElementById('social-icon');
+
+        if (socialToggle && socialMenu) {
+            socialToggle.addEventListener('click', () => {
+                const isHidden = socialMenu.classList.contains('opacity-0');
+                socialMenu.classList.toggle('opacity-0', !isHidden);
+                socialMenu.classList.toggle('translate-y-4', !isHidden);
+                socialMenu.classList.toggle('pointer-events-none', !isHidden);
+                socialIcon.classList.toggle('fa-comment-dots', !isHidden);
+                socialIcon.classList.toggle('fa-times', isHidden);
+            });
+        }
     </script>
 
 </body>

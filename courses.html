@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resin Art Courses | Nilal Arts</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="courses.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav
+        class="sticky top-0 z-50 bg-black border-b border-gray-800 py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <a href="index.html" class="text-white/70 hover:text-gold transition-colors flex items-center gap-2">
+                <i class="fas fa-long-arrow-alt-left"></i> <span
+                    class="hidden md:inline font-medium uppercase tracking-widest text-xs">Back</span>
+            </a>
+            <a href="index.html" class="font-serif text-2xl font-bold tracking-tighter text-gold">Nilal Arts</a>
+        </div>
+        <div class="hidden md:flex gap-10 items-center text-[10px] font-bold uppercase tracking-[0.2em]">
+            <a href="index.html" class="nav-link hover:text-gold transition-all">Home</a>
+            <a href="#courses" class="nav-link text-gold border-b border-gold pb-1">Workshops</a>
+            <a href="index.html#process" class="nav-link hover:text-gold transition-colors">About</a>
+            <a href="index.html#contact" class="nav-link hover:text-gold transition-colors">Contact</a>
+        </div>
+        <button class="md:hidden text-gold"><i class="fas fa-bars text-xl"></i></button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-24 px-6 text-center overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+        <div class="absolute inset-0 opacity-20 pointer-events-none"
+            style="background-image: radial-gradient(circle at center, var(--gold) 0%, transparent 70%);"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-4">
+                The <span class="hero-underline">Resin </span> Academy
+            </h1>
+            <h2 class="text-xl md:text-2xl text-gold font-medium mb-6 uppercase tracking-[0.3em]">Choose Your Journey
+            </h2>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                From absolute beginner to professional resin artist — structured courses designed by master craftsmen.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#courses"
+                    class="bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-full font-bold transition-all shadow-lg uppercase tracking-widest text-xs">View
+                    Workshop Catalog</a>
+                <button onclick="openVideoModal('2mHTuQKmbUo')"
+                    class="border-2 border-gold text-gold hover:bg-gold hover:text-white px-10 py-4 rounded-full font-bold transition-all">Watch
+                    Preview</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSE CARDS SECTION -->
+    <section id="courses" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- CARD 1: BEGINNER -->
+            <div
+                class="course-card reveal p-8 flex flex-col h-full relative group border-t-4 border-t-gray-800 hover:border-t-gold">
+                <div class="mb-6">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-2">Fundamental
+                        Module</span>
+                    <h3 class="text-2xl font-serif font-bold leading-tight mb-2">Resin Art Foundations</h3>
+                    <p class="text-gray-500 text-xs font-medium uppercase tracking-tighter">Practical Workshop</p>
+                </div>
+
+                <div class="gold-divider mb-6"></div>
+
+                <div class="mb-6">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Practical Highlights:</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Focus on chemical safety, precise mixing ratios, and overcoming the "first-pour" anxiety through
+                        3 hands-on mini-projects.
+                    </p>
+                </div>
+
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> 8 guided video lessons</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Basic resin mixing techniques</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Safety & tools guide</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> 3 beginner projects</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Certificate of completion</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Lifetime access</li>
+                </ul>
+
+                <div class="flex items-center justify-between text-[10px] text-gray-500 uppercase tracking-widest mb-6">
+                    <span><i class="far fa-clock mr-1 text-gold"></i> 1 Week</span>
+                    <span><i class="far fa-gem mr-1 text-gold"></i> 3 Projects</span>
+                </div>
+
+                <div id="readMore1" class="read-more-content">
+                    <div class="pt-2 pb-6 border-t border-gray-800 text-sm text-gray-400">
+                        <p>Focus on safety, chemistry, and small-scale pours. No tools required.</p>
+                    </div>
+                </div>
+
+                <div class="mt-auto space-y-4">
+                    <button onclick="toggleReadMore('readMore1', this)"
+                        class="w-full border border-gray-800 text-gray-400 py-3 text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition-all font-bold">Details</button>
+                    <button
+                        class="w-full bg-white text-black hover:bg-gold hover:text-white py-4 font-bold transition-all uppercase tracking-widest text-xs">Register
+                        Interest</button>
+                </div>
+            </div>
+
+            <!-- CARD 2: INTERMEDIATE -->
+            <div
+                class="course-card reveal p-8 flex flex-col h-full relative group border-t-4 border-t-gray-800 hover:border-t-gold">
+                <div class="mb-6">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-2">Advanced
+                        Specialization</span>
+                    <h3 class="text-2xl font-serif font-bold leading-tight mb-2">Ocean & Wave Mastery</h3>
+                    <p class="text-gray-500 text-xs font-medium uppercase tracking-tighter">Creative Session</p>
+                </div>
+
+                <div class="gold-divider mb-6"></div>
+
+                <div class="mb-6">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Live Session Focus:</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Mastering heat-gun techniques and chemical cell interactions to create the signature Nilal Arts
+                        "Ocean Wave" effect on large canvases.
+                    </p>
+                </div>
+
+
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> 12 advanced video lessons</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Ocean & geode techniques</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Color theory for resin</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> 5 intermediate projects</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Live Q&A session</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Private student community access</li>
+                </ul>
+
+                <div class="flex items-center justify-between text-[10px] text-gray-500 uppercase tracking-widest mb-6">
+                    <span><i class="far fa-clock mr-1 text-gold"></i> 2 Weeks</span>
+                    <span><i class="far fa-gem mr-1 text-gold"></i> 5 Projects</span>
+                </div>
+
+                <div id="readMore2" class="read-more-content">
+                    <div class="pt-2 pb-6 border-t border-gray-800 text-sm text-gray-400">
+                        <p>Master heat gun techniques and chemical cell interaction.</p>
+                    </div>
+                </div>
+
+                <div class="mt-auto space-y-4">
+                    <button onclick="toggleReadMore('readMore2', this)"
+                        class="w-full border border-gray-800 text-gray-400 py-3 text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition-all font-bold">Details</button>
+                    <button
+                        class="w-full bg-white text-black hover:bg-gold hover:text-white py-4 font-bold transition-all uppercase tracking-widest text-xs">Register
+                        Interest</button>
+                </div>
+            </div>
+
+            <!-- CARD 3: ADVANCED -->
+            <div
+                class="course-card reveal p-8 flex flex-col h-full relative group border-t-4 border-t-gray-800 hover:border-t-gold">
+                <div class="mb-6">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-2">Professional
+                        Path</span>
+                    <h3 class="text-2xl font-serif font-bold leading-tight mb-2">Commercial Table Builder</h3>
+                    <p class="text-gray-500 text-xs font-medium uppercase tracking-tighter">Industrial Workshop</p>
+                </div>
+
+                <div class="gold-divider mb-6"></div>
+
+                <div class="mb-6">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Workshop Experience:</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        A deep dive into industrial woodworking, slab flattening, and managing 3-inch deep epoxy pours
+                        for high-ticket furniture.
+                    </p>
+                </div>
+
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> 20 professional lessons</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Table & large-scale resin work</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Business & pricing guide</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> 7 advanced projects</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> 1-on-1 mentor session</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-300"><i
+                            class="fas fa-check-circle text-gold mt-1"></i> Portfolio review</li>
+                </ul>
+
+                <div class="flex items-center justify-between text-[10px] text-gray-500 uppercase tracking-widest mb-6">
+                    <span><i class="far fa-clock mr-1 text-gold"></i> 4 Weeks</span>
+                    <span><i class="far fa-gem mr-1 text-gold"></i> 7 Projects</span>
+                </div>
+
+                <div id="readMore3" class="read-more-content">
+                    <div class="pt-2 pb-6 border-t border-gray-800 text-sm text-gray-400">
+                        <p>Focus on industrial woodworking and commercial table production.</p>
+                    </div>
+                </div>
+
+                <div class="mt-auto space-y-4">
+                    <button onclick="toggleReadMore('readMore3', this)"
+                        class="w-full border border-gray-800 text-gray-400 py-3 text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition-all font-bold">Details</button>
+                    <button
+                        class="w-full bg-white text-black hover:bg-gold hover:text-white py-4 font-bold transition-all uppercase tracking-widest text-xs">Register
+                        Interest</button>
+                </div>
+            </div>
+
+            <!-- CARD 4: MASTERCLASS -->
+            <div
+                class="course-card reveal border border-gold p-8 flex flex-col h-full relative group overflow-hidden border-t-4 border-t-gold">
+                <div
+                    class="absolute top-4 right-4 text-[8px] font-bold animate-pulse uppercase tracking-widest text-gold">
+                    Waitlist Open</div>
+
+                <div class="mb-6">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-2">Full
+                        Internship</span>
+                    <h3 class="text-2xl font-serif font-bold leading-tight mb-2">Signature Artisans Masterclass</h3>
+                    <p class="text-gray-500 text-xs font-medium uppercase tracking-tighter">Ultimate Certification</p>
+                </div>
+
+                <div class="gold-divider mb-6"></div>
+
+                <div class="mb-6">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Entrepreneurial Focus:</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        The complete resin empire blueprint. From workshop setup to global shipping and high-ticket
+                        sales psychology.
+                    </p>
+                </div>
+
+                <ul class="grid grid-cols-1 gap-3 mb-8 flex-grow">
+                    <li class="flex items-start gap-3 text-sm text-gray-200"><i class="fas fa-star text-gold mt-1"></i>
+                        All Beginner & Advanced Courses</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-200"><i class="fas fa-star text-gold mt-1"></i>
+                        Exclusive ocean table techniques</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-200"><i class="fas fa-star text-gold mt-1"></i>
+                        Business launch kit</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-200"><i class="fas fa-star text-gold mt-1"></i>
+                        Supplier contacts list</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-200"><i class="fas fa-star text-gold mt-1"></i>
+                        Branded certificate</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-200"><i class="fas fa-star text-gold mt-1"></i>
+                        Whatsapp VIP support group</li>
+                    <li class="flex items-start gap-3 text-sm text-gray-200 font-bold"><i
+                            class="fas fa-star text-gold mt-1"></i> Free Starter Kit worth ₹1,500</li>
+                </ul>
+
+                <div class="mb-6 p-4 bg-gold/10 rounded-lg border border-gold/20">
+                    <p class="text-xs font-bold uppercase tracking-wider text-gold mb-2">Why This Masterclass?</p>
+                    <ul class="text-xs text-gray-400 space-y-1">
+                        <li>• One-time payment, lifetime updates</li>
+                        <li>• Mentorship from Manish himself</li>
+                        <li>• Commercial certification included</li>
+                    </ul>
+                </div>
+
+                <div class="mt-auto space-y-4">
+                    <button onclick="openCurriculumModal()"
+                        class="w-full border border-gold text-gold py-3 rounded-xl hover:bg-gold/10 transition-all font-semibold">View
+                        Full Details</button>
+                    <button
+                        class="w-full shimmer-btn text-black py-4 rounded-xl font-black transition-all uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(217,119,6,0.4)]">Claim
+                        Your Spot</button>
+                    <div class="text-center">
+                        <a href="#preview"
+                            class="text-xs text-gray-500 hover:text-gold underline transition-all">Preview All
+                            Modules</a>
+                    </div>
+                </div>
+                <p id="urgencyText"
+                    class="text-[10px] text-center text-red-500 mt-4 font-bold tracking-tighter uppercase">Only 5 seats
+                    remaining this month • <span id="timer">00:00:00</span></p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- COMPARISON TABLE SECTION -->
+    <section class="py-24 px-6 bg-gray-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold mb-4">Workshop Comparison</h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="overflow-x-auto border border-gray-800 shadow-2xl">
+                <table class="w-full text-left border-collapse min-w-[800px] bg-black/40">
+                    <thead>
+                        <tr class="bg-black text-gold uppercase text-xs tracking-widest">
+                            <th class="p-6 border-b border-gray-800">Feature</th>
+                            <th class="p-6 border-b border-gray-800">Beginner</th>
+                            <th class="p-6 border-b border-gray-800">Intermediate</th>
+                            <th class="p-6 border-b border-gray-800">Advanced</th>
+                            <th class="p-6 border-b border-gray-800 bg-gold/5">Masterclass</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
+                            <td class="p-6 font-medium text-gray-400">Total Duration</td>
+                            <td class="p-6">1 Week</td>
+                            <td class="p-6">2 Weeks</td>
+                            <td class="p-6">4 Weeks</td>
+                            <td class="p-6 font-bold bg-gold/5 italic">Unlimited</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
+                            <td class="p-6 font-medium text-gray-400">Projects</td>
+                            <td class="p-6">3</td>
+                            <td class="p-6">5</td>
+                            <td class="p-6">7</td>
+                            <td class="p-6 font-bold bg-gold/5">15+</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
+                            <td class="p-6 font-medium text-gray-400">Certificate</td>
+                            <td class="p-6 text-gold"><i class="fas fa-check"></i></td>
+                            <td class="p-6 text-gold"><i class="fas fa-check"></i></td>
+                            <td class="p-6 text-gold"><i class="fas fa-check"></i></td>
+                            <td class="p-6 text-gold bg-gold/5"><i class="fas fa-check"></i> (Branded)</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
+                            <td class="p-6 font-medium text-gray-400">Community Access</td>
+                            <td class="p-6 text-gray-600"><i class="fas fa-times"></i></td>
+                            <td class="p-6 text-gold"><i class="fas fa-check"></i></td>
+                            <td class="p-6 text-gold"><i class="fas fa-check"></i></td>
+                            <td class="p-6 text-gold bg-gold/5"><i class="fas fa-check"></i> (VIP)</td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
+                            <td class="p-6 font-medium text-gray-400">1-on-1 Mentorship</td>
+                            <td class="p-6 text-gray-600"><i class="fas fa-times"></i></td>
+                            <td class="p-6 text-gray-600"><i class="fas fa-times"></i></td>
+                            <td class="p-6 text-gold"><i class="fas fa-check"></i></td>
+                            <td class="p-6 text-gold bg-gold/5"><i class="fas fa-check"></i> (Unlimited)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO PREVIEW SECTION -->
+    <section id="preview" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold mb-4">Course Preview</h2>
+                <p class="text-gray-500 uppercase tracking-widest text-xs">Watch a Sneak Peek</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="group relative cursor-pointer reveal rounded-xl overflow-hidden"
+                    onclick="openVideoModal('2mHTuQKmbUo')">
+                    <img src="https://picsum.photos/seed/resin1/600/400" alt="Foundations"
+                        class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:bg-black/20 transition-all">
+                        <div
+                            class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-play ml-1"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="bg-black/60 backdrop-blur-md px-2 py-1 text-[10px] rounded uppercase">Foundations •
+                            4m 20s</span>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="group relative cursor-pointer reveal rounded-xl overflow-hidden"
+                    onclick="openVideoModal('snykQk7JUi8')">
+                    <img src="https://picsum.photos/seed/resin2/600/400" alt="Mastery"
+                        class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:bg-black/20 transition-all">
+                        <div
+                            class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-play ml-1"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="bg-black/60 backdrop-blur-md px-2 py-1 text-[10px] rounded uppercase">Ocean Mastery
+                            • 6m 45s</span>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="group relative cursor-pointer reveal rounded-xl overflow-hidden"
+                    onclick="openVideoModal('OQwsFe9997g')">
+                    <img src="https://picsum.photos/seed/resin3/600/400" alt="Business"
+                        class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:bg-black/20 transition-all">
+                        <div
+                            class="w-16 h-16 bg-gold text-white rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-play ml-1"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="bg-black/60 backdrop-blur-md px-2 py-1 text-[10px] rounded uppercase">Business
+                            Setup • 8m 12s</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACILITIES SECTION -->
+    <section class="py-24 px-6 bg-black border-t border-gray-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+            <div class="md:w-1/2 relative reveal">
+                <div class="absolute inset-0 bg-gold blur-[100px] opacity-10"></div>
+                <img src="https://picsum.photos/seed/living/800/600" alt="Student Accommodation"
+                    class="relative rounded-2xl shadow-2xl border border-gray-800 z-10 grayscale hover:grayscale-0 transition-all duration-500">
+            </div>
+            <div class="md:w-1/2 reveal">
+                <h2 class="text-4xl font-serif font-bold mb-6">Comfortable <span class="text-gold">Student Stay</span>
+                </h2>
+                <p class="text-gray-400 mb-8 leading-relaxed">
+                    We understand that learning a craft requires focus. For our out-of-town students, we provide
+                    well-maintained on-site facilities so you can concentrate entirely on your training without worrying
+                    about logistics.
+                </p>
+                <ul class="space-y-8">
+                    <li class="flex items-start gap-5">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center text-gold shadow-lg flex-shrink-0 group-hover:border-gold transition-colors">
+                            <i class="fas fa-bed text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-2">Clean & Airy Rooms
+                            </h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">Spacious, ventilated accommodation with
+                                regular housekeeping to ensure a hygienic and restful environment.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-5">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center text-gold shadow-lg flex-shrink-0">
+                            <i class="fas fa-utensils text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-2">Hygienic Food & Water
+                            </h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">Freshly prepared, nutritious meals arranged
+                                daily to keep you energized, plus 24/7 access to purified drinking water.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-5">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center text-gold shadow-lg flex-shrink-0">
+                            <i class="fas fa-bolt text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-2">Uninterrupted
+                                Utilities</h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">Full power backup and continuous water
+                                supply in restrooms to ensure your stay and practice are never disrupted.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDENT REVIEW SHORTS SECTION -->
+    <section class="py-24 px-6 bg-black border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold mb-4">Student <span class="text-gold">Reviews</span></h2>
+                <p class="text-gray-400 text-xs uppercase tracking-widest">Watch Real Success Stories</p>
+            </div>
+
+            <div class="relative group">
+                <!-- Navigation Buttons -->
+                <button onclick="scrollShorts('left')"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-20 w-12 h-12 rounded-full bg-gray-800 border border-gold/30 text-gold hover:bg-gold hover:text-white flex items-center justify-center transition-all shadow-xl opacity-0 group-hover:opacity-100">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button onclick="scrollShorts('right')"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-20 w-12 h-12 rounded-full bg-gray-800 border border-gold/30 text-gold hover:bg-gold hover:text-white flex items-center justify-center transition-all shadow-xl opacity-0 group-hover:opacity-100">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Carousel Track -->
+                <div id="shortsTrack"
+                    class="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-12 px-4 scroll-smooth">
+                    <!-- Video 1 -->
+                    <div class="mobile-card flex-shrink-0 snap-center">
+                        <div class="mobile-frame">
+                            <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/e5nlD_5GNo4"
+                                title="Review 1" loading="lazy" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="mobile-card flex-shrink-0 snap-center">
+                        <div class="mobile-frame">
+                            <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/OFG4IHU_7L0?si=ei-6zWr98RTNWpeJ"
+                                title="Review 2" loading="lazy" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="mobile-card flex-shrink-0 snap-center">
+                        <div class="mobile-frame">
+                            <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/9Pw-BI76Y1Y"
+                                title="Review 3" loading="lazy" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <!-- Video 4 -->
+                    <div class="mobile-card flex-shrink-0 snap-center">
+                        <div class="mobile-frame">
+                            <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/oA2tU13TBug"
+                                title="Review 4" loading="lazy" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <!-- Video 5 -->
+                    <div class="mobile-card flex-shrink-0 snap-center">
+                        <div class="mobile-frame">
+                            <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/dVBaIOv0RTU"
+                                title="Review 5" loading="lazy" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <!-- Video 6 -->
+                    <div class="mobile-card flex-shrink-0 snap-center">
+                        <div class="mobile-frame">
+                            <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/DY2mhCFjAXY"
+                                title="Review 6" loading="lazy" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-24 px-6 bg-gray-900/30">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="course-card p-8 reveal border border-gray-800">
+                    <div class="text-gold mb-4 text-xs">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 italic text-sm mb-6 leading-relaxed">"The Masterclass changed my life. I
+                        went from zero art experience to selling my first river table for ₹45,000 in just three months."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-bold">
+                            AK</div>
+                        <div>
+                            <h4 class="text-sm font-bold">Animesh K.</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-tighter">Masterclass Student</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="course-card p-8 reveal border border-gray-800">
+                    <div class="text-gold mb-4 text-xs">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 italic text-sm mb-6 leading-relaxed">"Perfect pacing for beginners. Manish
+                        explains the science behind the resin so clearly that you don't fear making mistakes."</p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-bold">
+                            SR</div>
+                        <div>
+                            <h4 class="text-sm font-bold">Sruthi R.</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-tighter">Foundations Student</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="course-card p-8 reveal border border-gray-800">
+                    <div class="text-gold mb-4 text-xs">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 italic text-sm mb-6 leading-relaxed">"The supplier list alone is worth the
+                        price of the course. Finding the right raw materials was my biggest challenge before Nilal
+                        Arts."</p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-bold">
+                            VJ</div>
+                        <div>
+                            <h4 class="text-sm font-bold">Vikram J.</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-tighter">Advanced Techniques</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-serif font-bold mb-4 tracking-tight">Academy <span
+                    class="text-gold italic">Insights</span></h2>
+            <p class="text-xs uppercase tracking-[0.3em] text-gray-500">Essential Knowledge</p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="border border-gray-800 overflow-hidden bg-gray-900/30">
+                <button onclick="toggleFaq(this)"
+                    class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-gold/5">
+                    <span class="font-serif text-lg">Do I need any previous experience?</span>
+                    <i class="fas fa-chevron-down text-gold transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 bg-black/20">
+                    <p class="p-6 text-sm text-gray-400">Absolutely not. Our Beginner Foundation course is specifically
+                        designed for people who have never touched resin before. We start from the absolute basics of
+                        chemistry and safety.</p>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="border border-gray-800 overflow-hidden bg-gray-900/30">
+                <button onclick="toggleFaq(this)"
+                    class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-gold/5">
+                    <span class="font-serif text-lg">Are materials included in the price?</span>
+                    <i class="fas fa-chevron-down text-gold transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 bg-black/20">
+                    <p class="p-6 text-sm text-gray-400">The course fee is for the online training only. However,
+                        students of the Masterclass receive a curated starter kit worth ₹1,500 shipped to their address
+                        for free.</p>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="border border-gray-800 overflow-hidden bg-gray-900/30">
+                <button onclick="toggleFaq(this)"
+                    class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-gold/5">
+                    <span class="font-serif text-lg">Is there a certificate provided?</span>
+                    <i class="fas fa-chevron-down text-gold transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 bg-black/20">
+                    <p class="p-6 text-sm text-gray-400">Yes, every course comes with a digital certificate of
+                        completion. Masterclass students receive a professional-grade physical certificate signed by
+                        Manish.</p>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/30">
+                <button onclick="toggleFaq(this)"
+                    class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-white/5">
+                    <span class="font-medium">Can I access the course on my mobile?</span>
+                    <i class="fas fa-chevron-down text-gold transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 bg-black/20">
+                    <p class="p-6 text-sm text-gray-400">Yes, our platform is fully responsive. You can watch lessons on
+                        your phone, tablet, or laptop anytime. You also have lifetime access to the content.</p>
+                </div>
+            </div>
+            <!-- FAQ 5 -->
+            <div class="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/30">
+                <button onclick="toggleFaq(this)"
+                    class="w-full p-6 text-left flex justify-between items-center transition-all hover:bg-white/5">
+                    <span class="font-medium">What if I have doubts during the course?</span>
+                    <i class="fas fa-chevron-down text-gold transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 bg-black/20">
+                    <p class="p-6 text-sm text-gray-400">We have a dedicated support system. Intermediate and
+                        Masterclass students get access to a private community and Whatsapp group where Manish and the
+                        team answer doubts within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-gray-800 pt-20 pb-10 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-2">
+                <h4 class="font-serif text-3xl font-bold text-gold mb-6">Nilal Arts.</h4>
+                <p class="text-gray-500 max-w-xs mb-8">Elevating resin art from a hobby to a high-ticket craft. Join
+                    2,000+ students globally.</p>
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:border-gold hover:text-gold transition-all"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:border-gold hover:text-gold transition-all"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:border-gold hover:text-gold transition-all"><i
+                            class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold uppercase tracking-widest text-gold mb-6">Quick Links</h5>
+                <ul class="space-y-3 text-gray-500 text-sm font-medium">
+                    <li><a href="index.html" class="hover:text-white transition-all">Home</a></li>
+                    <li><a href="#courses" class="hover:text-white transition-all">All Courses</a></li>
+                    <li><a href="#comparison" class="hover:text-white transition-all">Comparison Table</a></li>
+                    <li><a href="#preview" class="hover:text-white transition-all">Previews</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold uppercase tracking-widest text-gold mb-6">Support</h5>
+                <ul class="space-y-3 text-gray-500 text-sm font-medium">
+                    <li><a href="#" class="hover:text-white transition-all">Student Portal</a></li>
+                    <li><a href="#" class="hover:text-white transition-all">Material Supply</a></li>
+                    <li><a href="#" class="hover:text-white transition-all">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-all">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center pt-8 border-t border-gray-900">
+            <p class="text-gray-600 text-[10px] uppercase tracking-[0.4em]">© 2025 Nilal Arts • Handcrafted Excellence
+            </p>
+        </div>
+    </footer>
+
+    <!-- MODAL: VIDEO PLAYER -->
+    <div id="videoModal"
+        class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 hidden transition-opacity duration-300">
+        <button onclick="closeVideoModal()"
+            class="absolute top-8 right-8 text-white text-4xl hover:text-gold transition-colors z-[110]">&times;</button>
+        <div class="w-full max-w-5xl aspect-video relative">
+            <iframe id="videoIframe" class="w-full h-full rounded-2xl shadow-2xl" src="" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="absolute inset-0 z-[105]" onclick="closeVideoModal()"></div>
+    </div>
+
+    <!-- MODAL: MASTERCLASS CURRICULUM -->
+    <div id="curriculumModal"
+        class="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 hidden backdrop-blur-sm">
+        <div
+            class="bg-gray-900 border-2 border-gold/30 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-10 relative z-[110] shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+            <button onclick="closeCurriculumModal()"
+                class="absolute top-6 right-6 text-gray-500 hover:text-gold text-3xl transition-all">&times;</button>
+            <h2 class="font-serif text-3xl font-bold mb-2 text-gold">Masterclass Curriculum</h2>
+            <p class="text-gray-400 text-sm mb-8">The most comprehensive resin art program in the world.</p>
+
+            <div class="space-y-6">
+                <div class="border-l-2 border-gold pl-6 py-2">
+                    <h4 class="text-gold font-bold text-sm uppercase tracking-widest mb-2">Phase 1: Foundations</h4>
+                    <p class="text-gray-400 text-sm">Resin Chemistry, Environment Control, Mold Making, Tools 101.</p>
+                </div>
+                <div class="border-l-2 border-gold pl-6 py-2">
+                    <h4 class="text-gold font-bold text-sm uppercase tracking-widest mb-2">Phase 2: Artistic Mastery
+                    </h4>
+                    <p class="text-gray-400 text-sm">Ocean cells, Lacing techniques, Geode textures, Galaxy effects,
+                        Embedding flowers.</p>
+                </div>
+                <div class="border-l-2 border-gold pl-6 py-2">
+                    <h4 class="text-gold font-bold text-sm uppercase tracking-widest mb-2">Phase 3: Furniture Building
+                    </h4>
+                    <p class="text-gray-400 text-sm">River table fabrication, Deep pour management, Wood selection,
+                        Flattening, Sanding up to 5000 grit.</p>
+                </div>
+                <div class="border-l-2 border-gold pl-6 py-2">
+                    <h4 class="text-gold font-bold text-sm uppercase tracking-widest mb-2">Phase 4: Business Launch</h4>
+                    <p class="text-gray-400 text-sm">Branding, Photography, Pricing Psychology, Instagram Marketing,
+                        Shipping large crates.</p>
+                </div>
+            </div>
+
+            <div class="mt-10">
+                <button class="w-full bg-gold text-white py-4 rounded-xl font-bold">Enroll Now in Masterclass</button>
+            </div>
+        </div>
+        <div class="absolute inset-0 z-[105]" onclick="closeCurriculumModal()"></div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="courses.js"></script>
+</body>
+
+</html>
