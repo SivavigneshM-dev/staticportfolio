@@ -31,26 +31,36 @@ function toggleReadMore(id, btn) {
 function openVideoModal(videoId) {
   const modal = document.getElementById("videoModal");
   const iframe = document.getElementById("videoIframe");
-  iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+
+  // Using YouTube No-Cookie for better privacy and professional feel
+  iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0`;
+
   modal.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
+  modal.style.display = "flex"; // Ensure flex display for centering
+  document.body.style.overflow = "hidden"; // Prevent background scroll
 }
 
 function closeVideoModal() {
   const modal = document.getElementById("videoModal");
   const iframe = document.getElementById("videoIframe");
-  iframe.src = "";
+
+  iframe.src = ""; // Stop video playback
   modal.classList.add("hidden");
-  document.body.style.overflow = "auto";
+  modal.style.display = "none";
+  document.body.style.overflow = "auto"; // Re-enable scroll
 }
 
 function openCurriculumModal() {
-  document.getElementById("curriculumModal").classList.remove("hidden");
+  const modal = document.getElementById("curriculumModal");
+  modal.classList.remove("hidden");
+  modal.style.display = "flex";
   document.body.style.overflow = "hidden";
 }
 
 function closeCurriculumModal() {
-  document.getElementById("curriculumModal").classList.add("hidden");
+  const modal = document.getElementById("curriculumModal");
+  modal.classList.add("hidden");
+  modal.style.display = "none";
   document.body.style.overflow = "auto";
 }
 
@@ -146,4 +156,13 @@ if (scrollBtn) {
   scrollBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+}
+
+// 9. Feature List Toggle for Masterclass
+function toggleFeatures(id, btn) {
+  const content = document.getElementById(id);
+  content.classList.toggle("open");
+  btn.innerText = content.classList.contains("open")
+    ? "Show Less ▵"
+    : "Show More ▿";
 }

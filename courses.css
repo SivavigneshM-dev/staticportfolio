@@ -30,7 +30,7 @@ body {
 }
 
 .hero-slide.active {
-  opacity: 0.45;
+  opacity: 0.7;
 }
 
 /* --- Animations --- */
@@ -62,6 +62,31 @@ body {
 
   100% {
     transform: translateX(100%);
+  }
+}
+
+/* Ensure the modal is strictly on top of everything else */
+#videoModal {
+  transition: opacity 0.3s ease;
+}
+
+/* Professional 16:9 Container */
+.video-responsive-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+#videoIframe {
+  border: none;
+  box-shadow: 0 0 30px rgba(217, 119, 6, 0.2);
+}
+
+/* Fix for mobile/tablet scaling */
+@media (max-width: 768px) {
+  #videoModal > .relative {
+    max-width: 95%;
   }
 }
 
@@ -144,7 +169,7 @@ body {
 .read-more-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
+  transition: max-height 0.5s ease-in-out;
 }
 
 .read-more-content.open {
@@ -232,12 +257,12 @@ body {
 .mobile-frame {
   width: 270px;
   height: 480px;
-  border-radius: 30px;
-  border: 8px solid #1f2937; /* gray-800 */
+  border-radius: 25px;
+  border: 1px solid #1f2937; /* gray-800 */
   background-color: #000;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 20px rgba(102, 102, 102, 0.5);
   transition: all 0.3s ease;
 }
 
