@@ -331,6 +331,8 @@ body {
 @media (max-width: 768px) {
   /* Back Button */
   .back-btn {
+    top: 15px !important;
+    left: 15px !important;
     width: 40px !important;
     height: 40px !important;
     border-radius: 50% !important;
@@ -343,23 +345,37 @@ body {
     display: none !important;
   }
 
+  /* Center Logo */
+  .absolute.top-8.left-1\/2 {
+    top: 20px !important;
+  }
+
   /* Typography & Spacing */
-  h1, .text-5xl, .text-7xl {
+  h1,
+  .text-5xl,
+  .text-7xl {
     font-size: 2rem !important;
     line-height: 1.2 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
-  h2, .text-4xl {
+  h2,
+  .text-4xl {
     font-size: 1.8rem !important;
     line-height: 1.3 !important;
   }
-  p.text-lg, p.text-xl {
+  p.text-lg,
+  p.text-xl {
     font-size: 1rem !important;
   }
 
   .relative.z-10.max-w-4xl {
     margin-top: -2rem !important;
+    text-align: center !important;
+  }
+  .relative.z-10.max-w-4xl p {
+    text-align: center !important;
+    padding: 0 15px !important;
   }
 
   /* Universal Section Padding */
@@ -378,12 +394,29 @@ body {
     padding: 0.75rem 0.5rem !important;
     font-size: 0.7rem !important;
   }
-  
-  .comparison-section, .preview-section {
+
+  /* Call-to-Action Buttons (Academy Hero) */
+  .flex.flex-col.sm\:flex-row.gap-4.justify-center {
+    flex-direction: row !important;
+    gap: 10px !important;
+    padding: 0 10px !important;
+  }
+  .flex.flex-col.sm\:flex-row.gap-4.justify-center a,
+  .flex.flex-col.sm\:flex-row.gap-4.justify-center button {
+    flex: 1 !important;
+    padding: 10px 5px !important;
+    font-size: 0.7rem !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+
+  .comparison-section,
+  .preview-section {
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
   }
-  .comparison-section .mb-16, .preview-section .mb-16 {
+  .comparison-section .mb-16,
+  .preview-section .mb-16 {
     margin-bottom: 1.5rem !important;
   }
 }

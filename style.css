@@ -183,7 +183,9 @@ body {
   stroke: #d97706; /* Matches --gold variable */
   stroke-miterlimit: 10;
   box-shadow: inset 0px 0px 0px #d97706;
-  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  animation:
+    fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
 }
 
 .checkmark__circle {
@@ -204,12 +206,25 @@ body {
   animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
 }
 
-@keyframes stroke { 100% { stroke-dashoffset: 0; } }
-@keyframes scale {
-  0%, 100% { transform: none; }
-  50% { transform: scale3d(1.1, 1.1, 1); }
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
-@keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px rgba(217, 119, 6, 0.1); } }
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px rgba(217, 119, 6, 0.1);
+  }
+}
 
 /* Mobile Responsive UI Fixes */
 @media (max-width: 768px) {
@@ -222,9 +237,14 @@ body {
   #mobile-menu-btn {
     color: white !important;
   }
+  nav .hidden.lg\:flex {
+    display: none !important;
+  }
 
   /* Back Button */
   .back-btn {
+    top: 15px !important;
+    left: 15px !important;
     width: 40px !important;
     height: 40px !important;
     border-radius: 50% !important;
@@ -237,23 +257,41 @@ body {
     display: none !important;
   }
 
+  /* Center Logo */
+  .absolute.top-8.left-1\/2 {
+    top: 20px !important;
+  }
+
   /* Typography & Spacing */
-  h1, .text-5xl, .text-7xl {
+  h1,
+  .text-5xl,
+  .text-7xl {
     font-size: 2rem !important;
     line-height: 1.2 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
-  h2, .text-4xl {
+  h2,
+  .text-4xl {
     font-size: 1.8rem !important;
     line-height: 1.3 !important;
   }
-  p.text-lg, p.text-xl {
+  p.text-lg,
+  p.text-xl {
     font-size: 1rem !important;
   }
-  
-  .hero-content, .relative.z-10.max-w-4xl, .text-center.relative.z-10 {
+
+  .hero-content,
+  .relative.z-10.max-w-4xl,
+  .text-center.relative.z-10 {
     margin-top: -2rem !important;
+    text-align: center !important;
+  }
+  .hero-content p,
+  .relative.z-10.max-w-4xl p,
+  .text-center.relative.z-10 p {
+    text-align: center !important;
+    padding: 0 15px !important;
   }
 
   /* Universal Section Padding */
@@ -275,5 +313,39 @@ body {
   .social-stats-container > div p.text-sm {
     font-size: 0.65rem !important;
     white-space: nowrap;
+  }
+
+  /* Grid Layout (seathemes.html) */
+  #tables .grid,
+  .py-20 .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .group.bg-gray-900 .h-64,
+  .group.relative.h-64 {
+    height: 120px !important;
+  }
+  .group.bg-gray-900 .p-6,
+  .group.relative .p-6 {
+    padding: 10px !important;
+  }
+  .group.bg-gray-900 h3,
+  .group.relative h3 {
+    font-size: 0.9rem !important;
+    margin-bottom: 5px !important;
+  }
+  .group.bg-gray-900 p.text-sm {
+    font-size: 0.7rem !important;
+    margin-bottom: 8px !important;
+  }
+  .group.bg-gray-900 .flex.gap-3 {
+    flex-direction: column !important;
+    gap: 5px !important;
+  }
+  .group.bg-gray-900 .flex.gap-3 button {
+    width: 100% !important;
+    padding: 6px !important;
+    font-size: 0.7rem !important;
   }
 }
