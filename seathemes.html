@@ -39,15 +39,135 @@
 
 <body class="bg-black text-white">
 
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 bg-transparent transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-serif flex items-center whitespace-nowrap">
+                        <img src="https://placehold.co/150x50/transparent/white?text=NAIC" alt="Nilal Arts Logo"
+                            class="h-12 w-auto object-contain">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center justify-center gap-8 flex-1">
+                    <a href="index.html"
+                        class="text-white hover:text-gold transition-colors duration-300 text-sm font-medium px-2 nav-home-link whitespace-nowrap">Home</a>
+
+                    <!-- Dropdown: Our Tables -->
+                    <div class="relative group">
+                        <button
+                            class="text-white group-hover:text-gold transition-colors duration-300 text-sm font-medium px-2 flex items-center gap-1 whitespace-nowrap">
+                            Our Tables <i
+                                class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50 border border-gray-800 text-left">
+                            <a href="seathemes.html"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold first:rounded-t-lg whitespace-nowrap">Beach
+                                Themes</a>
+                            <a href="index.html#gallery"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold whitespace-nowrap">Epoxy
+                                Resin</a>
+                            <a href="index.html#gallery"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold whitespace-nowrap">Live
+                                Edge</a>
+                            <a href="index.html#gallery"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold last:rounded-b-lg whitespace-nowrap">Glass
+                                Tables</a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown: Academy -->
+                    <div class="relative group">
+                        <button
+                            class="text-white group-hover:text-gold transition-colors duration-300 text-sm font-medium px-2 flex items-center gap-1 whitespace-nowrap">
+                            The Academy <i
+                                class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50 border border-gray-800 text-left">
+                            <a href="courses.html"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold first:rounded-t-lg whitespace-nowrap">All
+                                Courses</a>
+                            <a href="index.html#academy"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold whitespace-nowrap">Epoxy
+                                Fundamentals</a>
+                            <a href="index.html#academy"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold whitespace-nowrap">Master
+                                Table Builder</a>
+                            <a href="index.html#academy"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold last:rounded-b-lg whitespace-nowrap">Weekend
+                                Workshops</a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown: Policies -->
+                    <div class="relative group">
+                        <button
+                            class="text-white group-hover:text-gold transition-colors duration-300 text-sm font-medium px-2 flex items-center gap-1 whitespace-nowrap">
+                            Policies <i
+                                class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50 border border-gray-800 text-left">
+                            <a href="terms.html"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold first:rounded-t-lg whitespace-nowrap">Terms
+                                & Conditions</a>
+                            <a href="policy.html"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold whitespace-nowrap">Privacy
+                                Policy</a>
+                            <a href="refund.html"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-gold last:rounded-b-lg whitespace-nowrap">Refund
+                                Policy</a>
+                        </div>
+                    </div>
+
+                    <a href="rawmaterials.html"
+                        class="text-white hover:text-gold transition-colors duration-300 text-sm font-medium px-2 whitespace-nowrap">Raw
+                        Materials</a>
+                    <a href="index.html#contact"
+                        class="text-white hover:text-gold transition-colors duration-300 text-sm font-medium px-2 whitespace-nowrap">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gold focus:outline-none p-2 whitespace-nowrap">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu"
+                class="hidden lg:hidden bg-gray-900 border-t border-gray-800 absolute w-full left-0 top-20 shadow-xl py-6 px-6 flex flex-col gap-4 z-40 max-h-[80vh] overflow-y-auto">
+                <a href="index.html#hero" class="text-white hover:text-gold font-bold text-lg nav-home-link whitespace-nowrap">Home</a>
+                <div class="flex flex-col gap-3 pl-4 border-l-2 border-gray-800">
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Our Tables</span>
+                    <a href="seathemes.html" class="text-gray-300 hover:text-gold font-medium whitespace-nowrap">Beach Themes</a>
+                    <a href="index.html#gallery" class="text-gray-300 hover:text-gold font-medium whitespace-nowrap">Epoxy & Live Edge</a>
+                </div>
+                <div class="flex flex-col gap-3 pl-4 border-l-2 border-gray-800">
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">The Academy</span>
+                    <a href="courses.html" class="text-gray-300 hover:text-gold font-medium whitespace-nowrap">All Courses</a>
+                </div>
+                <a href="rawmaterials.html" class="text-white hover:text-gold font-bold text-lg whitespace-nowrap">Raw Materials</a>
+                <div class="flex flex-col gap-3 pl-4 border-l-2 border-gray-800">
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Policies</span>
+                    <a href="terms.html" class="text-gray-300 hover:text-gold font-medium whitespace-nowrap">Terms & Conditions</a>
+                    <a href="policy.html" class="text-gray-300 hover:text-gold font-medium whitespace-nowrap">Privacy Policy</a>
+                    <a href="refund.html" class="text-gray-300 hover:text-gold font-medium whitespace-nowrap">Refund Policy</a>
+                </div>
+                <a href="index.html#contact" class="text-white hover:text-gold font-bold text-lg whitespace-nowrap">Contact</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- HERO SECTION -->
 
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
-
-        <!-- Back Button -->
-        <a href="index.html"
-            class="back-btn absolute top-8 left-8 z-50 text-white/80 hover:bg-white hover:text-blue-600 hover:shadow-[2px_2px_10px_#06b6d4] transition-all duration-300 flex items-center gap-2 backdrop-blur-sm bg-black/20 px-4 py-2 rounded-full border border-white/10">
-            <i class="fas fa-chevron-left"></i> <span class="back-btn-text">Back to Home</span>
-        </a>
 
         <!-- Carousel Slides -->
         <div id="hero-carousel" class="absolute inset-0 w-full h-full">
@@ -84,7 +204,8 @@
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
+        <div
+            class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60">
             <span class="text-xs tracking-widest uppercase">Scroll to Explore</span>
             <i class="fas fa-chevron-down animate-bounce"></i>
         </div>
@@ -556,6 +677,15 @@
         scrollBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
     </script>
 
 </body>

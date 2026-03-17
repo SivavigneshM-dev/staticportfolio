@@ -166,3 +166,14 @@ function toggleFeatures(id, btn) {
     ? "Show Less ▵"
     : "Show More ▿";
 }
+
+// 10. Mobile Menu Toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+});

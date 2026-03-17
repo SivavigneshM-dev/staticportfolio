@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw Materials & Store | Nilal Arts Academy</title>
+    <meta name="description"
+        content="Premium epoxy resins, pigments, tools, and ocean-theme accessories curated by India's leading resin artist.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ─────────────────────────────────────────────
+           FIX 1 — ANCHOR JUMP OFFSET
+           The top nav is 80px, the sticky category bar is
+           52px. Together = 132px. We give scroll-padding 8px
+           extra breathing room → 140px total.
+           This is the SINGLE source of truth for all anchors.
+        ───────────────────────────────────────────── */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 140px;
+            /* 80px nav + 52px cat-bar + 8px gap */
+        }
+
+        /* ─────────────────────────────────────────────
+           LAYOUT RESET
+        ───────────────────────────────────────────── */
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: "Inter", sans-serif;
+            background-color: #000;
+            color: #e5e7eb;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706;
+        }
+
+        .font-serif {
+            font-family: "Playfair Display", serif;
+        }
+
+        /* Horizontal scroll helpers */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Custom accordion marker */
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Radio custom style */
+        input[type="radio"]:checked+label {
+            border-color: #d97706;
+            background-color: rgba(217, 119, 6, 0.12);
+            color: #fff;
+        }
+
+        /* Glass panel */
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid #374151;
+        }
+
+        /* ─────────────────────────────────────────────
+           FIX 3 — Z-INDEX STACK (unified)
+           Top Nav     → z-index: 50
+           Cat Bar     → z-index: 40
+           Main content → z-index: auto (no competing layers)
+           Floaters     → z-index: 60
+        ───────────────────────────────────────────── */
+        #top-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+        }
+
+        #cat-bar {
+            position: sticky;
+            top: 80px;
+            z-index: 40;
+        }
+
+        #scrollTopBtn {
+            z-index: 60;
+        }
+
+        .social-float {
+            z-index: 60;
+        }
+
+        /* Prevent section headings from being hidden behind sticky bars.
+           scroll-margin-top mirrors scroll-padding-top on the html element.  */
+        section[id] {
+            scroll-margin-top: 140px;
+        }
+
+        /* Marquee */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-inner {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-inner:hover {
+            animation-play-state: paused;
+        }
+
+        /* Success checkmark */
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #d97706;
+            stroke-miterlimit: 10;
+            box-shadow: inset 0 0 0 #d97706;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #d97706;
+            fill: none;
+            animation: stroke .6s cubic-bezier(.65, 0, .45, 1) forwards;
+        }
+
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            stroke: #d97706;
+            animation: stroke .3s cubic-bezier(.65, 0, .45, 1) .8s forwards;
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes scale {
+
+            0%,
+            100% {
+                transform: none
+            }
+
+            50% {
+                transform: scale3d(1.1, 1.1, 1)
+            }
+        }
+
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0 0 0 30px rgba(217, 119, 6, .1)
+            }
+        }
+
+        /* ─────────────────────────────────────────────
+           ACTIVE CATEGORY NAV STYLE
+        ───────────────────────────────────────────── */
+        .cat-nav-link {
+            transition: color .2s, border-color .2s, background .2s;
+        }
+
+        .cat-nav-link.active {
+            color: #f59e0b;
+            border-color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.1);
+        }
+
+        /* Mobile fixes */
+        @media (max-width: 768px) {
+
+            h1,
+            .text-5xl,
+            .text-7xl {
+                font-size: 1.8rem !important;
+                line-height: 1.1 !important;
+            }
+
+            h2,
+            .text-4xl {
+                font-size: 1.8rem !important;
+                line-height: 1.3 !important;
+            }
+
+            section {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         TOP NAVIGATION  (z-index: 50 via #top-nav)
+    ═══════════════════════════════════════════════════════════════ -->
+    <nav id="top-nav" class="bg-black/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-serif flex items-center justify-center whitespace-nowrap">
+                        <img src="https://placehold.co/150x50/transparent/white?text=NAIC" alt="Nilal Arts Logo"
+                            class="h-12 w-auto object-contain">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center justify-center gap-8 flex-1">
+                    <a href="index.html"
+                        class="text-white hover:text-yellow-400 transition-colors duration-300 text-sm font-medium px-2 nav-home-link whitespace-nowrap">Home</a>
+
+                    <div class="relative group">
+                        <button
+                            class="text-white group-hover:text-yellow-400 transition-colors duration-300 text-sm font-medium px-2 flex items-center gap-1 whitespace-nowrap">
+                            Our Tables <i
+                                class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300 border border-gray-800"
+                            style="z-index:51">
+                            <a href="seathemes.html"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-500 rounded-t-lg whitespace-nowrap">Beach
+                                Themes</a>
+                            <a href="index.html#gallery"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-500 whitespace-nowrap">Epoxy
+                                Resin</a>
+                            <a href="index.html#gallery"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-500 whitespace-nowrap">Live
+                                Edge</a>
+                            <a href="index.html#gallery"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-500 rounded-b-lg whitespace-nowrap">Glass
+                                Tables</a>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <button
+                            class="text-white group-hover:text-yellow-400 transition-colors duration-300 text-sm font-medium px-2 flex items-center gap-1 whitespace-nowrap">
+                            The Academy <i
+                                class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300 border border-gray-800"
+                            style="z-index:51">
+                            <a href="courses.html"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-500 rounded-t-lg whitespace-nowrap">All
+                                Courses</a>
+                            <a href="index.html#academy"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-500 whitespace-nowrap">Epoxy
+                                Fundamentals</a>
+                            <a href="index.html#academy"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-500 whitespace-nowrap">Master
+                                Table Builder</a>
+                            <a href="index.html#academy"
+                                class="block px-4 py-3 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-500 rounded-b-lg whitespace-nowrap">Weekend
+                                Workshops</a>
+                        </div>
+                    </div>
+
+                    <a href="rawmaterials.html" class="text-yellow-400 text-sm font-medium px-2 whitespace-nowrap">Raw Materials</a>
+                    <a href="index.html#contact"
+                        class="text-white hover:text-yellow-400 transition-colors duration-300 text-sm font-medium px-2 whitespace-nowrap">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-yellow-400 focus:outline-none p-2 whitespace-nowrap">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-black border-t border-gray-800 px-6 py-4 space-y-3">
+            <a href="index.html" class="block text-white hover:text-yellow-400 py-2 nav-home-link whitespace-nowrap">Home</a>
+            <a href="seathemes.html" class="block text-white hover:text-yellow-400 py-2 whitespace-nowrap">Our Tables</a>
+            <a href="courses.html" class="block text-white hover:text-yellow-400 py-2 whitespace-nowrap">The Academy</a>
+            <a href="rawmaterials.html" class="block text-yellow-400 py-2 whitespace-nowrap">Raw Materials</a>
+
+            <div class="flex flex-col gap-3 pl-4 border-l-2 border-gray-800">
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Policies</span>
+                <a href="terms.html" class="text-gray-300 hover:text-yellow-400 font-medium whitespace-nowrap">Terms & Conditions</a>
+                <a href="policy.html" class="text-gray-300 hover:text-yellow-400 font-medium whitespace-nowrap">Privacy Policy</a>
+                <a href="refund.html" class="text-gray-300 hover:text-yellow-400 font-medium whitespace-nowrap">Refund Policy</a>
+            </div>
+            <a href="index.html#contact" class="block text-white hover:text-yellow-400 py-2 whitespace-nowrap">Contact</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         HERO — sits below the 80px fixed nav via pt-20
+    ═══════════════════════════════════════════════════════════════ -->
+    <header class="relative pt-20 flex items-center justify-center overflow-hidden min-h-screen">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80" alt="Resin Art Materials"
+                class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/75"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto py-24">
+            <p class="text-yellow-500 text-sm md:text-base font-semibold tracking-[0.2em] uppercase mb-4">
+                PREMIUM EPOXY RESINS · PIGMENTS · OCEAN ADDITIVES · TOOLS
+            </p>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 font-serif tracking-tight leading-tight">
+                Everything You Need to Create.<br>All in One Place.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                Premium epoxy resins, pigments, tools and ocean-theme accessories — curated and quality-tested by
+                India's leading resin artist. Every material in this store is hand-picked and tested by our instructors
+                at Nilal Arts Academy.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                <a href="#epoxy"
+                    class="w-full sm:w-auto bg-yellow-600 text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-yellow-700 transition-all shadow-lg text-center">
+                    Shop All Materials
+                </a>
+                <a href="#kits"
+                    class="w-full sm:w-auto border-2 border-white text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-all text-center">
+                    Find My Starter Kit
+                </a>
+            </div>
+
+            <!-- Trust Strip -->
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs md:text-sm text-gray-400 font-medium tracking-wider uppercase border-t border-white/10 pt-8">
+                <div class="flex items-center justify-center gap-2"><i class="fas fa-check-circle text-yellow-500"></i>
+                    Artist-tested quality</div>
+                <div class="flex items-center justify-center gap-2"><i
+                        class="fas fa-graduation-cap text-yellow-500"></i> Academy recommended</div>
+                <div class="flex items-center justify-center gap-2"><i class="fas fa-shipping-fast text-yellow-500"></i>
+                    Ships across India</div>
+                <div class="flex items-center justify-center gap-2"><i class="fas fa-book-open text-yellow-500"></i>
+                    Free usage guide</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         STICKY CATEGORY NAV BAR
+         FIX 3: z-index:40, top:80px (matches nav height exactly)
+         FIX 2: scrollIntoView REMOVED from observer — no feedback loop
+    ═══════════════════════════════════════════════════════════════ -->
+    <div id="cat-bar" class="bg-black/95 backdrop-blur-md border-b border-gray-800 shadow-xl py-3">
+        <div class="max-w-7xl mx-auto px-6 overflow-x-auto hide-scrollbar">
+            <div class="flex items-center space-x-2 md:space-x-4 min-w-max">
+                <a href="#epoxy"
+                    class="cat-nav-link active border border-yellow-500 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Epoxy
+                    Resins</a>
+                <a href="#pigments"
+                    class="cat-nav-link text-gray-400 border border-transparent hover:border-gray-600 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Pigments
+                    & Colours</a>
+                <a href="#ocean"
+                    class="cat-nav-link text-gray-400 border border-transparent hover:border-gray-600 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Ocean
+                    Additives</a>
+                <a href="#molds"
+                    class="cat-nav-link text-gray-400 border border-transparent hover:border-gray-600 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Molds
+                    & Frames</a>
+                <a href="#tools"
+                    class="cat-nav-link text-gray-400 border border-transparent hover:border-gray-600 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Tools
+                    & Safety</a>
+                <a href="#wood"
+                    class="cat-nav-link text-gray-400 border border-transparent hover:border-gray-600 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Wood
+                    Slabs</a>
+                <a href="#kits"
+                    class="cat-nav-link text-gray-400 border border-transparent hover:border-gray-600 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Starter
+                    Kits</a>
+                <a href="#finishing"
+                    class="cat-nav-link text-gray-400 border border-transparent hover:border-gray-600 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Finishing</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ═══════════════════════════════════════════════════════════════ -->
+    <main class="py-12 bg-black">
+
+        <!-- EPOXY RESINS -->
+        <section id="epoxy" class="py-16 px-6 max-w-7xl mx-auto">
+            <h2 class="text-3xl font-serif font-bold text-white mb-2">Epoxy Resins</h2>
+            <p class="text-gray-400 mb-10">Professional grade casting and tabletop epoxies engineered for clarity.</p>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Product Card -->
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400&q=80"
+                            alt="Table Top Epoxy"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Table Top Epoxy</h3>
+                        <p class="text-xs text-gray-400 mb-3">1:1 ratio · Thin flood coat · High-gloss finish</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹950 – ₹3,800</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>500g Kit</option>
+                            <option>1kg Kit</option>
+                            <option>5kg Kit</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Academy Recommended -->
+                <div
+                    class="glass-panel border border-yellow-600/50 rounded-xl overflow-hidden flex flex-col group hover:border-yellow-500 transition-colors relative">
+                    <span
+                        class="absolute top-2 left-2 bg-yellow-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-lg">Academy
+                        Recommended</span>
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+                            alt="Deep Pour Casting Resin"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Deep Pour Casting Resin</h3>
+                        <p class="text-xs text-gray-400 mb-3">2:1 ratio · Up to 5cm per pour · Crystal clear</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹1,200 – ₹5,500</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>1.5kg Kit</option>
+                            <option>3kg Kit</option>
+                            <option>15kg Bulk</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-yellow-600 text-white hover:bg-yellow-500 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&q=80"
+                            alt="Art & Craft Resin"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Art & Craft Resin</h3>
+                        <p class="text-xs text-gray-400 mb-3">Easy mix · Coasters, jewelry, paintings</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹650 – ₹2,200</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>300g Kit</option>
+                            <option>1kg Kit</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80"
+                            alt="UV Resin"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">UV Resin</h3>
+                        <p class="text-xs text-gray-400 mb-3">No mixing · Fast 60-sec cure under UV lamp</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹480 – ₹1,600</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>100g Bottle</option>
+                            <option>250g Bottle</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=80"
+                            alt="Quick Set Wood Sealer"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Quick Set Wood Sealer</h3>
+                        <p class="text-xs text-gray-400 mb-3">Pre-pour wood prep · Seals cracks and knots</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹750 – ₹2,800</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>500g Kit</option>
+                            <option>2kg Kit</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel border border-yellow-600/50 rounded-xl overflow-hidden flex flex-col group hover:border-yellow-500 transition-colors relative">
+                    <span
+                        class="absolute top-2 left-2 bg-yellow-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-lg">Academy
+                        Recommended</span>
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=400&q=80"
+                            alt="Low-VOC Indoor Resin"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Low-VOC Indoor Resin</h3>
+                        <p class="text-xs text-gray-400 mb-3">Low odour · Beginner-safe · Indoor use</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹880 – ₹3,400</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>1kg Kit</option>
+                            <option>3kg Kit</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-yellow-600 text-white hover:bg-yellow-500 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PIGMENTS & COLOURS -->
+        <section id="pigments" class="py-16 px-6 max-w-7xl mx-auto border-t border-gray-900">
+            <h2 class="text-3xl font-serif font-bold text-white mb-2">Pigments & Colours</h2>
+            <p class="text-gray-400 mb-10">Highly concentrated shades designed specifically for epoxy diffusion.</p>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div
+                    class="glass-panel border border-yellow-600/50 rounded-xl overflow-hidden flex flex-col group hover:border-yellow-500 transition-colors relative">
+                    <span
+                        class="absolute top-2 left-2 bg-yellow-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-lg">Academy
+                        Recommended</span>
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&q=80"
+                            alt="Mica Powder Set"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Mica Powder Set</h3>
+                        <p class="text-xs text-gray-400 mb-3">50+ shades · Metallic, pearl & matte · Ocean tones curated
+                        </p>
+                        <p class="text-yellow-500 font-bold mb-4">₹380 – ₹1,800</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>12 Color Set</option>
+                            <option>24 Color Set</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-yellow-600 text-white hover:bg-yellow-500 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80"
+                            alt="Alcohol Inks"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Alcohol Inks</h3>
+                        <p class="text-xs text-gray-400 mb-3">Vibrant fluid art · Lacing effects · 30ml bottles</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹220 – ₹950</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>Single (Select Color)</option>
+                            <option>5 Color Pack</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&q=80"
+                            alt="Pigment Paste"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Pigment Paste</h3>
+                        <p class="text-xs text-gray-400 mb-3">Opaque · Concentrated · No measuring needed</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹290 – ₹1,100</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>50g Jar</option>
+                            <option>Pack of 4</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1604871000636-074fa5117945?w=400&q=80"
+                            alt="Metallic Paste"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Metallic Paste</h3>
+                        <p class="text-xs text-gray-400 mb-3">Gold, silver, copper, rose gold — luxury finishes</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹350 – ₹1,400</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>Gold 50g</option>
+                            <option>Silver 50g</option>
+                            <option>Copper 50g</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&q=80"
+                            alt="Fluorescent Pigments"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Fluorescent Pigments</h3>
+                        <p class="text-xs text-gray-400 mb-3">Glow-in-dark · Neon tones · Special projects</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹420 – ₹1,600</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>Single Color</option>
+                            <option>Set of 5</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel border border-yellow-600/50 rounded-xl overflow-hidden flex flex-col group hover:border-yellow-500 transition-colors relative">
+                    <span
+                        class="absolute top-2 left-2 bg-yellow-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-lg">Academy
+                        Recommended</span>
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1547480053-7d174f67b557?w=400&q=80"
+                            alt="Colour Starter Pack"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Colour Starter Pack</h3>
+                        <p class="text-xs text-gray-400 mb-3">12-colour sampler · Perfect for beginners</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹680</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none"
+                            disabled>
+                            <option>Standard Kit</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-yellow-600 text-white hover:bg-yellow-500 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- OCEAN & BEACH ADDITIVES -->
+        <section id="ocean" class="py-16 px-6 max-w-7xl mx-auto border-t border-gray-900">
+            <h2 class="text-3xl font-serif font-bold text-white mb-2">Ocean & Beach Additives</h2>
+            <div
+                class="bg-gradient-to-r from-yellow-900/20 to-black border-l-4 border-yellow-500 p-6 rounded-r-lg mb-8">
+                <p class="text-sm md:text-base text-gray-300 italic font-medium">
+                    "Our signature ocean-theme additives — the secret behind every Nilal Arts table. These curated
+                    materials are exclusively used in our Masterclass course."
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80"
+                            alt="Fine White Beach Sand"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Fine White Beach Sand</h3>
+                        <p class="text-xs text-gray-400 mb-3">Natural texture · Beach scene base · 500g packs</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹180 – ₹650</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>500g Pack</option>
+                            <option>2kg Bulk</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&q=80"
+                            alt="Natural Sea Shells Mix"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Natural Sea Shells Mix</h3>
+                        <p class="text-xs text-gray-400 mb-3">Assorted sizes · Embed in resin layers · Coastal décor</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹320 – ₹980</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>Small Mix 250g</option>
+                            <option>Large Mix 1kg</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel border border-yellow-600/50 rounded-xl overflow-hidden flex flex-col group hover:border-yellow-500 transition-colors relative">
+                    <span
+                        class="absolute top-2 left-2 bg-yellow-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-lg">Academy
+                        Recommended</span>
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1548032885-b5e38734688a?w=400&q=80"
+                            alt="Ocean Foam Paste"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Ocean Foam Paste</h3>
+                        <p class="text-xs text-gray-400 mb-3">White cresting wave effect · Nilal Arts signature
+                            technique</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹450 – ₹1,800</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>50g Jar</option>
+                            <option>200g Pro Jar</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-yellow-600 text-white hover:bg-yellow-500 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509233725247-49e657c54213?w=400&q=80"
+                            alt="Preserved Dried Flowers"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Preserved Dried Flowers</h3>
+                        <p class="text-xs text-gray-400 mb-3">Botanical embeds · Resin-safe · 10 variety packs</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹280 – ₹1,100</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>10 Variety Pack</option>
+                            <option>Master Florist Set</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1545208020-ff4f9e46a5f6?w=400&q=80"
+                            alt="Sparkle Glass Grit"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Sparkle Glass Grit</h3>
+                        <p class="text-xs text-gray-400 mb-3">Water sparkle simulation · Fine & coarse grades</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹240 – ₹890</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>Fine 100g</option>
+                            <option>Coarse 100g</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&q=80"
+                            alt="Ocean Micro Pebbles"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Ocean Micro Pebbles</h3>
+                        <p class="text-xs text-gray-400 mb-3">Seabed texture effect · Mixed colour · 250g bags</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹190 – ₹720</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>250g Bag</option>
+                            <option>1kg Bulk</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MOLDS & FRAMES (Placeholder) -->
+        <section id="molds" class="py-12 px-6 max-w-7xl mx-auto border-t border-gray-900 text-center">
+            <h2 class="text-3xl font-serif font-bold text-white mb-2">Molds & Frames</h2>
+            <p class="text-yellow-500 text-sm font-bold uppercase tracking-widest">Coming Soon</p>
+        </section>
+
+        <!-- TOOLS & SAFETY -->
+        <section id="tools" class="py-16 px-6 max-w-7xl mx-auto border-t border-gray-900">
+            <h2 class="text-3xl font-serif font-bold text-white mb-2">Tools & Safety</h2>
+            <p class="text-gray-400 mb-10">Professional hardware to ensure flawless mixing, pouring, and finishing.</p>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80"
+                            alt="Artist Heat Gun"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Artist Heat Gun</h3>
+                        <p class="text-xs text-gray-400 mb-3">2-speed · Bubble-free surface finishing</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹1,200</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none"
+                            disabled>
+                            <option>1 Unit</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80"
+                            alt="Silicone Mixing Set"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Silicone Mixing Set</h3>
+                        <p class="text-xs text-gray-400 mb-3">10 cups + 20 sticks · Reusable · Non-stick</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹480</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none"
+                            disabled>
+                            <option>Standard Set</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel border border-yellow-600/50 rounded-xl overflow-hidden flex flex-col group hover:border-yellow-500 transition-colors relative">
+                    <span
+                        class="absolute top-2 left-2 bg-yellow-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 shadow-lg">Academy
+                        Recommended</span>
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80"
+                            alt="Digital Weighing Scale"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Digital Weighing Scale</h3>
+                        <p class="text-xs text-gray-400 mb-3">0.1g precision · Accurate ratio mixing</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹950</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none"
+                            disabled>
+                            <option>Max 5kg / 0.1g</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-yellow-600 text-white hover:bg-yellow-500 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80"
+                            alt="Nitrile Gloves Box"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Nitrile Gloves Box</h3>
+                        <p class="text-xs text-gray-400 mb-3">Chemical-resistant · Box of 100</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹380</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none">
+                            <option>Medium</option>
+                            <option>Large</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80"
+                            alt="Respirator Mask"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Respirator Mask</h3>
+                        <p class="text-xs text-gray-400 mb-3">N95 dual-filter · Chemical vapour rated</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹650</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none"
+                            disabled>
+                            <option>Universal Fit</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-xl overflow-hidden flex flex-col group hover:border-yellow-600 transition-colors">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80"
+                            alt="Orbital Sander Kit"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white mb-1">Orbital Sander Kit</h3>
+                        <p class="text-xs text-gray-400 mb-3">With grits 80–3000 for progressive finishing</p>
+                        <p class="text-yellow-500 font-bold mb-4">₹1,800</p>
+                        <select
+                            class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-gray-300 mb-4 focus:border-yellow-500 focus:outline-none"
+                            disabled>
+                            <option>1 Unit + Pads</option>
+                        </select>
+                        <button
+                            class="mt-auto w-full bg-gray-800 text-white hover:bg-yellow-600 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- WOOD SLABS (Placeholder) -->
+        <section id="wood" class="py-12 px-6 max-w-7xl mx-auto border-t border-gray-900 text-center">
+            <h2 class="text-3xl font-serif font-bold text-white mb-2">Wood Slabs</h2>
+            <p class="text-yellow-500 text-sm font-bold uppercase tracking-widest">New Stock Arriving Soon</p>
+        </section>
+
+        <!-- STARTER KIT BUNDLES -->
+        <section id="kits" class="py-24 px-6 bg-gray-900 border-y border-gray-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Ready-to-Start Bundles</h2>
+                    <p class="text-gray-400 text-sm md:text-base">Handpicked by our instructors. Everything you need,
+                        nothing you don't.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+
+                    <div
+                        class="glass-panel border border-gray-800 rounded-2xl overflow-hidden p-8 flex flex-col h-full hover:border-yellow-600 transition-colors">
+                        <div class="h-40 mb-6 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80"
+                                alt="Beginner Kit" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Beginner Kit</h3>
+                        <p class="text-yellow-500 font-bold text-xl mb-4">₹2,400</p>
+                        <p class="text-gray-400 text-sm mb-6 flex-1">Art resin 500g · 6 mica powder colours · Mixing
+                            cups & sticks · Nitrile gloves · Beginner guide PDF</p>
+                        <div class="flex gap-2 mb-6">
+                            <span
+                                class="bg-gray-800 text-gray-300 text-[10px] px-2 py-1 rounded uppercase tracking-wider">For
+                                hobbyists</span>
+                            <span
+                                class="bg-gray-800 text-gray-300 text-[10px] px-2 py-1 rounded uppercase tracking-wider">Course-ready</span>
+                        </div>
+                        <button
+                            class="w-full bg-gray-800 text-white hover:bg-yellow-600 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            Bundle to Cart</button>
+                    </div>
+
+                    <div
+                        class="bg-gray-950 border-2 border-yellow-500 rounded-2xl overflow-hidden p-8 flex flex-col h-full md:scale-105 shadow-[0_0_30px_rgba(217,119,6,0.15)] relative">
+                        <div
+                            class="absolute top-0 left-1/2 -translate-x-1/2 bg-yellow-500 text-white text-[10px] font-bold px-4 py-1 rounded-b-lg uppercase tracking-wider">
+                            Most Popular</div>
+                        <div class="h-48 mb-6 mt-4 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=80"
+                                alt="Ocean Table Kit" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Ocean Table Kit</h3>
+                        <p class="text-yellow-500 font-bold text-2xl mb-4">₹6,800</p>
+                        <p class="text-gray-400 text-sm mb-6 flex-1">Deep pour resin 2kg · Ocean pigment set · Sand &
+                            shell pack · Foam paste · Tools starter set · Video tutorial access</p>
+                        <div class="flex gap-2 mb-6">
+                            <span
+                                class="bg-yellow-900/50 text-yellow-500 text-[10px] px-2 py-1 rounded border border-yellow-700/50 uppercase tracking-wider">Table
+                                makers</span>
+                            <span
+                                class="bg-yellow-900/50 text-yellow-500 text-[10px] px-2 py-1 rounded border border-yellow-700/50 uppercase tracking-wider">Academy
+                                recommended</span>
+                        </div>
+                        <button
+                            class="w-full bg-yellow-600 text-white hover:bg-yellow-500 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-lg">Add
+                            Bundle to Cart</button>
+                    </div>
+
+                    <div
+                        class="glass-panel border border-gray-800 rounded-2xl overflow-hidden p-8 flex flex-col h-full hover:border-yellow-600 transition-colors">
+                        <div class="h-40 mb-6 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&q=80"
+                                alt="Pro Studio Kit" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Pro Studio Kit</h3>
+                        <p class="text-yellow-500 font-bold text-xl mb-4">₹14,500</p>
+                        <p class="text-gray-400 text-sm mb-6 flex-1">Tabletop + deep pour resins (5kg) · Full 20-colour
+                            pigment set · Complete safety kit · Sanding & polish set · Priority WhatsApp support</p>
+                        <div class="flex gap-2 mb-6">
+                            <span
+                                class="bg-gray-800 text-gray-300 text-[10px] px-2 py-1 rounded uppercase tracking-wider">Professional</span>
+                            <span
+                                class="bg-gray-800 text-gray-300 text-[10px] px-2 py-1 rounded uppercase tracking-wider">Studio
+                                setup</span>
+                        </div>
+                        <button
+                            class="w-full bg-gray-800 text-white hover:bg-yellow-600 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors">Add
+                            Bundle to Cart</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FINISHING (Placeholder) -->
+        <section id="finishing" class="py-12 px-6 max-w-7xl mx-auto border-b border-gray-900 text-center">
+            <h2 class="text-3xl font-serif font-bold text-white mb-2">Finishing Supplies</h2>
+            <p class="text-yellow-500 text-sm font-bold uppercase tracking-widest">Polishes & Oils Coming Soon</p>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="py-20 px-6 max-w-7xl mx-auto bg-black border-b border-gray-900">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">From Raw Material to Finished
+                    Masterpiece</h2>
+                <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto">Whether you're creating your first
+                    coaster or a 10-foot ocean table — our materials are designed for every step of your journey.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="glass-panel p-8 rounded-xl text-center hover:border-yellow-600 transition-colors">
+                    <div
+                        class="w-16 h-16 rounded-full bg-yellow-600/10 border border-yellow-600 text-yellow-500 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+                        1</div>
+                    <h3 class="font-bold text-white mb-2">Measure</h3>
+                    <p class="text-sm text-gray-400">Use our digital scale and ratio guide — no guesswork, perfect mix
+                        every time.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl text-center hover:border-yellow-600 transition-colors">
+                    <div
+                        class="w-16 h-16 rounded-full bg-yellow-600/10 border border-yellow-600 text-yellow-500 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+                        2</div>
+                    <h3 class="font-bold text-white mb-2">Mix & Colour</h3>
+                    <p class="text-sm text-gray-400">Add your chosen pigments and stir for 4 minutes using our silicone
+                        tools.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl text-center hover:border-yellow-600 transition-colors">
+                    <div
+                        class="w-16 h-16 rounded-full bg-yellow-600/10 border border-yellow-600 text-yellow-500 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+                        3</div>
+                    <h3 class="font-bold text-white mb-2">Pour & Shape</h3>
+                    <p class="text-sm text-gray-400">Layer your ocean scene, river channel, or art piece with precision.
+                    </p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl text-center hover:border-yellow-600 transition-colors">
+                    <div
+                        class="w-16 h-16 rounded-full bg-yellow-600/10 border border-yellow-600 text-yellow-500 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+                        4</div>
+                    <h3 class="font-bold text-white mb-2">Cure & Finish</h3>
+                    <p class="text-sm text-gray-400">Sand through grits 80–3000 and polish to a mirror finish.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY CAROUSEL -->
+        <section class="py-20 bg-gray-900 border-b border-gray-800">
+            <div class="max-w-7xl mx-auto px-6 mb-10">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Made with Nilal Arts Materials
+                </h2>
+                <p class="text-gray-400 text-sm md:text-base max-w-2xl">Every piece below was created by our students
+                    and artists using the exact materials available in this store.</p>
+            </div>
+
+            <div class="pl-6 pb-6 flex overflow-x-auto snap-x snap-mandatory gap-6 hide-scrollbar">
+                <div
+                    class="snap-center shrink-0 w-72 md:w-80 glass-panel rounded-xl overflow-hidden border border-gray-800">
+                    <div class="h-56"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=80"
+                            class="w-full h-full object-cover" alt="Ocean dining table"></div>
+                    <div class="p-4">
+                        <p class="text-sm font-medium text-gray-300">Ocean dining table — Deep Pour + Mica Turquoise</p>
+                    </div>
+                </div>
+                <div
+                    class="snap-center shrink-0 w-72 md:w-80 glass-panel rounded-xl overflow-hidden border border-gray-800">
+                    <div class="h-56"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=80"
+                            class="w-full h-full object-cover" alt="Student project"></div>
+                    <div class="p-4">
+                        <p class="text-sm font-medium text-gray-300">Masterclass student project — Day 3</p>
+                    </div>
+                </div>
+                <div
+                    class="snap-center shrink-0 w-72 md:w-80 glass-panel rounded-xl overflow-hidden border border-gray-800">
+                    <div class="h-56"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80"
+                            class="w-full h-full object-cover" alt="Wave pigment technique"></div>
+                    <div class="p-4">
+                        <p class="text-sm font-medium text-gray-300">Wave pigment technique — Alcohol Inks + Foam Paste
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="snap-center shrink-0 w-72 md:w-80 glass-panel rounded-xl overflow-hidden border border-gray-800">
+                    <div class="h-56"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&q=80"
+                            class="w-full h-full object-cover" alt="Live-edge river table"></div>
+                    <div class="p-4">
+                        <p class="text-sm font-medium text-gray-300">Live-edge river table — Casting Resin + White Mica
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="snap-center shrink-0 w-72 md:w-80 glass-panel rounded-xl overflow-hidden border border-gray-800">
+                    <div class="h-56"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80"
+                            class="w-full h-full object-cover" alt="Beach scene embed"></div>
+                    <div class="p-4">
+                        <p class="text-sm font-medium text-gray-300">Beach scene embed — Sand, Shells + Sparkle Grit</p>
+                    </div>
+                </div>
+                <div
+                    class="snap-center shrink-0 w-72 md:w-80 glass-panel rounded-xl overflow-hidden border border-gray-800">
+                    <div class="h-56"><img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500&q=80"
+                            class="w-full h-full object-cover" alt="Pigment swatch test"></div>
+                    <div class="p-4">
+                        <p class="text-sm font-medium text-gray-300">Pigment swatch test — 12 Beginner Kit colours</p>
+                    </div>
+                </div>
+                <div
+                    class="snap-center shrink-0 w-72 md:w-80 glass-panel rounded-xl overflow-hidden border border-gray-800">
+                    <div class="h-56"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=500&q=80"
+                            class="w-full h-full object-cover" alt="Shoreline effect"></div>
+                    <div class="p-4">
+                        <p class="text-sm font-medium text-gray-300">Shoreline effect — Ocean Foam Paste technique</p>
+                    </div>
+                </div>
+                <div class="snap-center shrink-0 w-6"></div>
+            </div>
+        </section>
+
+        <!-- QUIZ & CALCULATOR -->
+        <section class="py-20 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <!-- RESIN SELECTOR QUIZ -->
+            <div class="glass-panel p-8 rounded-2xl border border-gray-800 relative">
+                <div
+                    class="absolute -top-4 right-8 bg-yellow-600 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">
+                    Quick Tool</div>
+                <h2 class="text-2xl font-serif font-bold text-white mb-2">Not sure which resin to buy?</h2>
+                <p class="text-gray-400 text-sm mb-8">Answer 3 quick questions and we'll recommend the perfect product
+                    for your project.</p>
+
+                <div id="quiz-container">
+                    <div class="mb-4">
+                        <p class="text-sm text-yellow-500 font-bold mb-2">1. What are you making?</p>
+                        <div class="flex flex-wrap gap-2">
+                            <input type="radio" name="q1" id="q1a" value="Table" class="hidden"><label for="q1a"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Table</label>
+                            <input type="radio" name="q1" id="q1b" value="Coasters" class="hidden"><label for="q1b"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Coasters</label>
+                            <input type="radio" name="q1" id="q1c" value="Jewelry" class="hidden"><label for="q1c"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Jewelry</label>
+                            <input type="radio" name="q1" id="q1d" value="Painting" class="hidden"><label for="q1d"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Painting</label>
+                            <input type="radio" name="q1" id="q1e" value="Canvas Art" class="hidden"><label for="q1e"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Canvas
+                                Art</label>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-yellow-500 font-bold mb-2">2. How thick is your pour?</p>
+                        <div class="flex flex-wrap gap-2">
+                            <input type="radio" name="q2" id="q2a" value="Surface coat" class="hidden"><label for="q2a"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Surface
+                                coat (under 3mm)</label>
+                            <input type="radio" name="q2" id="q2b" value="Thin" class="hidden"><label for="q2b"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Thin
+                                (3mm–1cm)</label>
+                            <input type="radio" name="q2" id="q2c" value="Medium" class="hidden"><label for="q2c"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Medium
+                                (1–5cm)</label>
+                            <input type="radio" name="q2" id="q2d" value="Deep" class="hidden"><label for="q2d"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Deep
+                                (5cm+)</label>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-sm text-yellow-500 font-bold mb-2">3. Your experience level?</p>
+                        <div class="flex flex-wrap gap-2">
+                            <input type="radio" name="q3" id="q3a" value="First time" class="hidden"><label for="q3a"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">First
+                                time</label>
+                            <input type="radio" name="q3" id="q3b" value="Some projects" class="hidden"><label for="q3b"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Some
+                                projects</label>
+                            <input type="radio" name="q3" id="q3c" value="Professional" class="hidden"><label for="q3c"
+                                class="cursor-pointer px-4 py-2 border border-gray-700 rounded-lg text-sm text-gray-400 hover:border-yellow-600 transition-colors">Professional</label>
+                        </div>
+                    </div>
+                    <button type="button" onclick="calculateQuiz()"
+                        class="w-full bg-yellow-600 text-white hover:bg-yellow-500 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors">Find
+                        My Resin</button>
+                </div>
+
+                <div id="quiz-result" class="hidden flex-col items-center justify-center text-center mt-4">
+                    <p class="text-yellow-500 font-bold uppercase tracking-widest text-xs mb-4">We Recommend:</p>
+                    <img id="quiz-res-img" src="" class="w-32 h-32 object-cover rounded-xl border border-gray-700 mb-4"
+                        alt="Recommended product">
+                    <h3 id="quiz-res-name" class="text-xl font-bold text-white mb-2"></h3>
+                    <p id="quiz-res-desc" class="text-sm text-gray-400 mb-4 px-4"></p>
+                    <button type="button" onclick="resetQuiz()"
+                        class="text-gray-500 text-xs hover:text-white underline transition-colors">Retake Quiz</button>
+                </div>
+            </div>
+
+            <!-- RESIN QUANTITY CALCULATOR -->
+            <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl">
+                <h2 class="text-2xl font-serif font-bold text-white mb-2">How Much Resin Do You Need?</h2>
+                <p class="text-gray-400 text-sm mb-8">Enter your project dimensions and we'll calculate the exact
+                    quantity to order.</p>
+
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <label for="calc-l" class="block text-xs font-medium text-gray-500 mb-1">Length (cm)</label>
+                        <input type="number" id="calc-l" placeholder="e.g. 120"
+                            class="w-full bg-black border border-gray-700 rounded p-3 text-white focus:border-yellow-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label for="calc-w" class="block text-xs font-medium text-gray-500 mb-1">Width (cm)</label>
+                        <input type="number" id="calc-w" placeholder="e.g. 60"
+                            class="w-full bg-black border border-gray-700 rounded p-3 text-white focus:border-yellow-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label for="calc-d" class="block text-xs font-medium text-gray-500 mb-1">Depth (cm)</label>
+                        <input type="number" id="calc-d" placeholder="e.g. 5"
+                            class="w-full bg-black border border-gray-700 rounded p-3 text-white focus:border-yellow-500 focus:outline-none">
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="calc-type" class="block text-xs font-medium text-gray-500 mb-1">Pour Type</label>
+                    <select id="calc-type"
+                        class="w-full bg-black border border-gray-700 rounded p-3 text-white focus:border-yellow-500 focus:outline-none">
+                        <option>Tabletop flood coat</option>
+                        <option>Single deep pour</option>
+                        <option>Multiple layer pour</option>
+                    </select>
+                </div>
+                <button type="button" onclick="window.calculateVolume()"
+                    class="w-full border border-yellow-600 text-yellow-500 hover:bg-yellow-600 hover:text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors">
+                    Calculate Quantity
+                </button>
+
+                <div id="calc-result"
+                    class="hidden mt-6 p-4 bg-yellow-900/20 border border-yellow-600/30 rounded-xl text-center">
+                    <p class="text-gray-300 text-sm mb-1">You need approximately</p>
+                    <p id="calc-kg" class="text-3xl font-serif font-bold text-yellow-500 mb-2">0 kg</p>
+                    <p id="calc-rec" class="text-xs text-gray-400 mb-4">Recommended product: Deep Pour Casting Resin</p>
+                    <a href="#epoxy"
+                        class="inline-block bg-yellow-600 text-white px-6 py-2 rounded-full text-xs font-bold uppercase transition-colors hover:bg-yellow-500">Shop
+                        Resins</a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- WHY BUY FROM NILAL ARTS -->
+        <section class="py-16 px-6 max-w-7xl mx-auto border-t border-gray-900">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="p-6 border border-gray-800 rounded-xl text-center hover:bg-gray-900 transition-colors">
+                    <i class="fas fa-check-circle text-3xl text-yellow-500 mb-4"></i>
+                    <h3 class="font-bold text-white mb-2 text-sm uppercase tracking-wider">Artist-Tested Quality</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Every material is used in our own studio before we
+                        sell it to you.</p>
+                </div>
+                <div class="p-6 border border-gray-800 rounded-xl text-center hover:bg-gray-900 transition-colors">
+                    <i class="fas fa-graduation-cap text-3xl text-yellow-500 mb-4"></i>
+                    <h3 class="font-bold text-white mb-2 text-sm uppercase tracking-wider">Academy Recommended</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">These are the exact supplies our students use from
+                        Day 1 of training.</p>
+                </div>
+                <div class="p-6 border border-gray-800 rounded-xl text-center hover:bg-gray-900 transition-colors">
+                    <i class="fas fa-truck text-3xl text-yellow-500 mb-4"></i>
+                    <h3 class="font-bold text-white mb-2 text-sm uppercase tracking-wider">Ships Pan-India</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Carefully packaged liquid-safe shipments to all
+                        major cities.</p>
+                </div>
+                <div class="p-6 border border-gray-800 rounded-xl text-center hover:bg-gray-900 transition-colors">
+                    <i class="fas fa-file-pdf text-3xl text-yellow-500 mb-4"></i>
+                    <h3 class="font-bold text-white mb-2 text-sm uppercase tracking-wider">Free Guide Included</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Every order comes with a PDF + video tutorial for
+                        that material.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ ACCORDION -->
+        <section class="py-20 px-6 max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-white mb-2">Your Questions, Answered</h2>
+            </div>
+            <div class="space-y-4">
+
+                <details
+                    class="group bg-gray-900 border border-gray-800 rounded-lg open:border-yellow-600 transition-colors">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white outline-none">
+                        <span>What is the difference between tabletop and deep pour resin?</span>
+                        <span class="transition group-open:rotate-180 text-yellow-500"><i
+                                class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 text-sm px-6 pb-6 leading-relaxed">Tabletop epoxy is thick, meant for thin
+                        3mm flood coats, and cures fast (24h). Deep pour resin is thin like water, releases bubbles
+                        easily, can be poured up to 5cm thick, and takes 72+ hours to cure.</div>
+                </details>
+
+                <details
+                    class="group bg-gray-900 border border-gray-800 rounded-lg open:border-yellow-600 transition-colors">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white outline-none">
+                        <span>How much resin do I need for a standard 4×2 ft dining table?</span>
+                        <span class="transition group-open:rotate-180 text-yellow-500"><i
+                                class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 text-sm px-6 pb-6 leading-relaxed">It depends on the width and depth of
+                        the river channel. You can use our Resin Quantity Calculator above to find the exact kg needed
+                        based on your specific slab gap.</div>
+                </details>
+
+                <details
+                    class="group bg-gray-900 border border-gray-800 rounded-lg open:border-yellow-600 transition-colors">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white outline-none">
+                        <span>Are these materials safe to use indoors at home?</span>
+                        <span class="transition group-open:rotate-180 text-yellow-500"><i
+                                class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 text-sm px-6 pb-6 leading-relaxed">We recommend our Low-VOC Indoor Resin
+                        for home use as it has minimal odor. However, standard safety practices — such as wearing the
+                        N95 Respirator Mask and working in a ventilated area — are always required.</div>
+                </details>
+
+                <details
+                    class="group bg-gray-900 border border-gray-800 rounded-lg open:border-yellow-600 transition-colors">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white outline-none">
+                        <span>How long does epoxy take to fully cure?</span>
+                        <span class="transition group-open:rotate-180 text-yellow-500"><i
+                                class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 text-sm px-6 pb-6 leading-relaxed">It varies by product. Tabletop epoxy is
+                        touch-dry in 12–24 hours and fully cured in 72 hours. Deep pour resin can take 3 to 5 days to
+                        fully cure depending on room temperature and pour depth.</div>
+                </details>
+
+                <details
+                    class="group bg-gray-900 border border-gray-800 rounded-lg open:border-yellow-600 transition-colors">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white outline-none">
+                        <span>Can I buy these materials without attending a course?</span>
+                        <span class="transition group-open:rotate-180 text-yellow-500"><i
+                                class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 text-sm px-6 pb-6 leading-relaxed">Yes! Our store is open to the public.
+                        However, enrolled Academy students do receive an exclusive lifelong discount on all materials.
+                    </div>
+                </details>
+
+                <details
+                    class="group bg-gray-900 border border-gray-800 rounded-lg open:border-yellow-600 transition-colors">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white outline-none">
+                        <span>Do you offer bulk or wholesale pricing for studio owners?</span>
+                        <span class="transition group-open:rotate-180 text-yellow-500"><i
+                                class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 text-sm px-6 pb-6 leading-relaxed">Absolutely. If you run a professional
+                        studio, please contact us on WhatsApp for bulk 15kg/30kg commercial pricing rates.</div>
+                </details>
+
+                <details
+                    class="group bg-gray-900 border border-gray-800 rounded-lg open:border-yellow-600 transition-colors">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white outline-none">
+                        <span>Which pigments work best to achieve the Nilal Arts ocean look?</span>
+                        <span class="transition group-open:rotate-180 text-yellow-500"><i
+                                class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 text-sm px-6 pb-6 leading-relaxed">We combine our Alcohol Inks for fluid
+                        gradients and the Ocean Foam Paste to create the signature lacing white crests. The technique is
+                        taught in detail in our Ocean Additives starter guide.</div>
+                </details>
+
+                <details
+                    class="group bg-gray-900 border border-gray-800 rounded-lg open:border-yellow-600 transition-colors">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white outline-none">
+                        <span>Do you ship materials outside India?</span>
+                        <span class="transition group-open:rotate-180 text-yellow-500"><i
+                                class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 text-sm px-6 pb-6 leading-relaxed">Currently, we only ship liquid resins
+                        within India due to international chemical shipping regulations. However, we do ship pigments
+                        and dry tools globally.</div>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- ACADEMY CROSS-SELL BANNER -->
+        <section class="max-w-7xl mx-auto px-6 pb-20">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(217,119,6,0.1)]">
+                <div class="bg-gray-900 p-10 md:p-16 flex flex-col justify-center border border-gray-800">
+                    <h3 class="text-yellow-500 font-serif text-3xl font-bold mb-4">Learn to Use These Materials Like a
+                        Pro</h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed">Join Nilal Arts Academy — India's only 4-tier
+                        professional resin art program. Our Beginner to Masterclass courses teach you every technique
+                        using these exact materials.</p>
+                    <a href="courses.html"
+                        class="inline-block self-start bg-yellow-600 text-white hover:bg-yellow-500 px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors shadow-lg">Explore
+                        Courses</a>
+                </div>
+                <div class="relative p-10 md:p-16 flex flex-col justify-center border border-gray-800 min-h-[300px]">
+                    <div class="absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80"
+                            alt="Resin Art Table" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/70"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-white font-serif text-3xl font-bold mb-4">See What Our Materials Can Create</h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed">Every ocean table in our collection was
+                            handcrafted using the same resins, pigments and additives available in this store.</p>
+                        <a href="seathemes.html"
+                            class="inline-block self-start border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-colors">View
+                            Our Tables</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHATSAPP CTA STRIP -->
+        <section class="bg-yellow-600 border-y border-yellow-700">
+            <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+                <p class="text-black font-bold text-sm md:text-base tracking-wide flex-1 text-center lg:text-left">
+                    <i class="fab fa-whatsapp text-lg mr-2"></i> Get material tips, restocking alerts and student
+                    discounts straight to WhatsApp.
+                </p>
+                <div class="flex flex-col sm:flex-row w-full lg:w-auto gap-2">
+                    <input type="tel" placeholder="+91 Your WhatsApp Number"
+                        class="px-5 py-3 rounded-full text-black focus:outline-none w-full sm:w-64 text-sm font-medium">
+                    <button
+                        class="bg-black text-white hover:bg-gray-800 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md whitespace-nowrap">Join
+                        Community</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-0 px-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+
+            <div class="lg:col-span-1">
+                <a href="index.html" class="text-xl font-bold font-serif mb-2 block">Nilal Arts.</a>
+                <p class="text-yellow-500 text-xs tracking-widest mb-4">Tirupur, Tamilnadu</p>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Crafted with intention. Built to outlast us all.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://www.instagram.com/nilal_arts_manish"
+                        class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-instagram text-xl"></i></a>
+                    <a href="https://www.youtube.com/@nilal_artisan"
+                        class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-youtube text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-pinterest text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-linkedin text-xl"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Company</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Our Story</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Virtual Workshop Tour</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Press & Media</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Careers</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Shop</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Solid Wood Tables</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Epoxy River Tables</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Live Edge Tables</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Conference Tables</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Request Custom Quote</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Academy</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li><a href="courses.html" class="hover:text-yellow-400 transition-colors">All Courses</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Epoxy Resin Fundamentals</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Master Table Builder</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Weekend Workshops</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Student Showcase</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-sm font-bold mb-5 uppercase tracking-wider">Support</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-yellow-500"></i>Sardar
+                        St, Udumalapet, Tirupur Dt, Tamil Nadu-642126, India</li>
+                    <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-yellow-500"></i>+91 94891 58550
+                    </li>
+                    <li class="flex items-center"><i
+                            class="fas fa-envelope mr-3 text-yellow-500"></i>nilalarts@gmail.com</li>
+                </ul>
+                <ul class="space-y-3 text-gray-400 text-sm mt-5">
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Shipping & Delivery</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Returns & Warranty</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">Care & Maintenance Guide</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="border-t border-gray-800 py-6">
+            <div
+                class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-gray-500 text-sm">
+                <p>© 2025 Nilal Arts. All rights reserved.</p>
+                <div class="flex gap-5">
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Terms & Conditions</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Social Float -->
+    <div class="social-float fixed bottom-24 right-8 flex flex-col items-center gap-4">
+        <a href="https://instagram.com/nilal_arts_manish" target="_blank"
+            class="w-12 h-12 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=918940118861" target="_blank"
+            class="w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn" aria-label="Scroll to top"
+        class="fixed bottom-8 right-8 bg-yellow-600 text-white w-12 h-12 rounded-full shadow-lg opacity-0 translate-y-24 transition-all duration-300 hover:bg-yellow-700 flex items-center justify-center border border-white/20">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // ─────────────────────────────────────────────────────────────────
+        //  FIX 2 — INTERSECTION OBSERVER (no scrollIntoView inside callback)
+        //
+        //  The original code called link.scrollIntoView() INSIDE the observer.
+        //  This made the category bar scroll while the window was also scrolling,
+        //  creating the "two drivers" stutter described in the bug report.
+        //
+        //  Solution:
+        //    • Observer ONLY updates CSS classes (zero DOM scrolling).
+        //    • The category bar scrolls the active link into view ONLY on
+        //      category-link clicks (user-initiated), not on passive scroll.
+        //    • requestAnimationFrame batches the class changes so they don't
+        //      force a reflow mid-scroll.
+        // ─────────────────────────────────────────────────────────────────
+
+        (function () {
+            // ── Mobile menu toggle ──────────────────────────────────────
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // ── Scroll-to-top button ────────────────────────────────────
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            if (scrollBtn) {
+                window.addEventListener('scroll', () => {
+                    const visible = window.scrollY > 300;
+                    scrollBtn.classList.toggle('opacity-0', !visible);
+                    scrollBtn.classList.toggle('translate-y-24', !visible);
+                }, { passive: true });
+
+                scrollBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // ── Category nav active-state observer ─────────────────────
+            const sections = Array.from(document.querySelectorAll('section[id]'));
+            const navLinks = Array.from(document.querySelectorAll('.cat-nav-link'));
+            const catBar = document.getElementById('cat-bar');
+
+            if (!sections.length || !navLinks.length) return;
+
+            // Build a fast id → link lookup
+            const linkMap = {};
+            navLinks.forEach(link => {
+                const id = link.getAttribute('href').replace('#', '');
+                linkMap[id] = link;
+            });
+
+            let rafPending = false;
+
+            function setActive(id) {
+                if (rafPending) return;
+                rafPending = true;
+                requestAnimationFrame(() => {
+                    rafPending = false;
+                    navLinks.forEach(link => {
+                        const isTarget = linkMap[id] === link;
+                        link.classList.toggle('active', isTarget);
+                        link.classList.toggle('text-gray-400', !isTarget);
+                        link.classList.toggle('border-transparent', !isTarget);
+                    });
+                    // Scroll the CATEGORY BAR (not the window) to show active link
+                    // but ONLY if the bar itself needs it — and without touching
+                    // the window scroll position at all.
+                    const activeLink = linkMap[id];
+                    if (activeLink && catBar) {
+                        const barRect = catBar.getBoundingClientRect();
+                        const linkRect = activeLink.getBoundingClientRect();
+                        const overflowLeft = linkRect.left - barRect.left;
+                        const overflowRight = linkRect.right - barRect.right;
+                        if (overflowLeft < 0) {
+                            catBar.scrollLeft += overflowLeft - 16;
+                        } else if (overflowRight > 0) {
+                            catBar.scrollLeft += overflowRight + 16;
+                        }
+                    }
+                });
+            }
+
+            // FIX 1 — rootMargin must account for 80px nav + 52px cat-bar = 132px
+            // We use -132px top margin so the observer fires exactly when a section
+            // header clears the sticky bars, matching scroll-padding-top: 140px.
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setActive(entry.target.id);
+                    }
+                });
+            }, {
+                rootMargin: '-132px 0px -50% 0px',
+                threshold: 0
+            });
+
+            sections.forEach(sec => observer.observe(sec));
+
+            // On category link click → let the browser handle the anchor jump
+            // (scroll-padding-top on <html> ensures correct offset),
+            // then visually activate the clicked link immediately.
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const id = link.getAttribute('href').replace('#', '');
+                    setActive(id);
+                });
+            });
+        })();
+
+        // ── Quiz ──────────────────────────────────────────────────────────
+        window.calculateQuiz = function () {
+            const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+            const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+            const q3 = document.querySelector('input[name="q3"]:checked')?.value;
+
+            if (!q1 || !q2 || !q3) {
+                alert("Please answer all 3 questions to get a recommendation.");
+                return;
+            }
+
+            let rec = {
+                name: "Art & Craft Resin",
+                img: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=80",
+                desc: "Ideal for versatile crafting, coasters, jewelry, and art pieces."
+            };
+
+            if (q3 === "Professional") {
+                rec = { name: "Pro Studio Kit", img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&q=80", desc: "Complete studio setup for high-volume professionals." };
+            } else if (q3 === "First time") {
+                rec = { name: "Colour Starter Pack + Low-VOC Resin", img: "https://images.unsplash.com/photo-1547480053-7d174f67b557?w=400&q=80", desc: "Beginner-safe, low odor, perfect for learning." };
+            } else if (q1 === "Table" && q2 === "Deep") {
+                rec = { name: "Deep Pour Casting Resin", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80", desc: "Perfect for deep river channels up to 5cm." };
+            } else if (q1 === "Table" && (q2 === "Thin" || q2 === "Surface coat")) {
+                rec = { name: "Table Top Epoxy", img: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400&q=80", desc: "High-gloss flood coat for flat surfaces." };
+            }
+
+            document.getElementById('quiz-res-img').src = rec.img;
+            document.getElementById('quiz-res-name').textContent = rec.name;
+            document.getElementById('quiz-res-desc').textContent = rec.desc;
+
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('flex');
+        };
+
+        window.resetQuiz = function () {
+            document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('flex');
+            document.getElementById('quiz-container').classList.remove('hidden');
+        };
+
+        // ── Calculator ────────────────────────────────────────────────────
+        window.calculateVolume = function () {
+            const l = parseFloat(document.getElementById('calc-l').value);
+            const w = parseFloat(document.getElementById('calc-w').value);
+            const d = parseFloat(document.getElementById('calc-d').value);
+            const type = document.getElementById('calc-type').value;
+
+            if (isNaN(l) || isNaN(w) || isNaN(d) || l <= 0 || w <= 0 || d <= 0) {
+                alert("Please enter valid positive numerical dimensions.");
+                return;
+            }
+
+            const kgNeeded = (l * w * d * 1.1) / 1000;
+            const recProduct = (type === "Single deep pour" || d >= 5)
+                ? "Deep Pour Casting Resin"
+                : "Table Top Epoxy";
+
+            document.getElementById('calc-kg').textContent = kgNeeded.toFixed(2) + " kg";
+            document.getElementById('calc-rec').textContent = "Recommended product: " + recProduct;
+            document.getElementById('calc-result').classList.remove('hidden');
+        };
+    </script>
+
+</body>
+
+</html>

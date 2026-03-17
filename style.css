@@ -349,3 +349,13 @@ body {
     font-size: 0.7rem !important;
   }
 }
+
+/* Hide Home link on the homepage */
+.home-page .nav-home-link {
+  display: none;
+}
+
+/* Hide CTA buttons on non-home pages */
+body:not(.home-page) .cta-buttons {
+  display: none;
+}
