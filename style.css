@@ -445,7 +445,7 @@ body:not(.home-page) .cta-buttons {
 @media (max-width: 768px) {
   section.relative.h-screen.flex.items-center.justify-center.overflow-hidden {
     height: auto !important;
-    min-height: 480px !important;
+    min-height: 580px !important;
     margin-top: 0 !important; /* ← KEY FIX: cancels the 1023px block's margin */
     padding-top: 130px !important;
     padding-bottom: 70px !important;
