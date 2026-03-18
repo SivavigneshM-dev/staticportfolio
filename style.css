@@ -378,7 +378,7 @@ body:not(.home-page) .cta-buttons {
   @supports not (height: 100svh) {
     section.relative.h-screen {
       height: 80vh !important;
-      margin-top: calc(80px + 10vh) !important;
+      margin-top: calc(40px + 5vh) !important;
       margin-bottom: 10vh !important;
     }
   }
@@ -441,140 +441,52 @@ body:not(.home-page) .cta-buttons {
   }
 }
 
-/* ============================================================
-   MOBILE HERO FIX — seathemes.html
-   Replicates the clean home page hero feel on mobile.
-   ALL rules inside @media (max-width: 1023px) only.
-   Desktop is completely untouched.
-   ============================================================ */
-
-@media (max-width: 1023px) {
-  /* 1. NAV — must stay fully transparent on mobile */
-  nav.fixed.top-0.w-full.z-50 {
-    background-color: transparent !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    box-shadow: none !important;
-  }
-
-  /* 2. NAV HEIGHT — reduce to 64px on mobile for more hero space */
-  nav.fixed.top-0.w-full.z-50 .flex.items-center.justify-between {
-    height: 64px !important;
-  }
-
-  /* 3. HERO SECTION — shrink to visible area below nav */
+/* --- MOBILE HERO GAP FIX (PERFECTED TO MATCH COURSES) --- */
+@media (max-width: 768px) {
   section.relative.h-screen.flex.items-center.justify-center.overflow-hidden {
-    height: calc(100svh - 64px) !important;
+    height: auto !important;
     min-height: 480px !important;
-    max-height: 680px !important;
-    margin-top: 64px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  /* svh fallback for older browsers */
-  @supports not (height: 100svh) {
-    section.relative.h-screen.flex.items-center.justify-center.overflow-hidden {
-      height: calc(100vh - 64px) !important;
-    }
-  }
-
-  /* 4. CAROUSEL WRAPPER — fill the reduced section */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden
-    #hero-carousel {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  /* 5. EACH SLIDE — fill carousel fully */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden
-    .hero-slide {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  /* 6. SLIDE IMAGES — cover crop, focus upper-center of image */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden
-    .hero-slide
-    img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center 30% !important;
-  }
-
-  /* 7. GRADIENT OVERLAY — stronger on mobile for text readability */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden
-    .absolute.inset-0.bg-gradient-to-t {
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.88) 0%,
-      rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 0.45) 100%
-    ) !important;
-  }
-
-  /* 8. HERO TEXT BLOCK — compact, centered, decent padding */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden
-    .text-center.relative.z-10 {
-    padding: 0 1.5rem !important;
-    margin: 0 !important;
-    width: 100% !important;
+    margin-top: 0 !important; /* ← KEY FIX: cancels the 1023px block's margin */
+    padding-top: 130px !important;
+    padding-bottom: 70px !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.75rem !important;
+    justify-content: center !important;
   }
 
-  /* 9. H1 — big but not oversized, tight line height */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden
-    .text-center.relative.z-10
-    h1 {
-    font-size: 2rem !important;
-    line-height: 1.15 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  #hero-carousel,
+  #hero-carousel .hero-slide,
+  #hero-carousel .hero-slide img {
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
   }
 
-  /* 10. PARAGRAPH — readable, not wide */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden
-    .text-center.relative.z-10
-    p {
-    font-size: 0.875rem !important;
-    line-height: 1.55 !important;
-    margin: 0 !important;
-    max-width: 88% !important;
+  section.relative.h-screen .text-center.relative.z-10 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+    padding: 0 20px !important;
   }
 
-  /* 11. CTA BUTTON — solid touch target */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden
-    .text-center.relative.z-10
-    a {
-    padding: 0.65rem 1.75rem !important;
-    font-size: 0.875rem !important;
-    margin: 0 !important;
+  section.relative.h-screen h1 {
+    font-size: 2.2rem !important;
+    margin-bottom: 5px !important;
+    line-height: 1.1 !important;
   }
 
-  /* 12. SCROLL INDICATOR — near the bottom edge */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden
-    .absolute.bottom-8 {
-    bottom: 0.75rem !important;
+  section.relative.h-screen p {
+    font-size: 0.9rem !important;
+    margin-bottom: 20px !important;
   }
 
-  /* 13. MARQUEE — flush below hero, no gap */
-  .bg-gold.py-3.overflow-hidden {
-    margin-top: 0 !important;
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
-  }
-
-  /* 14. ALL CONTENT SECTIONS BELOW HERO — consistent padding */
-  section:not(.relative.h-screen) {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+  section.relative.h-screen .absolute.bottom-8 {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin-top: 30px !important;
+    opacity: 0.8;
   }
 }

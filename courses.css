@@ -422,153 +422,57 @@ body {
 }
 
 @media (max-width: 600px) {
- 
-  /* ── 1. NAV: transparent always on mobile ─────────────────── */
-  nav.fixed.top-0.w-full.z-50 {
-    background-color: transparent !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none !important;
-    border-bottom: none !important;
-  }
- 
-  /* ── 2. HERO SECTION ──────────────────────────────────────────
-     Target: calc(100svh - 80px) = visible screen below nav
-     Use padding-bottom so scroll indicator never gets clipped
-     Content stays flex-centered in this reduced height naturally
-  ─────────────────────────────────────────────────────────────── */
+  /* 1. Reset Hero Height to fit content tightly */
   section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black {
-    height: calc(100svh - 80px) !important;
-    min-height: 460px !important;
-    margin-top: 80px !important;
-    padding-top: 0 !important;
-    padding-bottom: 2.5rem !important; /* room for scroll indicator */
-    box-sizing: border-box !important;
+    height: auto !important; /* Allow content to define height */
+    min-height: 480px !important;
+    padding-top: 130px !important; /* Space for the transparent nav */
+    padding-bottom: 60px !important; /* Space for the scroll indicator */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
   }
- 
-  /* svh fallback */
-  @supports not (height: 100svh) {
-    section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black {
-      height: calc(100vh - 80px) !important;
-    }
-  }
- 
-  /* ── 3. CAROUSEL — fill reduced section ───────────────────── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
-  #hero-carousel {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 0 !important;
-  }
- 
-  /* ── 4. SLIDES — fill carousel ────────────────────────────── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
+
+  /* 2. Fix Carousel to match the new container height */
+  #hero-carousel,
   .hero-slide {
     position: absolute !important;
     inset: 0 !important;
-    width: 100% !important;
     height: 100% !important;
   }
- 
-  /* ── 5. SLIDE IMAGES — already object-cover in HTML ✓
-     Just ensure position focuses on upper portion of image ───── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
-  .hero-slide img {
-    object-position: center 25% !important;
-  }
- 
-  /* ── 6. OVERLAY ────────────────────────────────────────────── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
-  .absolute.inset-0.bg-black\/50 {
-    background: rgba(0, 0, 0, 0.60) !important;
-  }
- 
-  /* ── 7. HERO TEXT WRAPPER — confirmed: "relative z-10 max-w-4xl mx-auto"
-     This is the 412×187px block. 
-     Remove all margin, use gap for spacing between children.
-     This will naturally sit centered in the reduced hero. ────── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
+
+  /* 3. Tighten the Text Block */
   .relative.z-10.max-w-4xl.mx-auto {
     margin: 0 auto !important;
-    padding: 0 1.25rem !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 0.5rem !important;         /* tight gap between all children */
+    padding: 0 20px !important;
+    gap: 0.25rem !important; /* Reduce space between H1, H2, and P */
   }
- 
-  /* ── 8. H1 — "The Resin Academy" ──────────────────────────── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
+
   .relative.z-10.max-w-4xl.mx-auto h1 {
-    font-size: 2rem !important;
-    line-height: 1.15 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    font-size: 2.2rem !important;
+    margin-bottom: 5px !important;
   }
- 
-  /* ── 9. H2 — "CHOOSE YOUR JOURNEY" subtitle ───────────────── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
-  .relative.z-10.max-w-4xl.mx-auto h2 {
-    font-size: 0.6rem !important;
-    letter-spacing: 0.3em !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
- 
-  /* ── 10. PARAGRAPH ─────────────────────────────────────────── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
+
   .relative.z-10.max-w-4xl.mx-auto p {
-    font-size: 0.8rem !important;
-    line-height: 1.5 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    max-width: 85% !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 20px !important;
   }
- 
-  /* ── 11. CTA BUTTON ROW — side by side on mobile ──────────── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
-  .relative.z-10.max-w-4xl.mx-auto
-  .flex.flex-col.sm\:flex-row {
-    flex-direction: row !important;
-    gap: 0.5rem !important;
-    justify-content: center !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+
+  /* 4. Reposition Scroll Indicator closer to the buttons */
+  /* Instead of bottom-8, we move it relative to the content flow */
+  section.relative.h-screen .absolute.bottom-8 {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin-top: 30px !important; /* 30px gap below the buttons */
+    opacity: 0.8;
   }
- 
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
-  .relative.z-10.max-w-4xl.mx-auto
-  .flex.flex-col.sm\:flex-row a,
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
-  .relative.z-10.max-w-4xl.mx-auto
-  .flex.flex-col.sm\:flex-row button {
-    flex: 1 !important;
-    max-width: 155px !important;
-    padding: 0.55rem 0.5rem !important;
-    font-size: 0.58rem !important;
-    white-space: nowrap !important;
-    text-align: center !important;
-  }
- 
-  /* ── 12. SCROLL INDICATOR — anchored to bottom of hero ─────── 
-     padding-bottom: 2.5rem on section gives it breathing room.
-     bottom: 0 so it sits at the padding boundary, not clipped. ── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
-  .absolute.bottom-8 {
-    bottom: 0.5rem !important;
-  }
- 
-  /* ── 13. MARQUEE — zero gap below hero ────────────────────── */
-  section.relative.h-screen.flex.items-center.justify-center.overflow-hidden.bg-black
-  + .bg-gold {
-    margin-top: 0 !important;
+
+  /* 5. Force transparent nav as requested */
+  nav.fixed.top-0.w-full.z-50 {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
   }
 }
- 
