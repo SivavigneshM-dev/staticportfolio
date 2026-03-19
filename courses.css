@@ -471,7 +471,7 @@ body {
 
   /* 5. Force transparent nav as requested */
   nav.fixed.top-0.w-full.z-50 {
-    background: transparent !important;
+    background: #000000 !important;
     backdrop-filter: none !important;
     border: none !important;
   }

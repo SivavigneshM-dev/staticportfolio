@@ -229,8 +229,8 @@ body {
 /* Mobile Responsive UI Fixes */
 @media (max-width: 768px) {
   /* Header & Navigation */
-  nav.bg-white\/95 {
-    background-color: transparent !important;
+  nav.fixed.top-0.w-full.z-50 {
+    background-color: #000000 !important;
     backdrop-filter: none !important;
     box-shadow: none !important;
   }
