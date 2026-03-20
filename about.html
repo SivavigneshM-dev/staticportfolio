@@ -297,7 +297,7 @@
     </section>
 
     <!-- ⑥ TEAM -->
-    <section class="bg-gray-50 py-20 px-6 md:px-20">
+    <section class="bg-gray-50 py-20 px-6 md:px-20" id="ourteam">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-14">
                 <p class="section-tag mb-2">The People Behind the Pour</p>
@@ -404,6 +404,19 @@
         </div>
     </section>
 
+    <!-- Social Floating Menu -->
+    <div class="fixed bottom-24 right-8 z-50 flex flex-col items-center gap-4">
+        <a href="https://instagram.com/nilal_arts_manish?igsh=NTc4MTIwNjQ2YQ==" target="_blank"
+            class="w-12 h-12 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=918940118861&text=" target="_blank"
+            class="w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+
     <!-- FOOTER -->
     <footer id="contact" class="bg-gray-900 text-white pt-16 pb-0 px-6 border-t border-gray-800">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
@@ -490,6 +503,37 @@
             </div>
         </div>
     </footer>
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn"
+        class="fixed bottom-8 right-8 z-50 bg-gold text-white w-12 h-12 rounded-full shadow-lg translate-y-24 opacity-0 transition-all duration-300 hover:bg-gold-dark flex items-center justify-center border border-white/20">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll To Top Logic
+        const scrollBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.remove('translate-y-24', 'opacity-0');
+            } else {
+                scrollBtn.classList.add('translate-y-24', 'opacity-0');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 
 </body>
 </html> 
